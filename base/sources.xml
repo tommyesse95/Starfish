@@ -1,0 +1,51 @@
+<!-- material sources -->
+<sources>
+
+<!--
+	<boundary_source name="inlet" type="maxwellian">
+	<boundary>inlet</boundary>
+	<material>o+</material>
+	<current>0.001</current>
+	<temperature>5000</temperature>
+	<v_drift>10000</v_drift>
+	</boundary_source> -->
+
+
+	<boundary_source name="inlet" type="maxwellian">
+	<boundary>inlet</boundary>
+	<material>e-</material>
+	<current>1</current> <!-- cuurent in A -->
+	<temperature>23224.129</temperature> <!-- 2ev -->
+	<v_drift>10000</v_drift> <!-- tba -->
+</boundary_source>
+
+
+	<boundary_source name="neutral_gas" type="maxwellian">
+	<boundary>neutral_inlet</boundary>
+	<material>Kr</material>
+	<mdot>0.001</mdot> <!-- 1 mg/s -->
+	<temperature>278</temperature>
+	<v_drift>1000</v_drift> <!-- tba -->
+</boundary_source>
+
+
+<!--
+<boundary_source name="inlet" type="uniform">
+<boundary>inlet</boundary>
+<material>e-</material>
+<mdot>0.001</mdot>
+<v_drift>10000</v_drift>
+</boundary_source> -->
+
+<!-- Think about pressure
+<boundary_source name="neutral_inlet" type="ambient">
+<enforce>pressure</enforce>
+<material>Kr</material>
+<boundary>inlet</boundary>
+<drift_velocity>0,0,0</drift_velocity>
+<temperature>288.0</temperature>
+<total_pressure>1.0</total_pressure>
+</boundary_source> -->
+
+
+</sources>
