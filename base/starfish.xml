@@ -1,6 +1,6 @@
 <!-- starfish input file -->
 <simulation>
-<note>scali setup</note>
+<note>cxt setup</note>
 
 <!-- load input files -->
 <load>materials.xml</load>
@@ -36,8 +36,8 @@
 
 <!-- set time parameters 5e-8-->
 <time>
-<num_it>3000</num_it>
-<dt>5e-8</dt>
+<num_it>3000000</num_it>
+<dt>5e-10</dt>
 <steady_state>-1</steady_state>
 </time>
 
@@ -52,7 +52,7 @@
 
 <solver>
 <type>poisson</type>
-<max_it>5000</max_it>
+<max_it>2000</max_it>
 <tol>1e-4</tol>
 <linear>false</linear>
 <initial_only>false</initial_only>
