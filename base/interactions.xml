@@ -1,6 +1,14 @@
 <material_interactions>
 
+<!--
+<surface_hit source="Kr+" target="al">
+	<model>absorb</model>
+	<c_stick>0</c_stick>
+	<c_rest>1</c_rest>
+	<c_accom>0</c_accom>
+</surface_hit> -->
 
+  <!-- mcc model suitable when tha target is denser than the source
   <mcc model="ionization">
   <source>e-</source>
   <target>Kr</target>
@@ -34,36 +42,38 @@
   <sigma_dep_var>energy</sigma_dep_var>
   <max_target_temp>10000</max_target_temp>
   <frequency>50</frequency>
-</mcc>
+</mcc> -->
 
+<!-- ERROR: Collision cross-section polynomial undefined -->
 <!--
-<surface_hit source="Kr+" target="al">
-	<model>absorb</model>
-	<c_stick>0</c_stick>
-	<c_rest>1</c_rest>
-	<c_accom>0</c_accom>
-</surface_hit> -->
-
-<!-- polynomial is not
-<chemistry>
+<chemistry name="ionization" >
 <sources>Kr,e-</sources>
 <products>Kr+,2*e-</products>
-<rate type="polynomial">
-<coeffs>-0.57, 6.1978, -23.19, 30.439, 2.8407, -18.722</coeffs>
-<multiplier>1e-20</multiplier>
-<dep_var wrapper="log10energy" mat="e-" />
+<rate>
+ <type>polynomial</type>
+ <coeffs>1,0</coeffs>
+ <multiplier>1e-9</multiplier>
+ <dep_var mat="e-"></dep_var>
 </rate>
 </chemistry> -->
 
-<!-- MCC charge exchange
-<mcc model="cex">
-<source>Kr+</source>
-<target>Kr</target>
-<sigma>const</sigma>
-<sigma_coeffs>1e-7</sigma_coeffs>
-</mcc> -->
+<!--
+<surface_hit source="Kr+" target="al">
+<product>Kr</product>
+<model>cosine</model>
+<prob>0.4</prob>
+<c_accom>0.5</c_accom>
+<c_rest>0.9</c_rest>
+</surface_hit> -->
 
-
+<!-- 
+<surface_hit source="Kr+" target="al">
+<product>Kr</product>
+<model>specular</model>
+<prob>0.2</prob>
+<c_accom>0</c_accom>
+<c_rest>1.0</c_rest>
+</surface_hit> -->
 
 
 </material_interactions>

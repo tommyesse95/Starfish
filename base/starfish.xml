@@ -1,6 +1,6 @@
 <!-- starfish input file -->
 <simulation>
-<note>CXT setup</note>
+<note>cxt setup</note>
 
 <!-- load input files -->
 <load>materials.xml</load>
@@ -10,39 +10,8 @@
 <output type="boundaries" file_name="results/boundaries.vtp" format="vtk">
 <variables>deprate.Kr+, flux-normal.Kr+</variables>
 </output>
-<!-- material sources -->
-<!-- Neutral source to be inserted -->
 
-
-<sources>
-
-	<boundary_source name="inlet" type="maxwellian">
-	<boundary>inlet</boundary>
-	<material>e-</material>
-	<current>0.001</current>  <!-- current? in which measure? -->
-	<temperature> 23197.17 </temperature>  <!-- 2 ev -->
-	<v_drift>10000</v_drift> <!-- to be evaluated -->
-</boundary_source>
-
-
-	<boundary_source name="neutral_inlet" type="uniform">
-	<mdot> 0.001 </mdot> <!-- 1 mg/s -->
-	<boundary>neutral_inlet</boundary>
-	<material>Kr</material>
-	<v_drift>1000</v_drift> <!-- to be evaluated, with pressure?-->
-</boundary_source>
-
-<!-- It does not work.
-	<boundary_source name="neutral_inlet" type="ambient">
-	<enforce>pressure</enforce>
-	<material>Kr</material>
-	<boundary>neutral_inlet</boundary>
-	<drift_velocity>0,0,0</drift_velocity> change Vy? tba
-	<temperature>288.0</temperature>
-	<total_pressure>1.0</total_pressure>
-</boundary_source> -->
-
-</sources>
+<load>sources.xml</load>
 
 
 <!--enable animation and tracing -->
@@ -52,7 +21,7 @@
 <vectors>[efi, efj],[u.Kr+,v.Kr+]</vectors>
 </output>
 
-<output type="particles" file_name="results/particles-Kr+.vtp" format="vtk">
+<output type="particles" file_name="results/particles-o+.vtp" format="vtk">
 <count>2000</count>
 <material>Kr+</material>
 <rotate>true</rotate>
@@ -67,8 +36,8 @@
 
 <!-- set time parameters 5e-8-->
 <time>
-<num_it>2000</num_it>
-<dt>5e-8</dt>
+<num_it>3000000</num_it>
+<dt>5e-10</dt>
 <steady_state>-1</steady_state>
 </time>
 
@@ -80,13 +49,14 @@
 <nt_add>10000</nt_add>
 </restart>
 
+
 <solver>
 <type>poisson</type>
-<max_it>1</max_it>
+<max_it>2000</max_it>
 <tol>1e-4</tol>
 <linear>false</linear>
 <initial_only>false</initial_only>
-<n0>2e14</n0> <!-- tba -->
+<n0>2e14</n0>
 <te0>2</te0>
 <phi0>0</phi0>
 </solver>
@@ -95,11 +65,9 @@
 <starfish randomize="false" />
 
 
-<!-- Add the averaging? -->
-
 <!-- output -->
 <output type="2D" file_name="results/field.vts" format="vtk">
-<scalars>nodevol, phi, rho, p, nd.Kr+,  nd-ave.Kr+, nd.e-, nd-ave.e-, nd.Kr </scalars>
+<scalars>nodevol, phi, rho, p, nd.Kr+,  nd-ave.Kr+, </scalars>
 <vectors>[efi, efj], [u-ave.Kr+,v-ave.Kr+]</vectors>
 </output>
 

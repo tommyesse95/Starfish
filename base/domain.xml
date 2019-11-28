@@ -5,8 +5,13 @@
 
 <mesh type="uniform" name="mesh">
 <origin>0.0, 0.0</origin>
+<<<<<<< HEAD:CXT/domain.xml
 <spacing>5e-4, 5e-4</spacing> <!-- spacing reduced for dimensions --> 
 <nodes>90, 43</nodes>
+=======
+<spacing>5e-4, 5e-4</spacing>
+<nodes>280, 43</nodes>
+>>>>>>> 8055aa305e321f7b09bdabf400af2b4f58ef5ce5:base/domain.xml
 <mesh-bc wall="left" type="symmetry" />
 </mesh>
 

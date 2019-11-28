@@ -1,6 +1,7 @@
 <!-- material interactions file -->
 <material_interactions>
 
+
 <!-- surface interaction -->
 <surface_hit source="O+" target="SS">
 <product>O</product>
@@ -10,17 +11,18 @@
 <c_rest>0.9</c_rest>
 </surface_hit>
 
+
 <!-- chemical reaction -->
-<chemistry name="ionization" >
+<chemistry>
 <sources>O,e-</sources>
-<products>iO+,2*e-</products>
-<rate>
- <type>polynomial</type>
- <coeffs>1,0</coeffs>
- <multiplier>1e-9</multiplier>
- <dep_var mat="e-"></dep_var>
+<products>O+,2*e-</products>
+<rate type="polynomial">
+<coeffs>-0.57, 6.1978, -23.19, 30.439, 2.8407, -18.722</coeffs>
+<multiplier>1e-20</multiplier>
+<dep_var wrapper="log10energy" mat="e-" />
 </rate>
-</chemistry> 
+</chemistry>
+
 
 <!-- MCC charge exchange -->
 <mcc model="cex">
@@ -28,7 +30,7 @@
 <target>O</target>
 <sigma>const</sigma>
 <sigma_coeffs>1e-7</sigma_coeffs>
-</mcc> 
+</mcc>
 
 
 </material_interactions>
