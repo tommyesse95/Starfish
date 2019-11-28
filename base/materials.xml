@@ -1,0 +1,42 @@
+<!-- materials file -->
+<materials>
+
+
+<material name="Kr" type="kinetic">
+	<molwt>83.79</molwt>
+	<ionization_energy> 13.99961 </ionization_energy >
+	<charge>0</charge>
+	<spwt>1e8</spwt> <!-- Particles in one macroparticle. Critical parameter. tba -->
+	<diam>88.0e-12</diam>
+	<!-- <init>nd_back=1e4</init> 1e-5 su cm^3 -->
+</material>
+
+
+<material name="Kr+" type="kinetic">
+	<molwt>83.79</molwt>
+	<charge>1</charge>
+	<spwt>1e12</spwt>
+	<diam>169e-12</diam>
+</material>
+
+
+<material name="e-" type="kinetic">
+	<molwt>0.000548597</molwt>
+	<charge>-1</charge>
+	<spwt>250</spwt>
+</material>
+
+<!-- Unrecognized material type FLUID_ELECTRONS
+<material name="e-" type="FLUID_ELECTRONS">
+	<kTe0>2</kTe0>
+	<model>boltzmann</model>
+</material> -->
+
+<!-- tba -->
+<material name="al" type="solid">
+	<molwt>26.98</molwt>
+	<density>2700</density>
+</material>
+
+
+</materials>
