@@ -1,10 +1,12 @@
 <!-- domain file -->
+<!-- No problem here -->
+
 <domain type="zr">
 
 <mesh type="uniform" name="mesh">
 <origin>0.0, 0.0</origin>
-<spacing>0.005, 0.005</spacing>
-<nodes>141, 23</nodes>
+<spacing>5e-4, 5e-4</spacing> <!-- spacing reduced for dimensions --> 
+<nodes>90, 43</nodes>
 <mesh-bc wall="left" type="symmetry" />
 </mesh>
 

@@ -1,6 +1,6 @@
 <!-- starfish input file -->
 <simulation>
-<note>cxt setup</note>
+<note>CXT setup</note>
 
 <!-- load input files -->
 <load>materials.xml</load>
@@ -8,20 +8,39 @@
 <load>boundaries.xml</load>
 <load>interactions.xml</load>
 <output type="boundaries" file_name="results/boundaries.vtp" format="vtk">
-<variables>deprare.e-, flux-normal.e-</variables>
+<variables>deprate.Kr+, flux-normal.Kr+</variables>
 </output>
-
 <!-- material sources -->
+<!-- Neutral source to be inserted -->
+
 
 <sources>
 
 	<boundary_source name="inlet" type="maxwellian">
 	<boundary>inlet</boundary>
 	<material>e-</material>
-	<current>0.001</current>
-	<temperature>5000</temperature>
-	<v_drift>1000000</v_drift>
-	</boundary_source>
+	<current>0.001</current>  <!-- current? in which measure? -->
+	<temperature> 23197.17 </temperature>  <!-- 2 ev -->
+	<v_drift>10000</v_drift> <!-- to be evaluated -->
+</boundary_source>
+
+
+	<boundary_source name="neutral_inlet" type="uniform">
+	<mdot> 0.001 </mdot> <!-- 1 mg/s -->
+	<boundary>neutral_inlet</boundary>
+	<material>Kr</material>
+	<v_drift>1000</v_drift> <!-- to be evaluated, with pressure?-->
+</boundary_source>
+
+<!-- It does not work.
+	<boundary_source name="neutral_inlet" type="ambient">
+	<enforce>pressure</enforce>
+	<material>Kr</material>
+	<boundary>neutral_inlet</boundary>
+	<drift_velocity>0,0,0</drift_velocity> change Vy? tba
+	<temperature>288.0</temperature>
+	<total_pressure>1.0</total_pressure>
+</boundary_source> -->
 
 </sources>
 
@@ -29,18 +48,22 @@
 <!--enable animation and tracing -->
 <animation start_it="1" frequency="200">
 <output type="2D" file_name="results/field_ani.vts" format="vtk">
-<scalars>phi,rho, nd.e-,</scalars>
-<vectors>[efi, efj],[u.e-,v.e-]</vectors>
+<scalars>phi,rho, nd.Kr+,nd.e-,nd.Kr</scalars>
+<vectors>[efi, efj],[u.Kr+,v.Kr+]</vectors>
 </output>
 
-<output type="particles" file_name="results/particles-e-.vtp" format="vtk">
+<output type="particles" file_name="results/particles-Kr+.vtp" format="vtk">
 <count>2000</count>
-<material>e-</material>
+<material>Kr+</material>
 <rotate>true</rotate>
 </output>
 
 </animation>
 
+<particle_trace file_name="results/trace.vtp" format="vtk" output_format="ascii" material="Kr+">
+<random_ids>5,1000</random_ids>
+<start_it>0</start_it>
+</particle_trace>
 
 <!-- set time parameters 5e-8-->
 <time>
@@ -57,14 +80,13 @@
 <nt_add>10000</nt_add>
 </restart>
 
-
 <solver>
 <type>poisson</type>
-<max_it>5000</max_it>
+<max_it>1</max_it>
 <tol>1e-4</tol>
 <linear>false</linear>
 <initial_only>false</initial_only>
-<n0>2e14</n0>
+<n0>2e14</n0> <!-- tba -->
 <te0>2</te0>
 <phi0>0</phi0>
 </solver>
@@ -73,21 +95,23 @@
 <starfish randomize="false" />
 
 
+<!-- Add the averaging? -->
+
 <!-- output -->
 <output type="2D" file_name="results/field.vts" format="vtk">
-<scalars>nodevol, phi, rho, p, nd.e-,  nd-ave.e-, </scalars>
-<vectors>[efi, efj], [u-ave.e-,v-ave.e-]</vectors>
+<scalars>nodevol, phi, rho, p, nd.Kr+,  nd-ave.Kr+, nd.e-, nd-ave.e-, nd.Kr </scalars>
+<vectors>[efi, efj], [u-ave.Kr+,v-ave.Kr+]</vectors>
 </output>
 
 <!-- surface -->
 <output type="boundaries" file_name="results/boundaries.vtp" format="vtk">
-<variables>deprate.e-, flux-normal.e-</variables>
+<variables>deprate.Kr+, flux-normal.Kr+</variables>
 </output>
 
 <!-- particle positions and velocities for a scatter plot -->
 <output type="particles" file_name="results/particles-i.vtp" format="vtk">
 <count>10000</count>
-<material>e-</material>
+<material>Kr+</material>
 <rotate>true</rotate>
 </output>
 
