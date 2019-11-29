@@ -11,7 +11,6 @@ from general_data import *
 print("Cross sections Imported \n")
 def electron_elas_scat_cx(electron_energy):
     ans = 0.0
-    electron_energy = electron_energy/elementary_charge
     cx = np.array([[0.01336406983303936, 3.181396515358613e-19],
                    [0.018270087215254787, 2.923940874194074e-19],
                    [0.028013768681598505, 2.4698476044385235e-19],
@@ -50,17 +49,12 @@ def electron_elas_scat_cx(electron_energy):
                    [192.98252877276298, 5.030031220223962e-20],
                    [286.7967661319877, 4.2488583367628814e-20],
                    [408.81146099696934, 3.632531793187723e-20]])
-    if (electron_energy <= 0.01337):
-        ans = 0.0
-    elif (electron_energy >= 408.8):
-        ans = 0.0
-    else:
-       ans = np.interp(electron_energy,cx[:,0],cx[:,1])/electron_max_cx_tot 
+
+    ans = np.interp(electron_energy,cx[:,0],cx[:,1],left=0,right=0)/electron_max_cx_tot 
     return ans
 
 def electron_exc_rel_cx(electron_energy):
     ans = 0.0
-    electron_energy = electron_energy/elementary_charge
     cx = np.array([[0,0],
                   [9.968803734054186, 1.2113071338026534e-22],
                   [9.975255644084465, 4.326748936771704e-22],
@@ -86,17 +80,12 @@ def electron_exc_rel_cx(electron_energy):
                   [105.60740702280589, 1.051134144672416e-20],
                   [144.34219134826114, 9.105387318438538e-21],
                   [197.28941207367293, 7.764485569375252e-21]])
-    if (electron_energy <= 9.969):
-        ans = 0.0
-    elif (electron_energy >= 197.28):
-        ans = 0.0
-    else:
-       ans = np.interp(electron_energy,cx[:,0],cx[:,1])/electron_max_cx_tot 
+    
+    ans = np.interp(electron_energy,cx[:,0],cx[:,1],left=0,right=0)/electron_max_cx_tot 
     return ans
 
 def electron_ion_rel_cx(electron_energy):
     ans = 0.0
-    electron_energy = electron_energy/elementary_charge
     cx = np.array([[15.849, 0.045e-20],
                   [19.623, 1.264e-20],
                   [22.642, 1.614e-20],
@@ -120,12 +109,8 @@ def electron_ion_rel_cx(electron_energy):
                   [793.962, 1.14e-20],
                   [893.585, 1.061e-20],
                   [992.453, 0.971e-20]])
-    if (electron_energy <= 15.8491):
-        ans = 0.0
-    elif (electron_energy >= 992.450):
-        ans = 0.0
-    else:
-       ans = np.interp(electron_energy,cx[:,0],cx[:,1])/electron_max_cx_tot 
+   
+    ans = np.interp(electron_energy,cx[:,0],cx[:,1],left=0,right=0)/electron_max_cx_tot 
     return ans
 
 def electron_tot_cx(electron_energy):
@@ -179,10 +164,6 @@ def electron_tot_cx(electron_energy):
                    [1.442e-16,1.146e-20],
                    [1.7624e-16,9.87e-21],
                    [2.4033e-16,7.85e-21]])
-    if (electron_energy <= 2.7879e-20):
-        ans = 0.0
-    elif (electron_energy >= 2.4033e-16):
-        ans = 0.0
-    else:
-        ans = np.interp(electron_energy,cx[:,0],cx[:,1]) 
+    
+    ans = np.interp(electron_energy,cx[:,0],cx[:,1],left=0,right=0) 
     return ans

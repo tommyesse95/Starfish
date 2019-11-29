@@ -1,0 +1,37 @@
+
+Simulation 1 with 500 electrons
+
+Pressure neutral gas: 13332.2 Pa
+
+Density neutral gas: 3.2188243837982475e+24 in m³
+
+Total number of excitations: 0
+Total number of ionizations: 0
+
+Total number of scatterings: 0
+
+Total number of collissions wihout any phenomena: 0
+
+Total number of electrons without collisions: 0
+
+Total number of secondary electrons: 0
+
+Analytical breakdown voltage: 421.5679511661137 V
+
+Voltage used: 600 V
+
+
+Simulation 1 with 500 electrons
+Pressure neutral gas: 13332.2 Pa
+Density neutral gas: 3.2188243837982475e+24 per m³
+Distance between plates: [0.0005 0.002  0.02  ] m
+pd = 6.6661 Pa m
+
+Total number of excitations: 541
+Total number of IONIZATIONS: 163
+Total number of scatterings: 65826
+Total number of collissions wihout any phenomena: 58977
+Total number of electrons without collisions: 31257
+Total number of secondary electrons: 16
+Analytical breakdown voltage: 421.5679511661137 V
+Voltage used: [250, 400, 500] V
