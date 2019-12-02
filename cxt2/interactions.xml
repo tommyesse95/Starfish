@@ -9,6 +9,7 @@
 </surface_hit> -->
 
   <!-- mcc model suitable when tha target is denser than the source
+  check sources.
   <mcc model="ionization">
   <source>e-</source>
   <target>Kr</target>

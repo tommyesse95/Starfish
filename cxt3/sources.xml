@@ -15,8 +15,8 @@
 	<boundary>inlet</boundary>
 	<material>e-</material>
 	<current>0.001</current> <!--in A -->
-	<temperature>23224.129</temperature> <!-- 2ev -->
-	<v_drift>1e-3</v_drift> <!-- tba -->
+	<temperature>23209.03624</temperature> <!-- 2ev -->
+	<v_drift>1e-3</v_drift> <!-- tba. It shouldn't be that important but it is. -->
 </boundary_source>
 
 
@@ -36,7 +36,7 @@
 <boundary>neutral_inlet</boundary>
 <drift_velocity>0,0,0</drift_velocity> <!-- tba -->
 <temperature>293.0</temperature> <!-- Room temperature -->
-<total_pressure>1.0</total_pressure> <!-- 1 Pa for neutral gas. -->
+<total_pressure>10.0</total_pressure> <!-- 1 Pa for neutral gas. -->
 </boundary_source>
 
 

@@ -1,0 +1,14 @@
+<!-- material sources -->
+<sources>
+
+
+	<boundary_source name="electrons" type="maxwellian">
+	<boundary>inlet</boundary>
+	<material>e-</material>
+	<current>0.001</current> <!--in A -->
+	<temperature>23209.03624</temperature> <!-- 2ev -->
+	<v_drift>1e-3</v_drift> <!-- tba. It shouldn't be that important but it is. -->
+</boundary_source>
+
+
+</sources>
