@@ -192,9 +192,9 @@ num_of_iter = 10 #tba
 v_thermal = temp_to_vel(T_rod,electron_mass)
 delta_t = 1e-12 # tba I set this because with those data we were in that part of curve. 
 d_plate = 2e-3 # tba I set this, but maybe with lower voltage it takes a while
-pd = np.array([5, 5, 6]) # tba 
+pd = np.array([1.5, 2, 2.5, 3.0, 3.5, 4.0, 5]) # tba 
 # Voltage = np.linspace(250,550,10)
-Voltage = np.arange(270,540,10) # tba 
+Voltage = np.arange(250,600,10) # tba 
 
 for i in range(number_of_Electrons): # tba same swarm of elec for pd?
     
