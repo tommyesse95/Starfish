@@ -360,7 +360,7 @@ v_thermal = temp_to_vel(T_rod,electron_mass)
 d_plate = 2e-3 # tba
 pd = np.array([5.5, 6.0, 7.5, 8.0]) # Torr cm 
 # Voltage = np.linspace(250,550,10)
-Voltage = np.arange(250,700,10) # tba  
+Voltage = np.arange(270,700,10) # tba  
 starting_position = np.array([0.0, 0.0, 0.0])
 
 
