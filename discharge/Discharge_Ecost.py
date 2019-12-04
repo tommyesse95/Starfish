@@ -30,7 +30,7 @@ T_rod = 2000 # tempreature wire
 A_kr = 16
 B_kr = 240
 sec_coeff = 0.1 # number of secondary electrons produced per incident positive ion
-factor = 1.1 # For definition breakdown voltage 
+factor = 1.0 # For definition breakdown voltage 
 
 
 
@@ -362,7 +362,7 @@ number_of_Electrons = 100
 num_of_iter = 10 
 v_thermal = temp_to_vel(T_rod,electron_mass) 
 d_plate = 2e-3 # tba
-pd = np.array([0.12, 0.15])# Torr cm  TBC
+pd = np.array([2.5, 3.5, 4.5])# Torr cm  TBC
 # Voltage = np.linspace(250,550,10)
 Voltage = np.arange(200,800,10) # tba  
 starting_position = np.array([0.0, 0.0, 0.0])

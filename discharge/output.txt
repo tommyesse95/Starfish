@@ -1,0 +1,41 @@
+
+
+Simulation 1 with pd = 2.5 Torr cm 
+
+Voltage: 200 with dt = 8.009800319833905e-14 s
+No Breakdown. num ionizations: 16
+
+Voltage: 210 with dt = 7.816764716429093e-14 s
+No Breakdown. num ionizations: 33
+
+Voltage: 220 with dt = 7.637044952289009e-14 s
+No Breakdown. num ionizations: 43
+
+Voltage: 230 with dt = 7.469177311289918e-14 s
+No Breakdown. num ionizations: 47
+
+Voltage: 240 with dt = 7.311913860475207e-14 s
+No Breakdown. num ionizations: 7
+
+Voltage: 250 with dt = 7.164183200539267e-14 s
+No Breakdown. num ionizations: 49
+
+Voltage: 260 with dt = 7.025059603558333e-14 s
+No Breakdown. num ionizations: 108
+
+Voltage: 270 with dt = 6.893738498925235e-14 s
+No Breakdown. num ionizations: 169
+
+Voltage: 280 with dt = 6.769516819833458e-14 s
+No Breakdown. num ionizations: 86
+
+Voltage: 290 with dt = 6.651777110932466e-14 s
+No Breakdown. num ionizations: 318
+
+Voltage: 300 with dt = 6.53997457505819e-14 s
+No Breakdown. num ionizations: 203
+
+Voltage: 310 with dt = 6.43362643754001e-14 s
+No Breakdown. num ionizations: 474
+
+Voltage: 320 with dt = 6.332303153455073e-14 s
