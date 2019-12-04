@@ -358,16 +358,13 @@ def distance_pd(pd,pressure):
 # Notes! With 0.1 we don't reach the breakdown voltage. with 0.15 we reach 240
 # V. The minimum value should be somewhere in between. 
 
-number_of_Electrons = 500  # tba
+number_of_Electrons = 500  # tbc
 num_of_iter = 10
 v_thermal = temp_to_vel(T_rod,electron_mass) 
 d_plate = 2e-3 # tba
-pd = np.array([0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8,\
-               1.0, 1.2, 1.5, 2.0, 2.5, 3.0, 3.3, 3.5, 4.0,\
-               4.5, 4.8, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5,\
-               8.0])# Torr cm  TBC
+pd = np.array([0.5])# Torr cm  TBC
 # Voltage = np.linspace(250,550,10)
-Voltage = np.arange(180,1000,10) # tba  
+Voltage = np.arange(170,1000,10) # tbc  
 starting_position = np.array([0.0, 0.0, 0.0])
 V_break = []
 
@@ -393,7 +390,7 @@ for j in range(len(pd)):
         lambda_free = 1 / (electron_max_cx_tot * n0) # mean free path
         max_vel = np.sqrt((2*Voltage[h]*elementary_charge)/(electron_mass)) # Velocity for conservation energy
         deltat_free = lambda_free/max_vel # delta t needed for distance lamda free
-        delta_t = 1e-2 * deltat_free
+        delta_t = 1e-2 * deltat_free #tbc
         print(f"Voltage: {Voltage[h]} with dt = {delta_t} s",file=open("output.txt", "a"))
         Ey = -Voltage[h] / d_plate
         E_field = np.array([0, Ey, 0])
@@ -468,8 +465,8 @@ for j in range(len(pd)):
 with open('data_sparc.csv', 'w', newline='') as f: # TBC CHange number file 
     thewriter = csv.writer(f)
     
-    for i in range(len(pd)):
-        thewriter.writerow([pd[i], V_break[i]])
+    for l in range(len(pd)):
+        thewriter.writerow([pd[l], V_break[l]])
         
 ## Plotting 
 #            

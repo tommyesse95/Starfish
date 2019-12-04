@@ -3,10 +3,8 @@
 statt 1e4 to 1e11 (cm 1e-3)
 
 
-SIMULATION
-
-- Try with the same distance plate? 
-- dt always equal. more conservative. (Different factor of reduction)
-
-
+SIMULATION ( No change everything together) 
+- Try with different distance plate? 
+- dt always equal. more conservative. (or Different factor of reduction)
 - Maybe secondary electron emission coefficient also smaller. 
+- 
