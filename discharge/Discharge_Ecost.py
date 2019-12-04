@@ -358,13 +358,13 @@ def distance_pd(pd,pressure):
 # Notes! With 0.1 we don't reach the breakdown voltage. with 0.15 we reach 240
 # V. The minimum value should be somewhere in between. 
 
-number_of_Electrons = 100  
-num_of_iter = 20 
+number_of_Electrons = 500  # tba
+num_of_iter = 10
 v_thermal = temp_to_vel(T_rod,electron_mass) 
 d_plate = 2e-3 # tba
 pd = np.array([0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8,\
-               1.0, 1.2, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0,\
-               4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5,\
+               1.0, 1.2, 1.5, 2.0, 2.5, 3.0, 3.3, 3.5, 4.0,\
+               4.5, 4.8, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5,\
                8.0])# Torr cm  TBC
 # Voltage = np.linspace(250,550,10)
 Voltage = np.arange(180,1000,10) # tba  

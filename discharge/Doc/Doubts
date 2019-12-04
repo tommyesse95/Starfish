@@ -1,10 +1,12 @@
-
-Thinking..
-- Factor coefficient 
 - Difference distance of the plate. See graph. 
-- Sometimes with the same pd 200/220 but this is normal. 
+- DIfference way to define breakdown voltage: Sufficient ion density. 
+statt 1e4 to 1e11 (cm 1e-3)
 
-Future..
-- Try with the same distance plate. 
-- dt always equal. more conservative.
+
+SIMULATION
+
+- Try with the same distance plate? 
+- dt always equal. more conservative. (Different factor of reduction)
+
+
 - Maybe secondary electron emission coefficient also smaller. 

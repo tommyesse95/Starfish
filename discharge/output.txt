@@ -83,3 +83,8 @@ Simulation 7 with pd = 0.7 Torr cm
 
 Voltage: 200 with dt = 2.8606429713692515e-13 s
 Voltage: 210 with dt = 2.7917016844389613e-13 s
+
+
+Simulation 1 with pd = 0.15 Torr cm 
+
+Voltage: 180 with dt = 1.4071784785455719e-13 s
