@@ -359,15 +359,12 @@ def distance_pd(pd,pressure):
 # V. The minimum value should be somewhere in between. 
 
 number_of_Electrons = 100  
-num_of_iter = 20 
+num_of_iter = 10 
 v_thermal = temp_to_vel(T_rod,electron_mass) 
 d_plate = 2e-3 # tba
-pd = np.array([0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8,\
-               1.0, 1.2, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0,\
-               4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5,\
-               8.0])# Torr cm  TBC
+pd = np.array([0.12, 0.13, 0.14, 0.15, 0.20])# Torr cm  TBC
 # Voltage = np.linspace(250,550,10)
-Voltage = np.arange(180,1000,10) # tba  
+Voltage = np.arange(200,1200,10) # tba  
 starting_position = np.array([0.0, 0.0, 0.0])
 V_break = []
 
@@ -375,7 +372,7 @@ V_break = []
 
 
 for j in range(len(pd)):
-    print(f"\n\nSimulation {j+1} with pd = {pd[j]} Torr cm \n",file=open("output.txt", "a"))
+    print(f"\n\nSimulation {j+1} with pd = {pd[j]} Torr cm \n",file=open("output1.txt", "a"))
     pd_si = pd[j] * 133.322 * 1e-2 # conversion in Pa*m
     pressure = pressure_pd(pd_si, d_plate) # Pressure in Pascal considering pd
     n0 = pressure_to_density(pressure,k_b,T_neutr) #density of the neutral gas
@@ -393,8 +390,8 @@ for j in range(len(pd)):
         lambda_free = 1 / (electron_max_cx_tot * n0) # mean free path
         max_vel = np.sqrt((2*Voltage[h]*elementary_charge)/(electron_mass)) # Velocity for conservation energy
         deltat_free = lambda_free/max_vel # delta t needed for distance lamda free
-        delta_t = 1e-2 * deltat_free
-        print(f"Voltage: {Voltage[h]} with dt = {delta_t} s",file=open("output.txt", "a"))
+        delta_t = 1e-1 * deltat_free
+        print(f"Voltage: {Voltage[h]} with dt = {delta_t} s",file=open("output1.txt", "a"))
         Ey = -Voltage[h] / d_plate
         E_field = np.array([0, Ey, 0])
         # Initialization variables for siimulation 
@@ -453,19 +450,20 @@ for j in range(len(pd)):
                     time_in_domain +=1
     
                
-    if breakdown:
-        print(f"Breakdown! at {time_break} s with {V_break[j]} V", file=open("output.txt", "a"))
-        print(f"Pressure neutral gas: {pressure} Pa", file=open("output.txt", "a"))
-        print(f"Density neutral gas: {n0} per m\u00b3", file=open("output.txt", "a"))
-        print(f"pd = {pd[j]} Torr cm \n", file=open("output.txt", "a"))
-        
-    else:
-        V_break.append("None")
-        print(f"No Breakdown. num ionizations: {num_ionizations}\n", file=open("output.txt", "a"))
+        if breakdown:
+            print(f"Breakdown! at {time_break} s with {V_break[j]} V", file=open("output1.txt", "a"))
+            print(f"Pressure neutral gas: {pressure} Pa", file=open("output1.txt", "a"))
+            print(f"Density neutral gas: {n0} per m\u00b3", file=open("output1.txt", "a"))
+            print(f"pd = {pd[j]} Torr cm \n", file=open("output1.txt", "a"))
+            
+        else:
+            V_break.append('None')
+            print(f"No Breakdown. num ionizations: {num_ionizations}\n", file=open("output1.txt", "a"))
+                
+            
 
 
-
-with open('data_sparc.csv', 'w', newline='') as f: # TBC CHange number file 
+with open('data_sparc1.csv', 'w', newline='') as f: # TBC CHange number file 
     thewriter = csv.writer(f)
     
     for i in range(len(pd)):
@@ -499,6 +497,3 @@ with open('data_sparc.csv', 'w', newline='') as f: # TBC CHange number file
         
        
         
-
-
-

@@ -1,41 +1,85 @@
 
 
-Simulation 1 with pd = 2.5 Torr cm 
+Simulation 1 with pd = 0.15 Torr cm 
 
-Voltage: 200 with dt = 8.009800319833905e-14 s
-No Breakdown. num ionizations: 16
+Voltage: 200 with dt = 1.3349667199723175e-12 s
+Voltage: 210 with dt = 1.3027941194048489e-12 s
+Voltage: 220 with dt = 1.2728408253815014e-12 s
+Voltage: 230 with dt = 1.2448628852149863e-12 s
+Voltage: 240 with dt = 1.218652310079201e-12 s
+Voltage: 250 with dt = 1.194030533423211e-12 s
+Voltage: 260 with dt = 1.1708432672597222e-12 s
+Voltage: 270 with dt = 1.148956416487539e-12 s
+Voltage: 280 with dt = 1.1282528033055763e-12 s
+Voltage: 290 with dt = 1.108629518488744e-12 s
+Voltage: 300 with dt = 1.0899957625096983e-12 s
+Breakdown! at 4.806085615761137e-07 s with 300 V
+Pressure neutral gas: 99.9915 Pa
+Density neutral gas: 2.4141182878486857e+22 per m³
+pd = 0.15 Torr cm 
 
-Voltage: 210 with dt = 7.816764716429093e-14 s
-No Breakdown. num ionizations: 33
 
-Voltage: 220 with dt = 7.637044952289009e-14 s
-No Breakdown. num ionizations: 43
 
-Voltage: 230 with dt = 7.469177311289918e-14 s
-No Breakdown. num ionizations: 47
+Simulation 2 with pd = 0.2 Torr cm 
 
-Voltage: 240 with dt = 7.311913860475207e-14 s
-No Breakdown. num ionizations: 7
+Voltage: 200 with dt = 1.001225039979238e-12 s
+Voltage: 210 with dt = 9.770955895536364e-13 s
+Voltage: 220 with dt = 9.54630619036126e-13 s
+Voltage: 230 with dt = 9.336471639112397e-13 s
+Breakdown! at 6.146068569424744e-07 s with 230 V
+Pressure neutral gas: 133.322 Pa
+Density neutral gas: 3.2188243837982477e+22 per m³
+pd = 0.2 Torr cm 
 
-Voltage: 250 with dt = 7.164183200539267e-14 s
-No Breakdown. num ionizations: 49
 
-Voltage: 260 with dt = 7.025059603558333e-14 s
-No Breakdown. num ionizations: 108
 
-Voltage: 270 with dt = 6.893738498925235e-14 s
-No Breakdown. num ionizations: 169
+Simulation 3 with pd = 0.2 Torr cm 
 
-Voltage: 280 with dt = 6.769516819833458e-14 s
-No Breakdown. num ionizations: 86
+Voltage: 200 with dt = 1.001225039979238e-12 s
+Voltage: 210 with dt = 9.770955895536364e-13 s
+Voltage: 220 with dt = 9.54630619036126e-13 s
+Voltage: 230 with dt = 9.336471639112397e-13 s
+Breakdown! at 5.580007630416998e-07 s with 230 V
+Pressure neutral gas: 133.322 Pa
+Density neutral gas: 3.2188243837982477e+22 per m³
+pd = 0.2 Torr cm 
 
-Voltage: 290 with dt = 6.651777110932466e-14 s
-No Breakdown. num ionizations: 318
 
-Voltage: 300 with dt = 6.53997457505819e-14 s
-No Breakdown. num ionizations: 203
 
-Voltage: 310 with dt = 6.43362643754001e-14 s
-No Breakdown. num ionizations: 474
+Simulation 4 with pd = 0.4 Torr cm 
 
-Voltage: 320 with dt = 6.332303153455073e-14 s
+Voltage: 200 with dt = 5.00612519989619e-13 s
+Breakdown! at 8.571132132373063e-07 s with 200 V
+Pressure neutral gas: 266.644 Pa
+Density neutral gas: 6.4376487675964955e+22 per m³
+pd = 0.4 Torr cm 
+
+
+
+Simulation 5 with pd = 0.5 Torr cm 
+
+Voltage: 200 with dt = 4.004900159916952e-13 s
+Breakdown! at 1.0659586442040718e-06 s with 200 V
+Pressure neutral gas: 333.305 Pa
+Density neutral gas: 8.047060959495619e+22 per m³
+pd = 0.5 Torr cm 
+
+
+
+Simulation 6 with pd = 0.6 Torr cm 
+
+Voltage: 200 with dt = 3.337416799930794e-13 s
+Voltage: 210 with dt = 3.256985298512122e-13 s
+Voltage: 220 with dt = 3.1821020634537536e-13 s
+Voltage: 230 with dt = 3.112157213037466e-13 s
+Breakdown! at 1.0072319427034614e-06 s with 230 V
+Pressure neutral gas: 399.966 Pa
+Density neutral gas: 9.656473151394743e+22 per m³
+pd = 0.6 Torr cm 
+
+
+
+Simulation 7 with pd = 0.7 Torr cm 
+
+Voltage: 200 with dt = 2.8606429713692515e-13 s
+Voltage: 210 with dt = 2.7917016844389613e-13 s
