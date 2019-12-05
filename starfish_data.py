@@ -111,6 +111,9 @@ def neutrals():
     part = n * vol
     A = mt.pi * r_inl**2 * 1e-6 # Understand the area involved 
     mdot = mKr * n * u * A * conv
+    
+    print(f"Number of particles: {part}, spwt?")
+    
     return part, n, mdot 
 
 
