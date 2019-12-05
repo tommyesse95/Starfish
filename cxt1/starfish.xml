@@ -34,20 +34,21 @@
 <start_it>0</start_it>
 </particle_trace>
 
+
 <!-- set time parameters 5e-8-->
 <time>
-<num_it>1</num_it>
+<num_it>50000</num_it>
 <dt>5e-10</dt>
 <steady_state>-1</steady_state>
 </time>
 
-<!-- enable restart save -->
+<!--enable restart save
 <restart>
-<it_save>2000</it_save>
+<it_save>100</it_save>
 <save>true</save>
 <load>false</load>
-<nt_add>10000</nt_add>
-</restart>
+<nt_add>500</nt_add>
+</restart> -->
 
 
 <solver>
@@ -56,8 +57,8 @@
 <tol>1e-4</tol>
 <linear>false</linear>
 <initial_only>false</initial_only>
-<n0>2e14</n0>
-<te0>2</te0>
+<n0>0</n0>
+<te0>2</te0> <!-- Why I need this? -->
 <phi0>0</phi0>
 </solver>
 
@@ -67,7 +68,7 @@
 
 <!-- output -->
 <output type="2D" file_name="results/field.vts" format="vtk">
-<scalars>nodevol, phi, rho, p, nd.Kr+,  nd-ave.Kr+, </scalars>
+<scalars>nodevol, phi, rho, p, nd.Kr+,  nd-ave.Kr+, nd.e-, nd.Kr </scalars>
 <vectors>[efi, efj], [u-ave.Kr+,v-ave.Kr+]</vectors>
 </output>
 

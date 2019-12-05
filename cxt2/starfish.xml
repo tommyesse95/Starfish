@@ -36,7 +36,7 @@
 
 <!-- set time parameters 5e-8-->
 <time>
-<num_it>1</num_it>
+<num_it>2000</num_it>
 <dt>5e-10</dt>
 <steady_state>-1</steady_state>
 </time>
@@ -52,7 +52,7 @@
 
 <solver>
 <type>poisson</type>
-<max_it>2000</max_it>
+<max_it>5000</max_it>
 <tol>1e-4</tol>
 <linear>false</linear>
 <initial_only>false</initial_only>
@@ -67,7 +67,7 @@
 
 <!-- output -->
 <output type="2D" file_name="results/field.vts" format="vtk">
-<scalars>nodevol, phi, rho, p, nd.Kr+,  nd-ave.Kr+, </scalars>
+<scalars>nodevol, phi, rho, p, nd.Kr+,  nd-ave.Kr+, nd.e-, nd.Kr </scalars>
 <vectors>[efi, efj], [u-ave.Kr+,v-ave.Kr+]</vectors>
 </output>
 

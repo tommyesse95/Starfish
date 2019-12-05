@@ -18,7 +18,7 @@ M 0.0 4e-3, 2e-3 4e-3
 </boundary>
 
 
-<boundary name="keeper" type="solid" material="al" value="10">
+<boundary name="keeper" type="solid" material="al" value="20">
 <path>
 M wall1:last l 0 4e-3
 </path>
@@ -57,7 +57,7 @@ M anode:last l 50e-3 0.0
 </path>
 </boundary>
 
-<boundary name="cathode" type="solid" material="al" value="-200">
+<boundary name="cathode" type="solid" material="al" value="-500">
 <path>
 M wall4:last l 8e-3 -8e-3
 </path>

@@ -34,7 +34,7 @@ def mdotelec_to_curr(mdot_elec):
     return curr 
 
 
-# From mdot of neutral gas Kr, particles per dt 
+# From mdot of neutral gas Kr, particles per dt. IT WORKS 
 def mdot_to_kr_dt(mdot,spwt,dt):
     mKr_kg = mKr * conv 
     mdot *= 1e-6 # conversion in kg from mg 
@@ -44,7 +44,7 @@ def mdot_to_kr_dt(mdot,spwt,dt):
     return part_dt
 
 
-# current --> number of electrons inside per dt. 
+# current --> number of electrons inside per dt. IT WORKS 
 def curr_to_el_dt(curr,spwt_el,dt):
     num_el_s = curr / elem_charge
     num_el_sim_s = num_el_s / spwt_el
@@ -64,6 +64,7 @@ spacing = np.array([5e-4, 5e-4]) # size of one cell
 min_nodesx, min_nodesy = num_nodes(domain_size, spacing)
 
 
+dt = 5e-10
 mdot_kr = 1 # mg/s
 curr_el = 2 # A 
 spwt_kr = 1e10 # Particles of Kr in one macroparticle 
@@ -92,12 +93,15 @@ def temp_to_vel(temperature,mass_particle):
     v_th = np.sqrt(2*kb*temperature/mass_particle)
     return v_th
 
-# Density from pressure. 
-def pressure_to_density(pressure,kb,T_neutr):
-    density = pressure/(kb*T_neutr)
-    return density
+# Density from pressure. # TBC
+def pressure_to_particles(pressure,kb,T_neutr,spwt): 
+    density = pressure/(kb*T_neutr) # #/m^3
+    part = density/spwt 
+    return part, density 
 
-# Debye lenght
+
+
+# Debye lenght 
 def debye(Te,n0):
     debye = np.sqrt((eps0*kb*ev_to_K(Te))/(n0*elem_charge**2))
     return debye

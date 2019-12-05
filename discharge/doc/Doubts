@@ -1,0 +1,10 @@
+- Difference distance of the plate. See graph. 
+- DIfference way to define breakdown voltage: Sufficient ion density. 
+statt 1e4 to 1e11 (cm 1e-3)
+
+
+SIMULATION ( No change everything together) 
+- Try with different distance plate? 
+- dt always equal. more conservative. (or Different factor of reduction)
+- Maybe secondary electron emission coefficient also smaller. 
+- 

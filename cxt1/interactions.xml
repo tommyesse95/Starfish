@@ -8,8 +8,8 @@
 	<c_accom>0</c_accom>
 </surface_hit> -->
 
-  <!-- mcc model suitable when tha target is denser than the source
-  check sources.
+<!-- frequency: Time step for collision -->
+
   <mcc model="ionization">
   <source>e-</source>
   <target>Kr</target>
@@ -42,8 +42,9 @@
   </sigma_tabulated>
   <sigma_dep_var>energy</sigma_dep_var>
   <max_target_temp>10000</max_target_temp>
-  <frequency>50</frequency>
-</mcc> -->
+  <frequency>1</frequency>
+</mcc>
+
 
 <!-- ERROR: Collision cross-section polynomial undefined -->
 <!--
