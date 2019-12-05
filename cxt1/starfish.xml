@@ -58,7 +58,7 @@
 <linear>false</linear>
 <initial_only>false</initial_only>
 <n0>0</n0>
-<te0>2</te0> <!-- Why I need this? -->
+<te0>2</te0> <!-- It does not matter, solution will be 0 -->
 <phi0>0</phi0>
 </solver>
 

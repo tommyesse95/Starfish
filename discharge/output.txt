@@ -1,0 +1,18 @@
+
+
+Simulation 1 with pd = 0.5 Torr cm 
+
+Voltage: 170 with dt = 4.343924126043968e-14 s
+
+
+Simulation 1 with pd = 0.5 Torr cm 
+
+Voltage: 170 with dt = 4.343924126043968e-14 s
+
+
+Simulation 1 with pd = 0.5 Torr cm 
+
+Voltage: 170 with dt = 4.3439241260439683e-13 s
+Voltage: 180 with dt = 4.221535435636715e-13 s
+Voltage: 190 with dt = 4.108940866337164e-13 s
+Voltage: 200 with dt = 4.004900159916952e-13 s

@@ -363,12 +363,12 @@ num_of_iter = 10
 v_thermal = temp_to_vel(T_rod,electron_mass) 
 d_plate = 2e-3 # tba
 pd = np.array([0.5])# Torr cm  TBC
-max_en_exc = 197.28941207367293
 # Voltage = np.linspace(250,550,10)
 Voltage = np.arange(170,1000,10) # tbc  
 starting_position = np.array([0.0, 0.0, 0.0])
 V_break = []
-perc_exceed = []
+
+
 
 
 for j in range(len(pd)):
@@ -377,8 +377,6 @@ for j in range(len(pd)):
     pressure = pressure_pd(pd_si, d_plate) # Pressure in Pascal considering pd
     n0 = pressure_to_density(pressure,k_b,T_neutr) #density of the neutral gas
     breakdown = False
-    count = 0
-    
 
 #  V_br = (B_kr*pd_si) / (np.log(A_kr*pd_si) - np.log(np.log(1+ 1/sec_coeff)))
 
@@ -388,12 +386,11 @@ for j in range(len(pd)):
                           
     for h in range(len(Voltage)):
         if breakdown: 
-            perc_exceed.append(count/number_of_Electrons)
             break
         lambda_free = 1 / (electron_max_cx_tot * n0) # mean free path
         max_vel = np.sqrt((2*Voltage[h]*elementary_charge)/(electron_mass)) # Velocity for conservation energy
         deltat_free = lambda_free/max_vel # delta t needed for distance lamda free
-        delta_t = 1e-1 * deltat_free #tbc
+        delta_t = 1e-2 * deltat_free #tbc
         print(f"Voltage: {Voltage[h]} with dt = {delta_t} s",file=open("output.txt", "a"))
         Ey = -Voltage[h] / d_plate
         E_field = np.array([0, Ey, 0])
@@ -404,11 +401,9 @@ for j in range(len(pd)):
         no_collisions = 0
         nothing = 0
         time_in_domain = 0
-        count = 0
         out_of_bounds = False
         electron_swarm = swarm("electrons")
         electron_swarm.reinitialize()
-        
         
         for i in range(number_of_Electrons): 
             # Initialization swarm electrons 
@@ -432,8 +427,6 @@ for j in range(len(pd)):
                     pusher(electron_swarm.particle_Array[p],delta_t,electron_mass,-1.0*elementary_charge,E_field)
                     Energy_part = 0.5*electron_swarm.particle_Array[p].velSquared()*electron_mass
                     Energy_electron = Energy_part / elementary_charge
-                    if Energy_electron > max_en_exc :
-                        count += 1 
                     out_of_bounds = position_checker(electron_swarm.particle_Array[p], d_plate)
                     delta_x = delta_t * np.sqrt(electron_swarm.particle_Array[p].velSquared())
                     if(does_it_collide(n0,delta_x,Energy_part)):
@@ -459,7 +452,6 @@ for j in range(len(pd)):
                
     if breakdown:
         print(f"Breakdown! at {time_break} s with {V_break[j]} V", file=open("output.txt", "a"))
-        print(f"Perc particles with greater ene: {perc_exceed[j]}", file=open("output.txt", "a"))
         print(f"Pressure neutral gas: {pressure} Pa", file=open("output.txt", "a"))
         print(f"Density neutral gas: {n0} per m\u00b3", file=open("output.txt", "a"))
         print(f"pd = {pd[j]} Torr cm \n", file=open("output.txt", "a"))
@@ -467,6 +459,8 @@ for j in range(len(pd)):
     else:
         V_break.append("None")
         print(f"No Breakdown. num ionizations: {num_ionizations}\n", file=open("output.txt", "a"))
+
+
 
 with open('data_sparc.csv', 'w', newline='') as f: # TBC CHange number file 
     thewriter = csv.writer(f)
