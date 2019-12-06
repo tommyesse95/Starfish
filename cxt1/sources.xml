@@ -1,15 +1,15 @@
 <!-- material sources -->
 <sources>
 
-<!--
+
 	<boundary_source name="electrons" type="maxwellian">
 	<boundary>inlet</boundary>
 	<material>e-</material>
-	<current>0.1</current>
+	<current>1</current>
 	<temperature>23209.03624</temperature>
 	<v_drift>1e3</v_drift>
 
-</boundary_source> -->
+</boundary_source>
 
 
 	<boundary_source name="neutral_gas" type="maxwellian">
