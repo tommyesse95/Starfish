@@ -205,6 +205,7 @@ def temp_to_vel(temperature,mass_particle):
 class particle:
         position = np.array([0.0,0.0,0.0])
         velocity = np.array([0.0,0.0,0.0])
+        flag = False 
 
         def __init__(self,position):
             self.position = position
@@ -220,6 +221,9 @@ class particle:
 
         def energy(self):
             return 0.5*self.velocity.dot(self.velocity)*electron_mass/elementary_charge
+        
+        def exceed(self):
+            self.flag = True
 
 
 class swarm:
@@ -387,8 +391,7 @@ for j in range(len(pd)):
    
                           
     for h in range(len(Voltage)):
-        if breakdown: 
-            perc_exceed.append(count/number_of_Electrons)
+        if breakdown:
             break
         lambda_free = 1 / (electron_max_cx_tot * n0) # mean free path
         max_vel = np.sqrt((2*Voltage[h]*elementary_charge)/(electron_mass)) # Velocity for conservation energy
@@ -432,8 +435,9 @@ for j in range(len(pd)):
                     pusher(electron_swarm.particle_Array[p],delta_t,electron_mass,-1.0*elementary_charge,E_field)
                     Energy_part = 0.5*electron_swarm.particle_Array[p].velSquared()*electron_mass
                     Energy_electron = Energy_part / elementary_charge
-                    if Energy_electron > max_en_exc :
+                    if Energy_electron > max_en_exc and not electron_swarm.particle_Array[p].flag  :
                         count += 1 
+                        electron_swarm.particle_Array[p].exceed()
                     out_of_bounds = position_checker(electron_swarm.particle_Array[p], d_plate)
                     delta_x = delta_t * np.sqrt(electron_swarm.particle_Array[p].velSquared())
                     if(does_it_collide(n0,delta_x,Energy_part)):
@@ -455,11 +459,13 @@ for j in range(len(pd)):
                         no_collisions += 1
     
                     time_in_domain +=1
+                    
     
-               
+    
+        perc_exceed.append(count/number_of_Electrons*100)    
+         
     if breakdown:
         print(f"Breakdown! at {time_break} s with {V_break[j]} V", file=open("output.txt", "a"))
-        print(f"Perc particles with greater ene: {perc_exceed[j]}", file=open("output.txt", "a"))
         print(f"Pressure neutral gas: {pressure} Pa", file=open("output.txt", "a"))
         print(f"Density neutral gas: {n0} per m\u00b3", file=open("output.txt", "a"))
         print(f"pd = {pd[j]} Torr cm \n", file=open("output.txt", "a"))

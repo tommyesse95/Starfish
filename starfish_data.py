@@ -45,11 +45,11 @@ def mdotelec_to_curr(mdot_elec):
 
 
 # current --> number of electrons inside per dt. IT WORKS 
-def curr_to_el_dt(curr,spwt_el,dt):
+def curr_to_el_dt(curr,dt,num_it):
     num_el_s = curr / elem_charge
-    num_el_sim_s = num_el_s / spwt_el
-    num_el_sim_dt = str(num_el_sim_s * dt)
-    return num_el_sim_dt
+    num_el_sim_dt = num_el_s * dt
+    tot_num_el = num_it * num_el_sim_dt
+    return tot_num_el
 
 # Definition of domain 
     
@@ -109,7 +109,8 @@ def neutrals():
     vol = mt.pi * r_cyl**2 * h * 1e-9 # m^3 
     n = pressure/(kb*T_neutr) # #/m^3
     part = n * vol
-    A = mt.pi * r_inl**2 * 1e-6 # Understand the area involved 
+    #A = mt.pi * r_inl**2 * 1e-6 
+    A = 2 * mt.pi * r_cyl * r_inl * 1e-6
     mdot = mKr * n * u * A * conv
     
     print(f"Number of particles: {part}, spwt?")
@@ -118,13 +119,14 @@ def neutrals():
 
 
 # From mdot of neutral gas Kr, particles per dt. IT WORKS 
-def mdot_to_kr_dt(mdot,spwt,dt):
+def mdot_to_kr_dt(mdot,dt,num_it):
     mKr_kg = mKr * conv 
     mdot *= 1e-6 # conversion in kg from mg 
     part_s = mdot / mKr_kg
-    part_s_sim = part_s / spwt
-    part_dt = part_s_sim * dt
-    return part_dt
+    part_dt = part_s * dt
+    part_tot = part_dt * num_it 
+    return part_dt, part_tot
+
 
 # time simulation 
 def time():

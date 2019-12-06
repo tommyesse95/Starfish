@@ -37,13 +37,13 @@ M wall2:last l 12e-3 0
 </boundary>
 
 <boundary name="neutral_inlet" type="virtual">
-<path> M 14e-3 15e-3 L 16e-3 15e-3
+<path> M 16e-3 15e-3 L 18e-3 15e-3
 </path>
 </boundary>
 
 <boundary name="wall4" type="solid" material="al" value="0">
 <path>
-M 18e-3 15e-3 l 12e-3 0.0
+M 20e-3 15e-3 l 12e-3 0.0
 </path>
 </boundary>
 
