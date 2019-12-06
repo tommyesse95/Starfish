@@ -11,7 +11,7 @@ Created on Fri Nov  15 12:47:27 2019
 
 import numpy as np
 import random
-from matplotlib import pyplot as plt
+# from matplotlib import pyplot as plt
 import csv
 
 # Definition of constants
