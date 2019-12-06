@@ -366,7 +366,7 @@ number_of_Electrons = 500  # tbc
 num_of_iter = 10
 v_thermal = temp_to_vel(T_rod,electron_mass)
 d_plate = 2e-3 # tba
-pd = np.array([0.5])# Torr cm  TBC
+pd = np.array([0.5, 0.7, 0.9, 1.3, 1.5, 1.7, 2.0, 3.0, 3.5])# Torr cm  TBC
 max_en_exc = 197.28941207367293
 # Voltage = np.linspace(250,550,10)
 Voltage = np.arange(170,1000,10) # tbc
@@ -462,7 +462,7 @@ for j in range(len(pd)):
 
 
 
-        perc_exceed.append(count/number_of_Electrons*100)  
+        perc_exceed.append(count/number_of_Electrons*100)
         print(f"Percentual exceed: {perc_exceed[h]}  %", file=open("output.txt", "a"))
 
     if breakdown:
