@@ -118,6 +118,13 @@ def neutrals():
     return part, n, mdot 
 
 
+# time simulation 
+def num_it(dt,time_sim):
+    
+    num_it = time_sim/dt # Time simulation
+    return num_it
+
+
 # From mdot of neutral gas Kr, particles per dt. IT WORKS 
 def mdot_to_kr_dt(mdot,dt,num_it):
     mKr_kg = mKr * conv 
@@ -128,11 +135,7 @@ def mdot_to_kr_dt(mdot,dt,num_it):
     return part_dt, part_tot
 
 
-# time simulation 
-def num_it(dt,time_sim):
-    
-    num_it = time_sim/dt # Time simulation
-    return num_it
+
 
 
 

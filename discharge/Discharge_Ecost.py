@@ -257,7 +257,11 @@ def position_checker(particle, d_plate):
     elif particle.position[1] < 0:
         return True
     else:
-        return False
+        return False# time simulation
+def num_it(dt,time_sim):
+
+    num_it = time_sim/dt # Time simulation
+    return num_ite
 
 def pusher(particle,delta_t,mass_electron,charge_electron,E_field):
     vel_old = particle.velocity
@@ -366,7 +370,8 @@ number_of_Electrons = 500  # tbc
 num_of_iter = 10
 v_thermal = temp_to_vel(T_rod,electron_mass)
 d_plate = 2e-3 # tba
-pd = np.array([0.5, 0.7, 0.9, 1.3, 1.5, 1.7, 2.0, 3.0, 3.5])# Torr cm  TBC
+pd = np.array([0.5, 0.7, 0.9, 1.3, 1.5, 1.7, 2.0, 2.5, 3.0, 3.5,\
+4.0,4.5,5.0,5.5,6.0])# Torr cm  TBC
 max_en_exc = 197.28941207367293
 # Voltage = np.linspace(250,550,10)
 Voltage = np.arange(170,1000,10) # tbc
@@ -462,8 +467,11 @@ for j in range(len(pd)):
 
 
 
-        perc_exceed.append(count/number_of_Electrons*100)
+        perc_exceed.append((count/number_of_Electrons)*100)
         print(f"Percentual exceed: {perc_exceed[h]}  %", file=open("output.txt", "a"))
+        with open('perc_exceed.csv', 'w', newline='') as f:
+            thewriter = csv.writer(f)
+            thewriter.writerow([pd[j],Voltage[h],perc_exceed[h]])
 
     if breakdown:
         print(f"Breakdown! at {time_break} s with {V_break[j]} V", file=open("output.txt", "a"))
