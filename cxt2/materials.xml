@@ -6,25 +6,24 @@
 	<molwt>83.79</molwt>
 	<ionization_energy> 13.99961 </ionization_energy >
 	<charge>0</charge>
-	<spwt>500</spwt> <!-- Particles in one macroparticle. Critical parameter. tba -->
+	<spwt>1e10</spwt> <!-- Particles in one macroparticle. Critical parameter. tba -->
 	<diam>88.0e-12</diam>
-	<init>nd_back=1e20</init> <!-- Why I don't have any particle? -->
-	<!-- <init>nd=1e20</init> -->
+	<!-- <init>nd_back=1e4</init> 1e-5 su cm^3 -->
 </material>
 
 
 <material name="Kr+" type="kinetic">
 	<molwt>83.79</molwt>
 	<charge>1</charge>
-	<spwt>1e12</spwt>
-	<diam>169e-12</diam>
+	<spwt>1e6</spwt>
+	<diam>88.0e-12</diam>
 </material>
 
 
 <material name="e-" type="kinetic">
 	<molwt>0.000548597</molwt>
 	<charge>-1</charge>
-	<spwt>250</spwt>
+	<spwt>1e5</spwt>
 </material>
 
 <!-- Unrecognized material type FLUID_ELECTRONS

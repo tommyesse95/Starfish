@@ -34,6 +34,10 @@ def pressure_to_density(pressure,kb,T_neutr):
     density = pressure/(kb*T_neutr)
     return density
 
+def density_to_pressure(density,kb,T_neutr):
+    pressure = density * kb * T_neutr
+    return pressure 
+
 
 ## Eletrons simulated Per second. (from mdot)
 def mdotelec_to_curr(mdot_elec):
@@ -44,12 +48,7 @@ def mdotelec_to_curr(mdot_elec):
 
 
 
-# current --> number of electrons inside per dt. IT WORKS 
-def curr_to_el_dt(curr,dt,num_it):
-    num_el_s = curr / elem_charge
-    num_el_sim_dt = num_el_s * dt
-    tot_num_el = num_it * num_el_sim_dt
-    return tot_num_el
+
 
 # Definition of domain 
     
@@ -125,14 +124,41 @@ def num_it(dt,time_sim):
     return num_it
 
 
+
+r_cyl = 15 
+h = 45
+vol = mt.pi * r_cyl**2 * h * 1e-9 # m^3 
+
 # From mdot of neutral gas Kr, particles per dt. IT WORKS 
-def mdot_to_kr_dt(mdot,dt,num_it):
+
+# Try maybe to invert the process to extrapolare the mdot necessary
+def neutral(mdot,dt,num_it):
+    print("Part per dt", "Tot part", "Average pressure", "Average density")
     mKr_kg = mKr * conv 
     mdot *= 1e-6 # conversion in kg from mg 
     part_s = mdot / mKr_kg
     part_dt = part_s * dt
     part_tot = part_dt * num_it 
-    return part_dt, part_tot
+    n = part_tot / vol
+    p = density_to_pressure(n,kb,T_neutr)
+    return part_dt, part_tot, p, n
+
+
+# current --> number of electrons inside per dt. IT WORKS 
+def el(curr,dt,num_it):
+    print("tot_num_el", "density")
+    num_el_s = curr / elem_charge
+    num_el_sim_dt = num_el_s * dt
+    tot_num_el = num_it * num_el_sim_dt
+    n_el = tot_num_el / vol 
+    return tot_num_el, n_el
+
+# Density of electrons change as well as the one for the neutrals 
+
+# For definition dt 
+    
+# def plasma_freq_el(ne,)
+
 
 
 

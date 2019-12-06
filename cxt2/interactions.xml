@@ -8,6 +8,17 @@
 	<c_accom>0</c_accom>
 </surface_hit> -->
 
+<!--
+<surface_hit source="Kr" target="al">
+	<model>absorb</model>
+	<c_stick>0</c_stick>
+	<c_rest>1</c_rest>
+	<c_accom>0</c_accom>
+</surface_hit> -->
+
+
+<!-- frequency: Time step for collision -->
+
   <mcc model="ionization">
   <source>e-</source>
   <target>Kr</target>
@@ -40,8 +51,9 @@
   </sigma_tabulated>
   <sigma_dep_var>energy</sigma_dep_var>
   <max_target_temp>10000</max_target_temp>
-  <frequency>50</frequency>
+  <frequency>1</frequency>
 </mcc>
+
 
 <!-- ERROR: Collision cross-section polynomial undefined -->
 <!--
