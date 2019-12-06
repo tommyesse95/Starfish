@@ -5,19 +5,19 @@ Created on Fri Nov  15 12:47:27 2019
 @author: Tommaso
 """
 
-# Make sure to have also the file "cross_sections" 
+# Make sure to have also the file "cross_sections"
 
 # Test code. Constant Electric Field between two plates
 
 import numpy as np
 import random
-from matplotlib import pyplot as plt 
+from matplotlib import pyplot as plt
 import csv
 
 # Definition of constants
 
-epsilon_0 = 8.8e-12 
-mass_Kr = 84*1.6e-27 # kg 
+epsilon_0 = 8.8e-12
+mass_Kr = 84*1.6e-27 # kg
 elementary_charge = 1.6e-19
 electron_max_cx_tot = 3.7e-19 #Maximum total cross section for the interactions involved.
 E_exc = 9.96*elementary_charge
@@ -30,7 +30,7 @@ T_rod = 2000 # tempreature wire
 A_kr = 16
 B_kr = 240
 sec_coeff = 0.1 # number of secondary electrons produced per incident positive ion
-factor = 1.1 # For definition breakdown voltage 
+factor = 1.1 # For definition breakdown voltage
 
 
 
@@ -75,7 +75,7 @@ def electron_elas_scat_cx(electron_energy):
                    [286.7967661319877, 4.2488583367628814e-20],
                    [408.81146099696934, 3.632531793187723e-20]])
 
-    ans = np.interp(electron_energy,cx[:,0],cx[:,1],left=0,right=0)/electron_max_cx_tot 
+    ans = np.interp(electron_energy,cx[:,0],cx[:,1],left=0,right=0)/electron_max_cx_tot
     return ans
 
 def electron_exc_rel_cx(electron_energy):
@@ -105,8 +105,8 @@ def electron_exc_rel_cx(electron_energy):
                   [105.60740702280589, 1.051134144672416e-20],
                   [144.34219134826114, 9.105387318438538e-21],
                   [197.28941207367293, 7.764485569375252e-21]])
-    
-    ans = np.interp(electron_energy,cx[:,0],cx[:,1],left=0,right=0)/electron_max_cx_tot 
+
+    ans = np.interp(electron_energy,cx[:,0],cx[:,1],left=0,right=0)/electron_max_cx_tot
     return ans
 
 def electron_ion_rel_cx(electron_energy):
@@ -134,8 +134,8 @@ def electron_ion_rel_cx(electron_energy):
                   [793.962, 1.14e-20],
                   [893.585, 1.061e-20],
                   [992.453, 0.971e-20]])
-   
-    ans = np.interp(electron_energy,cx[:,0],cx[:,1],left=0,right=0)/electron_max_cx_tot 
+
+    ans = np.interp(electron_energy,cx[:,0],cx[:,1],left=0,right=0)/electron_max_cx_tot
     return ans
 
 def electron_tot_cx(electron_energy):
@@ -189,8 +189,8 @@ def electron_tot_cx(electron_energy):
                    [1.442e-16,1.146e-20],
                    [1.7624e-16,9.87e-21],
                    [2.4033e-16,7.85e-21]])
-    
-    ans = np.interp(electron_energy,cx[:,0],cx[:,1],left=0,right=0) 
+
+    ans = np.interp(electron_energy,cx[:,0],cx[:,1],left=0,right=0)
     return ans
 
 
@@ -205,7 +205,7 @@ def temp_to_vel(temperature,mass_particle):
 class particle:
         position = np.array([0.0,0.0,0.0])
         velocity = np.array([0.0,0.0,0.0])
-        flag = False 
+        flag = False
 
         def __init__(self,position):
             self.position = position
@@ -221,7 +221,7 @@ class particle:
 
         def energy(self):
             return 0.5*self.velocity.dot(self.velocity)*electron_mass/elementary_charge
-        
+
         def exceed(self):
             self.flag = True
 
@@ -238,7 +238,7 @@ class swarm:
 
     def size(self):
         return len(self.particle_Array)
-    
+
     def reinitialize(self):
         self.particle_Array = []
 
@@ -272,7 +272,7 @@ def pusher(particle,delta_t,mass_electron,charge_electron,E_field):
     pos_new[2] = pos_old[2]+vel_new[2]*delta_t
     particle.new_position(pos_new)
     particle.new_velocity(vel_new)
-    
+
 
 def does_it_collide(neutral_density,delta_x,electron_energy):
     probability = 1 - np.exp(-neutral_density*electron_max_cx_tot*delta_x)
@@ -357,19 +357,19 @@ def distance_pd(pd,pressure):
 
 
 
-# SIMULATION 
+# SIMULATION
 
 # Notes! With 0.1 we don't reach the breakdown voltage. with 0.15 we reach 240
-# V. The minimum value should be somewhere in between. 
+# V. The minimum value should be somewhere in between.
 
 number_of_Electrons = 500  # tbc
 num_of_iter = 10
-v_thermal = temp_to_vel(T_rod,electron_mass) 
+v_thermal = temp_to_vel(T_rod,electron_mass)
 d_plate = 2e-3 # tba
 pd = np.array([0.5])# Torr cm  TBC
 max_en_exc = 197.28941207367293
 # Voltage = np.linspace(250,550,10)
-Voltage = np.arange(170,1000,10) # tbc  
+Voltage = np.arange(170,1000,10) # tbc
 starting_position = np.array([0.0, 0.0, 0.0])
 V_break = []
 perc_exceed = []
@@ -382,14 +382,14 @@ for j in range(len(pd)):
     n0 = pressure_to_density(pressure,k_b,T_neutr) #density of the neutral gas
     breakdown = False
     count = 0
-    
+
 
 #  V_br = (B_kr*pd_si) / (np.log(A_kr*pd_si) - np.log(np.log(1+ 1/sec_coeff)))
 
-# Check this before simulation 
+# Check this before simulation
 
-   
-                          
+
+
     for h in range(len(Voltage)):
         if breakdown:
             break
@@ -400,9 +400,9 @@ for j in range(len(pd)):
         print(f"Voltage: {Voltage[h]} with dt = {delta_t} s",file=open("output.txt", "a"))
         Ey = -Voltage[h] / d_plate
         E_field = np.array([0, Ey, 0])
-        # Initialization variables for siimulation 
-        num_excitations = 0 
-        num_ionizations = 0 
+        # Initialization variables for siimulation
+        num_excitations = 0
+        num_ionizations = 0
         num_scatterings = 0
         no_collisions = 0
         nothing = 0
@@ -411,24 +411,24 @@ for j in range(len(pd)):
         out_of_bounds = False
         electron_swarm = swarm("electrons")
         electron_swarm.reinitialize()
-        
-        
-        for i in range(number_of_Electrons): 
-            # Initialization swarm electrons 
-            random_angle = (random.random()*np.pi) 
+
+
+        for i in range(number_of_Electrons):
+            # Initialization swarm electrons
+            random_angle = (random.random()*np.pi)
             electron = particle(starting_position)
             vel = np.array([Maxwel_sample(v_thermal),np.abs(Maxwel_sample(v_thermal)),Maxwel_sample(v_thermal)])
             electron.new_velocity(vel)
             electron_swarm.add_particle(electron)
-    
-        
+
+
         for k in range(num_of_iter):
             sec_emission = round(sec_coeff * num_ionizations)
             if sec_emission > factor * number_of_Electrons:
                 time_break = time_in_domain * delta_t
                 V_break.append(Voltage[h])
-                breakdown = True 
-                break 
+                breakdown = True
+                break
             for p in range(electron_swarm.size()):
                 out_of_bounds = position_checker(electron_swarm.particle_Array[p], d_plate)
                 while not out_of_bounds:
@@ -436,7 +436,7 @@ for j in range(len(pd)):
                     Energy_part = 0.5*electron_swarm.particle_Array[p].velSquared()*electron_mass
                     Energy_electron = Energy_part / elementary_charge
                     if Energy_electron > max_en_exc and not electron_swarm.particle_Array[p].flag  :
-                        count += 1 
+                        count += 1
                         electron_swarm.particle_Array[p].exceed()
                     out_of_bounds = position_checker(electron_swarm.particle_Array[p], d_plate)
                     delta_x = delta_t * np.sqrt(electron_swarm.particle_Array[p].velSquared())
@@ -457,31 +457,32 @@ for j in range(len(pd)):
                             nothing += 1
                     else:
                         no_collisions += 1
-    
+
                     time_in_domain +=1
-                    
-    
-    
-        perc_exceed.append(count/number_of_Electrons*100)    
-         
+
+
+
+        perc_exceed.append(count/number_of_Electrons*100)  
+        print(f"Percentual exceed: {perc_exceed[h]}  %", file=open("output.txt", "a"))
+
     if breakdown:
         print(f"Breakdown! at {time_break} s with {V_break[j]} V", file=open("output.txt", "a"))
         print(f"Pressure neutral gas: {pressure} Pa", file=open("output.txt", "a"))
         print(f"Density neutral gas: {n0} per m\u00b3", file=open("output.txt", "a"))
         print(f"pd = {pd[j]} Torr cm \n", file=open("output.txt", "a"))
-        
+
     else:
         V_break.append("None")
         print(f"No Breakdown. num ionizations: {num_ionizations}\n", file=open("output.txt", "a"))
 
-with open('data_sparc.csv', 'w', newline='') as f: # TBC CHange number file 
+with open('data_sparc.csv', 'w', newline='') as f: # TBC CHange number file
     thewriter = csv.writer(f)
-    
+
     for l in range(len(pd)):
         thewriter.writerow([pd[l], V_break[l]])
-        
-## Plotting 
-#            
+
+## Plotting
+#
 #plt.figure(figsize=(8,5), dpi=100)
 #
 #plt.plot (pd, V_break, 'b^--')
@@ -503,11 +504,3 @@ with open('data_sparc.csv', 'w', newline='') as f: # TBC CHange number file
 #plt.savefig('breakdown_voltage.png', dpi=300)
 #
 #plt.show()
-       
-        
-        
-       
-        
-
-
-
