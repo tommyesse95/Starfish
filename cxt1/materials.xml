@@ -6,7 +6,7 @@
 	<molwt>83.79</molwt>
 	<ionization_energy> 13.99961 </ionization_energy >
 	<charge>0</charge>
-	<spwt>1e10</spwt> <!-- Particles in one macroparticle. Critical parameter. tba -->
+	<spwt>1e2</spwt> <!-- Particles in one macroparticle. Critical parameter. tba -->
 	<diam>88.0e-12</diam>
 	<!-- <init>nd_back=1e4</init> 1e-5 su cm^3 -->
 </material>

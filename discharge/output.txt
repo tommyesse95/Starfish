@@ -2,17 +2,25 @@
 
 Simulation 1 with pd = 0.5 Torr cm 
 
-Voltage: 170 with dt = 4.343924126043968e-14 s
-
-
-Simulation 1 with pd = 0.5 Torr cm 
-
-Voltage: 170 with dt = 4.343924126043968e-14 s
-
-
-Simulation 1 with pd = 0.5 Torr cm 
-
 Voltage: 170 with dt = 4.3439241260439683e-13 s
+Percentual exceed: 0.0  %
 Voltage: 180 with dt = 4.221535435636715e-13 s
+Percentual exceed: 0.0  %
 Voltage: 190 with dt = 4.108940866337164e-13 s
+Percentual exceed: 0.6  %
 Voltage: 200 with dt = 4.004900159916952e-13 s
+Percentual exceed: 0.0  %
+Voltage: 210 with dt = 3.908382358214545e-13 s
+Percentual exceed: 0.0  %
+Breakdown! at 4.82965295919286e-06 s with 210 V
+Pressure neutral gas: 333.305 Pa
+Density neutral gas: 8.047060959495619e+22 per m³
+pd = 0.5 Torr cm 
+
+
+
+Simulation 2 with pd = 0.7 Torr cm 
+
+Voltage: 170 with dt = 3.1028029471742633e-13 s
+Percentual exceed: 0.0  %
+Voltage: 180 with dt = 3.0153824540262254e-13 s

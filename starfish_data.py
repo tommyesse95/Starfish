@@ -129,12 +129,10 @@ def mdot_to_kr_dt(mdot,dt,num_it):
 
 
 # time simulation 
-def time():
+def num_it(dt,time_sim):
     
-    dt = 5e-10
-    num_it = 3000000 # number of iterations
-    time_sim = dt * num_it # Time simulation
-    
+    num_it = time_sim/dt # Time simulation
+    return num_it
 
 
 
