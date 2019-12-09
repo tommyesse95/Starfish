@@ -85,11 +85,12 @@ M anode2:last l 5e-3 0.0
 </path>
 </boundary>
 
+<!--
 <boundary name="check" type="sink">
 <path>
 M  wall7:last L 134.0 0.0
 </path>
-</boundary>
+</boundary> -->
 
 
 
