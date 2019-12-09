@@ -388,7 +388,7 @@ perc_exceed = []
 
 
 for j in range(len(pd)):
-    print(f"\n\nSimulation {j+1} with pd = {pd[j]} Torr cm \n",file=open("output.txt", "a"))
+    print(f"\n\nSimulation {j+1} with pd = {pd[j]} Torr cm \n",file=open(os.path.join("results", "output.txt"), "a"))
     pd_si = pd[j] * 133.322 * 1e-2 # conversion in Pa*m
     pressure = pressure_pd(pd_si, d_plate) # Pressure in Pascal considering pd
     n0 = pressure_to_density(pressure,k_b,T_neutr) #density of the neutral gas
