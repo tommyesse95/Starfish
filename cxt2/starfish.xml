@@ -1,17 +1,21 @@
 <!-- starfish input file -->
 <simulation>
-<note>cxt setup</note>
+<note>cxt setup (only neutral gas)</note>
+
 
 <!-- load input files -->
 <load>materials.xml</load>
 <load>domain.xml</load>
 <load>boundaries.xml</load>
 <load>interactions.xml</load>
+<load>sources.xml</load>
+
+
 <output type="boundaries" file_name="results/boundaries.vtp" format="vtk">
-<variables>deprate.Kr, flux-normal.Kr</variables>
+<variables>deprate.Kr, flux.Kr</variables>
 </output>
 
-<load>sources.xml</load>
+
 
 <!--enable animation and tracing -->
 <animation start_it="1" frequency="200">
@@ -44,13 +48,13 @@
 <steady_state>-1</steady_state>
 </time>
 
-<!--enable restart save
+<!--enable restart save -->
 <restart>
-<it_save>100</it_save>
+<it_save>20000</it_save>
 <save>true</save>
 <load>false</load>
-<nt_add>500</nt_add>
-</restart> -->
+<nt_add>-1</nt_add>
+</restart>
 
 
 <solver>
