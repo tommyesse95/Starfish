@@ -16,9 +16,10 @@
 	<boundary>neutral_inlet</boundary>
 	<material>Kr</material>
 	<mdot>1e-6</mdot>
-	<temperature>273</temperature>
-	<v_drift>1e3</v_drift> <!-- tba -->
+ <temperature>273</temperature>
+ <v_drift>340</v_drift> <!-- tba -->
 </boundary_source>
+
 
 <!-- Use restart data to load the density profile. Python code
 does not work for this-->
