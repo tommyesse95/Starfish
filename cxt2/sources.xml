@@ -12,12 +12,12 @@
 </boundary_source> -->
 
 
-	<boundary_source name="neutral_gas" type="maxwellian">
+<boundary_source name="neutral_gas" type="maxwellian">
 	<boundary>neutral_inlet</boundary>
 	<material>Kr</material>
 	<mdot>1e-6</mdot>
-	<temperature>278</temperature>
-	<v_drift>1e3</v_drift>
+	<temperature>273</temperature>
+	<v_drift>1e3</v_drift> <!-- tba -->
 </boundary_source>
 
 <!-- Use restart data to load the density profile. Python code

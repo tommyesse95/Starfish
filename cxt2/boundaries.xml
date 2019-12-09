@@ -54,11 +54,6 @@ M wall4:last l 8e-3 0.0
 </path>
 </boundary>
 
-<boundary name="check" type="sink">
-<path>
-M  45e-3 15e-3 L 45e-3 0.0
-</path>
-</boundary>
 
 <boundary name="wall5" type="solid" material="al" value="0">
 <path>
@@ -89,6 +84,15 @@ M wall6:last l 8e-3 0.0
 M anode2:last l 5e-3 0.0
 </path>
 </boundary>
+
+<boundary name="check" type="sink">
+<path>
+M  wall7:last L 134.0 0.0
+</path>
+</boundary>
+
+
+
 
 
 

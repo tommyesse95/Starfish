@@ -8,29 +8,30 @@
 <load>boundaries.xml</load>
 <load>interactions.xml</load>
 <output type="boundaries" file_name="results/boundaries.vtp" format="vtk">
-<variables>deprate.Kr+, flux-normal.Kr+</variables>
+<variables>deprate.Kr, flux-normal.Kr</variables>
 </output>
 
 <load>sources.xml</load>
 
-
 <!--enable animation and tracing -->
 <animation start_it="1" frequency="200">
+
+
 <output type="2D" file_name="results/field_ani.vts" format="vtk">
-<scalars>phi,rho, nd.Kr+,nd.e-,nd.Kr</scalars>
-<vectors>[efi, efj],[u.Kr+,v.Kr+]</vectors>
+<scalars>phi,rho,nd.Kr</scalars>
+<vectors>[efi, efj]</vectors>
 </output>
 
-<output type="particles" file_name="results/particles-o+.vtp" format="vtk">
+<output type="particles" file_name="results/particles-Kr.vtp" format="vtk">
 <count>2000</count>
-<material>Kr+</material>
+<material>Kr</material>
 <rotate>true</rotate>
 </output>
 
 </animation>
 
 
-<particle_trace file_name="results/trace.vtp" format="vtk" output_format="ascii" material="Kr+">
+<particle_trace file_name="results/trace.vtp" format="vtk" output_format="ascii" material="Kr">
 <random_ids>5,1000</random_ids>
 <start_it>0</start_it>
 </particle_trace>
@@ -57,7 +58,7 @@
 <max_it>2000</max_it>
 <tol>1e-4</tol>
 <linear>false</linear>
-<initial_only>false</initial_only>
+<initial_only>true</initial_only> <!-- Only neutrals -->
 <n0>0</n0>
 <te0>2</te0> <!-- It does not matter, solution will be 0 -->
 <phi0>0</phi0>
@@ -69,19 +70,19 @@
 
 <!-- output -->
 <output type="2D" file_name="results/field.vts" format="vtk">
-<scalars>nodevol, phi, rho, p, nd.Kr+,  nd-ave.Kr+, nd.e-, nd.Kr, nd-ave.Kr </scalars>
-<vectors>[efi, efj], [u-ave.Kr+,v-ave.Kr+]</vectors>
+<scalars>nodevol, phi, rho, p, nd.Kr,  nd-ave.Kr</scalars>
+<vectors>[efi, efj], [u-ave.Kr,v-ave.Kr]</vectors>
 </output>
 
 <!-- surface -->
 <output type="boundaries" file_name="results/boundaries.vtp" format="vtk">
-<variables>deprate.Kr+, flux-normal.Kr+</variables>
+<variables>deprate.Kr, flux-normal.Kr</variables>
 </output>
 
 <!-- particle positions and velocities for a scatter plot -->
 <output type="particles" file_name="results/particles-i.vtp" format="vtk">
 <count>10000</count>
-<material>Kr+</material>
+<material>Kr</material>
 <rotate>true</rotate>
 </output>
 
