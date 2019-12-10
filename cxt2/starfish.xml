@@ -18,13 +18,25 @@
 
 
 <!--enable animation and tracing -->
-<animation start_it="1" frequency="200">
-
+ <animation start_it="1" frequency="200">
 
 <output type="2D" file_name="results/field_ani.vts" format="vtk">
-<scalars>phi,rho,nd.Kr</scalars>
+<scalars>nd.Kr, p, t</scalars>
 <vectors>[efi, efj]</vectors>
 </output>
+
+<!--
+<animation start_it="1" frequency="1" clear_samples="true">
+<output type="1D" file_name="results/field_1D.vts" format="vtk" output_format="appended">
+<scalars>mpc-sum.Kr, p.Kr, t.Kr</scalars>
+<mesh>mesh</mesh>
+<index>I=average</index>
+<time_data_lines>50</time_data_lines>
+<time_data_write_skip>1</time_data_write_skip>
+<time_data_time_scale> 1e-9 </time_data_time_scale>
+</output>
+</animation> -->
+
 
 <output type="particles" file_name="results/particles-Kr.vtp" format="vtk">
 <count>2000</count>
@@ -32,8 +44,7 @@
 <rotate>true</rotate>
 </output>
 
-</animation>
-
+</animation> 
 
 <particle_trace file_name="results/trace.vtp" format="vtk" output_format="ascii" material="Kr">
 <random_ids>5,1000</random_ids>
@@ -43,7 +54,7 @@
 
 <!-- set time parameters 5e-8-->
 <time>
-<num_it>200000</num_it>
+<num_it>50</num_it>
 <dt>1e-9</dt>
 <steady_state>-1</steady_state>
 </time>

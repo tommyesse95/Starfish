@@ -11,7 +11,8 @@ l makes a line to a point given by (dx,dy) offsets
 </path>
 </boundary>
 
-<boundary name="wall1" type="open" material="al" value="0">
+
+<boundary name="wall1" type="open" material="al" value="10">
 <path>
 M inlet:last l 0 2e-3
 </path>
@@ -24,11 +25,13 @@ M wall1:last l 2e-3 0
 </path>
 </boundary>
 
+
 <boundary name="keeper" type="solid" material="al" value="100">
 <path>
 M wall2:last l 0 4e-3
 </path>
 </boundary>
+
 
 <boundary name="wall3" type="open" material="al" value="0">
 <path>
