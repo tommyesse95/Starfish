@@ -4,63 +4,75 @@ L makes a line to a given (x,y) position
 l makes a line to a point given by (dx,dy) offsets
 -->
 
+
 <boundaries units="m">
 <transform reverse="true" />
-<boundary name="inlet" type="virtual">
-<path> M 0.0 0.0 L 0.0 2e-3
+<!--
+<boundary name="inlet" type="solid" material="al" value="0">
+<path> M 0.0 0.0 L 0.0 15e-3
 </path>
-</boundary>
+</boundary> -->
 
-
-<boundary name="wall1" type="open" material="al" value="10">
+<boundary name="wall2" type="open" material="al" value="0">
 <path>
-M inlet:last l 0 2e-3
+M 0.0 0.0 l 0 15e-3
+</path>
+</boundary>
+
+<boundary name="wall1" type="open" material="al" value="0">
+<path>
+M wall2:last l 30e-3 0.0
 </path>
 </boundary>
 
 
+
+
+<!--
 <boundary name="wall2" type="open" material="al" value="0">
 <path>
 M wall1:last l 2e-3 0
 </path>
-</boundary>
+</boundary> -->
 
-
-<boundary name="keeper" type="solid" material="al" value="100">
+<!--
+<boundary name="keeper" type="open" material="al" value="0">
 <path>
 M wall2:last l 0 4e-3
 </path>
-</boundary>
+</boundary> -->
 
-
+<!--
 <boundary name="wall3" type="open" material="al" value="0">
 <path>
 M keeper:last L 2e-3 15e-3
 </path>
-</boundary>
+</boundary> -->
 
-
+<!--
 <boundary name="wall4" type="open" material="al" value="0">
 <path>
 M wall3:last l 12e-3 0
 </path>
-</boundary>
+</boundary> -->
 
+<!--
 <boundary name="neutral_inlet" type="virtual">
 <path> M wall4:last L 18e-3 15e-3
 </path>
-</boundary>
+</boundary> -->
 
+<!--
 <boundary name="wall5" type="open" material="al" value="0">
 <path>
 M neutral_inlet:last l 14e-3 0.0
 </path>
-</boundary>
+</boundary> -->
 
 
 <boundary name="anode" type="solid" material="al" value="400">
 <path>
-M wall5:last l 8e-3 0.0
+M wall1:last l 8e-3 0.0
 </path>
 </boundary>
 

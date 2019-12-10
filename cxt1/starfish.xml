@@ -6,12 +6,11 @@
 <load>materials.xml</load>
 <load>domain.xml</load>
 <load>boundaries.xml</load>
-<load>interactions.xml</load>
 <output type="boundaries" file_name="results/boundaries.vtp" format="vtk">
 <variables>deprate.Kr+, flux-normal.Kr+</variables>
 </output>
-
-<load>sources.xml</load>
+<load>interactions.xml</load>
+<!-- <load>sources.xml</load> --> 
 
 
 <!--enable animation and tracing -->
@@ -21,7 +20,7 @@
 <vectors>[efi, efj],[u.Kr+,v.Kr+]</vectors>
 </output>
 
-<output type="particles" file_name="results/particles-o+.vtp" format="vtk">
+<output type="particles" file_name="results/particles-Kr+.vtp" format="vtk">
 <count>2000</count>
 <material>Kr+</material>
 <rotate>true</rotate>
@@ -57,9 +56,9 @@
 <max_it>2000</max_it>
 <tol>1e-4</tol>
 <linear>true</linear>
-<initial_only>false</initial_only>
+<initial_only>true</initial_only>
 <n0>0</n0>
-<te0>2</te0> <!-- It does not matter, solution will be 0 -->
+<te0>2</te0>
 <phi0>0</phi0>
 </solver>
 

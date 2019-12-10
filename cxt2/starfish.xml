@@ -7,7 +7,6 @@
 <load>materials.xml</load>
 <load>domain.xml</load>
 <load>boundaries.xml</load>
-<load>interactions.xml</load>
 <load>sources.xml</load>
 
 
@@ -44,7 +43,7 @@
 <rotate>true</rotate>
 </output>
 
-</animation> 
+</animation>
 
 <particle_trace file_name="results/trace.vtp" format="vtk" output_format="ascii" material="Kr">
 <random_ids>5,1000</random_ids>
@@ -73,8 +72,8 @@
 <max_it>2000</max_it>
 <tol>1e-4</tol>
 <linear>false</linear>
-<initial_only>true</initial_only> <!-- Only neutrals -->
-<n0>0</n0>
+<initial_only>true</initial_only>
+<n0>1e14</n0>
 <te0>2</te0> <!-- It does not matter, solution will be 0 -->
 <phi0>0</phi0>
 </solver>
