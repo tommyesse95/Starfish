@@ -43,7 +43,7 @@
 
 <!-- set time parameters 5e-8-->
 <time>
-<num_it>20000</num_it>
+<num_it>200000</num_it>
 <dt>1e-8</dt>
 <steady_state>-1</steady_state>
 </time>
