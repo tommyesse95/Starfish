@@ -17,10 +17,10 @@ import shutil
 import os
 
 
-if os.path.exists('results'):
-    shutil.rmtree('results') # Initialize the folder of results
+if os.path.exists('results2'):
+    shutil.rmtree('results2') # Initialize the folder of results2
 
-os.mkdir('results')
+os.mkdir('results2')
 
 # Definition of constants
 epsilon_0 = 8.8e-12
@@ -388,7 +388,7 @@ perc_exceed = []
 
 
 for j in range(len(pd)):
-    print(f"\n\nSimulation {j+1} with pd = {pd[j]} Torr cm \n",file=open(os.path.join("results", "output.txt"), "a"))
+    print(f"\n\nSimulation {j+1} with pd = {pd[j]} Torr cm \n",file=open(os.path.join("results2", "output.txt"), "a"))
     pd_si = pd[j] * 133.322 * 1e-2 # conversion in Pa*m
     pressure = pressure_pd(pd_si, d_plate) # Pressure in Pascal considering pd
     n0 = pressure_to_density(pressure,k_b,T_neutr) #density of the neutral gas
@@ -409,7 +409,7 @@ for j in range(len(pd)):
         max_vel = np.sqrt((2*Voltage[h]*elementary_charge)/(electron_mass)) # Velocity for conservation energy
         deltat_free = lambda_free/max_vel # delta t needed for distance lamda free
         delta_t = 1e-1 * deltat_free #tbc
-        print(f"Voltage: {Voltage[h]} with dt = {delta_t} s",file=open(os.path.join("results","output.txt"), "a"))
+        print(f"Voltage: {Voltage[h]} with dt = {delta_t} s",file=open(os.path.join("results2","output.txt"), "a"))
         Ey = -Voltage[h] / d_plate
         E_field = np.array([0, Ey, 0])
         # Initialization variables for siimulation
@@ -475,22 +475,22 @@ for j in range(len(pd)):
 
 
         perc_exceed.append((count/number_of_Electrons)*100)
-        print(f"Percentual exceed: {perc_exceed[h]}  %", file=open(os.path.join("results","output.txt"), "a"))
-        with open(os.path.join('results','perc_exceed.csv'), 'a', newline='') as f:
+        print(f"Percentual exceed: {perc_exceed[h]}  %", file=open(os.path.join("results2","output.txt"), "a"))
+        with open(os.path.join('results2','perc_exceed.csv'), 'a', newline='') as f:
             thewriter = csv.writer(f)
             thewriter.writerow([pd[j],Voltage[h],perc_exceed[h]])
 
     if breakdown:
-        print(f"Breakdown! at {time_break} s with {V_break[j]} V", file=open(os.path.join("results","output.txt"), "a"))
-        print(f"Pressure neutral gas: {pressure} Pa", file=open(os.path.join("results","output.txt"), "a"))
-        print(f"Density neutral gas: {n0} per m\u00b3", file=open(os.path.join("results","output.txt"), "a"))
-        print(f"pd = {pd[j]} Torr cm \n", file=open(os.path.join("results","output.txt"), "a"))
+        print(f"Breakdown! at {time_break} s with {V_break[j]} V", file=open(os.path.join("results2","output.txt"), "a"))
+        print(f"Pressure neutral gas: {pressure} Pa", file=open(os.path.join("results2","output.txt"), "a"))
+        print(f"Density neutral gas: {n0} per m\u00b3", file=open(os.path.join("results2","output.txt"), "a"))
+        print(f"pd = {pd[j]} Torr cm \n", file=open(os.path.join("results2","output.txt"), "a"))
 
     else:
         V_break.append("None")
-        print(f"No Breakdown. num ionizations: {num_ionizations}\n", file=open(os.path.join("results","output.txt"), "a"))
+        print(f"No Breakdown. num ionizations: {num_ionizations}\n", file=open(os.path.join("results2","output.txt"), "a"))
 
-with open(os.path.join('results','data_sparc.csv'), 'a', newline='') as f:
+with open(os.path.join('results2','data_sparc.csv'), 'a', newline='') as f:
     thewriter = csv.writer(f)
 
     for l in range(len(pd)):
