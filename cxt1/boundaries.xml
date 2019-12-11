@@ -17,7 +17,7 @@ l makes a line to a point given by (dx,dy) offsets
 
 <boundary name="wall1" type="solid" material="al" value="0">
 <path>
-M 0.0 0.0 l 0 15e-3
+M 0.0 0.0 l 0 10e-3
 </path>
 </boundary>
 
@@ -56,7 +56,7 @@ M anode:last l 10e-3 0.0
 
 <boundary name="wall4" type="sink">
 <path>
-M anode:last l 0.0 -15e-3
+M anode:last l 0.0 -10e-3
 </path>
 </boundary>
 
