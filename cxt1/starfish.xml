@@ -35,7 +35,7 @@
 
 <!-- set time parameters 5e-8-->
 <time>
-<num_it>1</num_it>
+<num_it>1e7</num_it>
 <!-- <dt>1e-8</dt> For neutrals -->
 <dt>1e-12</dt>
 <steady_state>-1</steady_state>
