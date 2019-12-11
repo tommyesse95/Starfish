@@ -265,10 +265,11 @@ def position_checker(particle, d_plate):
         return True
     else:
         return False# time simulation
+    
 def num_it(dt,time_sim):
 
     num_it = time_sim/dt # Time simulation
-    return num_ite
+    return num_it
 
 def pusher(particle,delta_t,mass_electron,charge_electron,E_field):
     vel_old = particle.velocity

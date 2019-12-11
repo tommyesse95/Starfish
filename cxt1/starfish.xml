@@ -6,15 +6,12 @@
 <load>materials.xml</load>
 <load>domain.xml</load>
 <load>boundaries.xml</load>
-<output type="boundaries" file_name="results/boundaries.vtp" format="vtk">
-<variables>deprate.Kr+, flux-normal.Kr+</variables>
-</output>
 <load>interactions.xml</load>
 <load>sources.xml</load>
 
 
 <!--enable animation and tracing -->
-<animation start_it="1" frequency="200">
+<animation start_it="1" frequency="20">
 <output type="2D" file_name="results/field_ani.vts" format="vtk">
 <scalars>phi,rho, nd.Kr+,nd.e-,nd.Kr</scalars>
 <vectors>[efi, efj],[u.Kr+,v.Kr+]</vectors>
@@ -29,6 +26,7 @@
 </animation>
 
 
+
 <particle_trace file_name="results/trace.vtp" format="vtk" output_format="ascii" material="Kr+">
 <random_ids>5,1000</random_ids>
 <start_it>0</start_it>
@@ -37,8 +35,9 @@
 
 <!-- set time parameters 5e-8-->
 <time>
-<num_it>100000</num_it>
-<dt>1e-11</dt>
+<num_it>1e5</num_it>
+<dt>1e-8</dt>
+<!-- <dt>1e-12</dt> For electrons -->
 <steady_state>-1</steady_state>
 </time>
 
@@ -55,8 +54,8 @@
 <type>poisson</type>
 <max_it>20000</max_it>
 <tol>1e-4</tol>
-<linear>true</linear>
-<initial_only>true</initial_only>
+<linear>false</linear>
+<initial_only>false</initial_only>
 <n0>0</n0>
 <te0>2</te0>
 <phi0>0</phi0>
@@ -67,20 +66,22 @@
 
 
 <!-- output -->
+<!-- Output for boundaries -->
+<output type="boundaries" file_name="results/boundaries.vtp" format="vtk">
+<variables>deprate.Kr, flux-normal.Kr</variables>
+</output>
+
+
 <output type="2D" file_name="results/field.vts" format="vtk">
 <scalars>nodevol, phi, rho, p, nd.Kr+,  nd-ave.Kr+, nd.e-, nd.Kr, nd-ave.Kr, nd-ave.e- </scalars>
 <vectors>[efi, efj], [u-ave.Kr+,v-ave.Kr+]</vectors>
 </output>
 
-<!-- surface -->
-<output type="boundaries" file_name="results/boundaries.vtp" format="vtk">
-<variables>deprate.Kr+, flux-normal.Kr+</variables>
-</output>
 
 <!-- particle positions and velocities for a scatter plot -->
 <output type="particles" file_name="results/particles-i.vtp" format="vtk">
 <count>10000</count>
-<material>Kr+</material>
+<material>Kr</material>
 <rotate>true</rotate>
 </output>
 

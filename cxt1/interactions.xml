@@ -8,7 +8,6 @@
   <c_rest>1.0</c_rest>
   </surface_hit> -->
 
-
   <dsmc model="elastic">
   <pair>Kr,Kr</pair>
   <sigma>Bird463</sigma>
@@ -59,7 +58,7 @@
   <frequency>1</frequency>
 </mcc>
 
-
+<!-- interactions of ions -->
 <!--
 <surface_hit source="Kr+" target="al">
 <product>Kr</product>

@@ -20,8 +20,16 @@ mass_elec = 9.1909e-31 # kg
 elem_charge = 1.6e-19 # elementary charge
 mKr = 83.798 #u of Krypton
 conv = 1.66054e-27 # 1u in kg
+mKr_kg = mKr * conv
 eps0 = 8.851e-12
-T_neutr = 293
+T_neutr = 273
+r_cyl = 15e-3
+h_cyl = 38e-3
+d_anode = 34e-3
+vol_cyl = mt.pi * r_cyl**2 * h_cyl
+
+dist_inl_anode = mt.sqrt(r_cyl**2 + d_anode**2)
+
 
 
 # from ev to K 
@@ -39,20 +47,23 @@ def density_to_pressure(density,kb,T_neutr):
     return pressure 
 
 
-## Eletrons simulated Per second. (from mdot)
-def mdotelec_to_curr(mdot_elec):
-    mdot_elec *= 1e-6 # conversion in kg from mg 
-    num_elec = mdot_elec / mass_elec
-    curr = num_elec * elem_charge
-    return curr 
+def therm_velocity(T, mass):
+    vel = mt.sqrt((8 * kb * T)/(mass*mt.pi))
+    return vel 
 
 
-
-
-
-# Definition of domain 
+def neutral_density(mdot, r_out):
+    v_therm = therm_velocity(T_neutr, mKr_kg)
+    A = mt.pi * r_out**2
+    n = (4 * mdot) / (A * v_therm * mKr_kg)
+    part = n * vol_cyl
+    p = density_to_pressure(n,kb,T_neutr)
+    pd = p * dist_inl_anode
+    pd_Torr = pd /(133.322 * 1e-2)
+    return n, part, p, pd_Torr
     
-# Debye lenght 
+    
+# Debye length
 def debye(Te,n0):
     debye = np.sqrt((eps0*kb*ev_to_K(Te))/(n0*elem_charge**2))
     return debye
@@ -64,95 +75,41 @@ def num_nodes(domain_size, spacing):
     return (nodesx, nodesy)
 
 
-
-
-
- 
 def drift_ele(ne,I,r_or): # ne: density electrons in the orifice
     A = mt.pi * r_or**2
     drift_v = I / (ne* elem_charge * A) # drift velocity of electrons 
     print(f" Drift velocity of electrons in the orifice: {drift_v}")
 
 
-# Thermal velocity 
-def temp_to_vel(temperature,mass_particle):
-    v_th = np.sqrt(2*kb*temperature/mass_particle)
-    return v_th
-
-
-
-# NUmber of particles 
-# Density from pressure. # TBC
-    
-def neutrals():
-    print("Insert pressure in Pa:")
-    pressure = int(input())
-       
-    print("\nInsert r cylinder (mm):")
-    r_cyl = int(input())
-    
-    print("\nInsert h cylinder (mm):")
-    h = int(input())
-    
-    print("\nInsert r inlet (mm):")
-    r_inl = int(input())
-    
-    print("\nInsert vel injection (m/s):")
-    u = int(input())
-    
-    vol = mt.pi * r_cyl**2 * h * 1e-9 # m^3 
-    n = pressure/(kb*T_neutr) # #/m^3
-    part = n * vol
-    #A = mt.pi * r_inl**2 * 1e-6 
-    A = 2 * mt.pi * r_cyl * r_inl * 1e-6
-    mdot = mKr * n * u * A * conv
-    
-    print(f"Number of particles: {part}, spwt?")
-    
-    return part, n, mdot 
-
-
 # time simulation 
 def num_it(dt,time_sim):
-    
     num_it = time_sim/dt # Time simulation
     return num_it
 
 
 
-r_cyl = 15 
-h = 45
-vol = mt.pi * r_cyl**2 * h * 1e-9 # m^3 
-
-# From mdot of neutral gas Kr, particles per dt. IT WORKS 
-
 # Try maybe to invert the process to extrapolare the mdot necessary
-def neutral(mdot,dt,num_it):
+def neutral_dt(mdot,dt,num_it):
     print("Part per dt", "Tot part", "Average pressure", "Average density")
     mKr_kg = mKr * conv 
     mdot *= 1e-6 # conversion in kg from mg 
     part_s = mdot / mKr_kg
     part_dt = part_s * dt
-    part_tot = part_dt * num_it 
-    n = part_tot / vol
-    p = density_to_pressure(n,kb,T_neutr)
-    return part_dt, part_tot, p, n
+    return part_dt
 
 
 # current --> number of electrons inside per dt. IT WORKS 
-def el(curr,dt,num_it):
+def el(curr,dt):
     print("tot_num_el", "density")
     num_el_s = curr / elem_charge
-    num_el_sim_dt = num_el_s * dt
-    tot_num_el = num_it * num_el_sim_dt
-    n_el = tot_num_el / vol 
-    return tot_num_el, n_el
-
-# Density of electrons change as well as the one for the neutrals 
-
-# For definition dt 
+    num_el_sim_dt = num_el_s * dt  
+    return num_el_sim_dt
     
-# def plasma_freq_el(ne,)
+def dt_el(ne):
+    omega = mt.sqrt((ne*elem_charge**2)/(mass_elec * eps0))
+    dt = 1/omega
+    return dt
+
 
 
 
