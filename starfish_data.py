@@ -60,6 +60,11 @@ def neutral_density(mdot, r_out):
     p = density_to_pressure(n,kb,T_neutr)
     pd = p * dist_inl_anode
     pd_Torr = pd /(133.322 * 1e-2)
+    print(f"Density: {n}")
+    print(f"Particles: {part}")
+    print(f"Pressure"": {p}")
+    print(f"pd (Torr cm): {pd_Torr}")
+    
     return n, part, p, pd_Torr
 
     
