@@ -61,7 +61,7 @@ def neutral_density(mdot, r_out):
     pd = p * dist_inl_anode
     pd_Torr = pd /(133.322 * 1e-2)
     return n, part, p, pd_Torr
-    
+
     
 # Debye length
 def debye(Te,n0):
@@ -70,8 +70,8 @@ def debye(Te,n0):
 
 
 def num_nodes(domain_size, spacing):
-    nodesx= domain_size[0] / spacing[0]
-    nodesy = domain_size[1] / spacing[1]
+    nodesx= domain_size[0] / spacing[0] + 1
+    nodesy = domain_size[1] / spacing[1] + 1 
     return (nodesx, nodesy)
 
 
