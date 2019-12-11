@@ -9,7 +9,7 @@
 	<temperature>23209.03624</temperature>
 	<v_drift>1e3</v_drift>
 
-</boundary_source> 
+</boundary_source>
 
 <!--
 <boundary_source name="neutral_gas" type="maxwellian">

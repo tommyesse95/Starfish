@@ -23,7 +23,7 @@
 <material name="e-" type="kinetic">
 	<molwt>0.000548597</molwt>
 	<charge>-1</charge>
-	<spwt>1e10</spwt>
+	<spwt>1e6</spwt>
 </material>
 
 
