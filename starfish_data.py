@@ -109,7 +109,6 @@ def neutral_dt(mdot,dt,num_it):
 
 # current --> number of electrons inside per dt. IT WORKS 
 def el(curr,dt):
-    print("tot_num_el", "density")
     num_el_s = curr / elem_charge
     num_el_sim_dt = num_el_s * dt  
     return num_el_sim_dt
