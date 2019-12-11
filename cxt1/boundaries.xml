@@ -41,7 +41,7 @@ M neutral_inlet:last l 18e-3 0.0
 </boundary>
 
 
-<boundary name="anode" type="solid" material="al" value="600">
+<boundary name="anode" type="solid" material="al" value="500">
 <path>
 M wall3:last l 8e-3 0.0
 </path>

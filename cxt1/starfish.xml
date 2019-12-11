@@ -78,7 +78,7 @@
 
 
 <output type="2D" file_name="results/field.vts" format="vtk">
-<scalars>nodevol, phi, rho, p, nd.Kr+,  nd-ave.Kr+, nd.e-, nd.Kr, nd-ave.Kr, nd-ave.e- </scalars>
+<scalars>nodevol, phi, rho, p, nd.Kr+,  nd-ave.Kr+, nd.e-, nd.Kr, nd-ave.Kr, nd-ave.e-, mpc-sum.Kr </scalars>
 <vectors>[efi, efj], [u-ave.Kr+,v-ave.Kr+]</vectors>
 </output>
 
