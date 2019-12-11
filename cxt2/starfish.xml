@@ -46,7 +46,7 @@
 <it_save>30000</it_save>
 <save>true</save>
 <load>false</load>
-<nt_add>500</nt_add>
+<nt_add>-1</nt_add>
 </restart>
 
 <solver>
