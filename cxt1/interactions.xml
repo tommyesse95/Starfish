@@ -60,19 +60,6 @@
 </mcc>
 
 
-<!-- ERROR: Collision cross-section polynomial undefined -->
-<!--
-<chemistry name="ionization" >
-<sources>Kr,e-</sources>
-<products>Kr+,2*e-</products>
-<rate>
- <type>polynomial</type>
- <coeffs>1,0</coeffs>
- <multiplier>1e-9</multiplier>
- <dep_var mat="e-"></dep_var>
-</rate>
-</chemistry> -->
-
 <!--
 <surface_hit source="Kr+" target="al">
 <product>Kr</product>

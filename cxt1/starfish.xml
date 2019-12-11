@@ -10,7 +10,7 @@
 <variables>deprate.Kr+, flux-normal.Kr+</variables>
 </output>
 <load>interactions.xml</load>
-<!-- <load>sources.xml</load> --> 
+<load>sources.xml</load>
 
 
 <!--enable animation and tracing -->
@@ -37,7 +37,7 @@
 
 <!-- set time parameters 5e-8-->
 <time>
-<num_it>1</num_it>
+<num_it>100000</num_it>
 <dt>1e-11</dt>
 <steady_state>-1</steady_state>
 </time>
@@ -53,7 +53,7 @@
 
 <solver>
 <type>poisson</type>
-<max_it>2000</max_it>
+<max_it>20000</max_it>
 <tol>1e-4</tol>
 <linear>true</linear>
 <initial_only>true</initial_only>

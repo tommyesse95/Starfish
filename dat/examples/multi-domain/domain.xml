@@ -29,6 +29,5 @@
 <mesh-bc wall="left" type="symmetry" />
 </mesh>
 
+
 </domain>
-        
-      

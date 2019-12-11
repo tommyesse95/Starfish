@@ -57,16 +57,11 @@ def debye(Te,n0):
     debye = np.sqrt((eps0*kb*ev_to_K(Te))/(n0*elem_charge**2))
     return debye
 
-def domain():
-    def num_nodes(domain_size, spacing):
-        nodesx= domain_size[0] / spacing[0]
-        nodesy = domain_size[1] / spacing[1]
-        return (nodesx, nodesy)
-    
-    domain_size = np.array([140e-3,15e-3]) # domain size in mm 
-    spacing = np.array([5e-4, 5e-4]) # size of one cell
-    min_nodesx, min_nodesy = num_nodes(domain_size, spacing)
 
+def num_nodes(domain_size, spacing):
+    nodesx= domain_size[0] / spacing[0]
+    nodesy = domain_size[1] / spacing[1]
+    return (nodesx, nodesy)
 
 
 
