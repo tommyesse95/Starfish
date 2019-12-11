@@ -20,7 +20,6 @@
 	<diam>4.76e-10</diam>
 </material>
 
-
 <material name="e-" type="kinetic">
 	<molwt>0.000548597</molwt>
 	<charge>-1</charge>

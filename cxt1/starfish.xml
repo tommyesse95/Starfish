@@ -11,9 +11,9 @@
 
 
 <!--enable animation and tracing -->
-<animation start_it="1" frequency="20">
+<animation start_it="1" frequency="200">
 <output type="2D" file_name="results/field_ani.vts" format="vtk">
-<scalars>phi,rho, nd.Kr+,nd.e-,nd.Kr, p.Kr, t.Kr</scalars>
+<scalars>phi,rho, nd.Kr+,nd.e-,nd.Kr, p.Kr, t.Kr, t.e-</scalars>
 <vectors>[efi, efj],[u.Kr+,v.Kr+]</vectors>
 </output>
 
@@ -35,19 +35,19 @@
 
 <!-- set time parameters 5e-8-->
 <time>
-<num_it>1e5</num_it>
-<dt>1e-8</dt>
-<!-- <dt>1e-12</dt> For electrons -->
+<num_it>1e7</num_it>
+<!-- <dt>1e-8</dt> For neutrals -->
+<dt>1e-12</dt>
 <steady_state>-1</steady_state>
 </time>
 
-<!--enable restart save
+<!--enable restart save -->
 <restart>
-<it_save>100</it_save>
-<save>true</save>
-<load>false</load>
-<nt_add>500</nt_add>
-</restart> -->
+<it_save>0</it_save>
+<save>false</save>
+<load>true</load>
+<nt_add>-1</nt_add>
+</restart>
 
 
 <solver>
@@ -62,13 +62,18 @@
 </solver>
 
 <!-- run simulation -->
-<starfish randomize="false" />
+<starfish randomize="true" />
+
+
+<averaging frequency="2">
+<variables>nd.Kr, nd.e-</variables>
+</averaging>
 
 
 <!-- output -->
 <!-- Output for boundaries -->
 <output type="boundaries" file_name="results/boundaries.vtp" format="vtk">
-<variables>deprate.Kr, flux-normal.Kr</variables>
+<variables>deprate.Kr, flux.Kr, deprate.e-, flux.e-</variables>
 </output>
 
 

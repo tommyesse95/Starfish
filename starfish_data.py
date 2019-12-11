@@ -91,6 +91,9 @@ def num_it(dt,time_sim):
     num_it = time_sim/dt # Time simulation
     return num_it
 
+def time_sim(dt, n_it):
+    time_sim = dt * n_it
+    return time_sim
 
 
 # Try maybe to invert the process to extrapolare the mdot necessary
