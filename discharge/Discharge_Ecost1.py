@@ -384,7 +384,6 @@ max_en_exc = 197.28941207367293
 Voltage = np.arange(170,1000,10) # tbc
 starting_position = np.array([0.0, 0.0, 0.0])
 V_break = []
-perc_exceed = []
 
 
 for j in range(len(pd)):
@@ -394,6 +393,7 @@ for j in range(len(pd)):
     n0 = pressure_to_density(pressure,k_b,T_neutr) #density of the neutral gas
     breakdown = False
     count = 0
+    perc_exceed = []
 
 
 #  V_br = (B_kr*pd_si) / (np.log(A_kr*pd_si) - np.log(np.log(1+ 1/sec_coeff)))
