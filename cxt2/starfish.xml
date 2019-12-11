@@ -61,7 +61,7 @@
 </solver>
 
 <!-- run simulation -->
-<starfish randomize="false" />
+<starfish randomize="true" />
 
 
 <averaging frequency="2">
