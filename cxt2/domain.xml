@@ -4,8 +4,7 @@
 <mesh type="uniform" name="mesh">
 <origin>0.0, 0.0</origin>
 <spacing>5e-4, 5e-4</spacing> <!-- Check debye length -->
-<nodes>280, 43</nodes>
-<mesh-bc wall="left" type="symmetry" />
+<nodes>77, 21</nodes>
 </mesh>
 
 </domain>

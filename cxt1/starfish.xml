@@ -13,7 +13,7 @@
 <!--enable animation and tracing -->
 <animation start_it="1" frequency="20">
 <output type="2D" file_name="results/field_ani.vts" format="vtk">
-<scalars>phi,rho, nd.Kr+,nd.e-,nd.Kr</scalars>
+<scalars>phi,rho, nd.Kr+,nd.e-,nd.Kr, p.Kr, t.Kr</scalars>
 <vectors>[efi, efj],[u.Kr+,v.Kr+]</vectors>
 </output>
 

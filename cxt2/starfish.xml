@@ -1,51 +1,33 @@
 <!-- starfish input file -->
 <simulation>
-<note>cxt setup (only neutral gas)</note>
-
+<note>cxt setup</note>
 
 <!-- load input files -->
 <load>materials.xml</load>
 <load>domain.xml</load>
 <load>boundaries.xml</load>
+<load>interactions.xml</load>
 <load>sources.xml</load>
 
 
-<output type="boundaries" file_name="results/boundaries.vtp" format="vtk">
-<variables>deprate.Kr, flux.Kr</variables>
-</output>
-
-
-
 <!--enable animation and tracing -->
- <animation start_it="1" frequency="200">
-
+<animation start_it="1" frequency="20">
 <output type="2D" file_name="results/field_ani.vts" format="vtk">
-<scalars>nd.Kr, p, t</scalars>
-<vectors>[efi, efj]</vectors>
+<scalars>phi,rho, nd.Kr+,nd.e-,nd.Kr, p.Kr, t.Kr</scalars>
+<vectors>[efi, efj],[u.Kr+,v.Kr+]</vectors>
 </output>
 
-<!--
-<animation start_it="1" frequency="1" clear_samples="true">
-<output type="1D" file_name="results/field_1D.vts" format="vtk" output_format="appended">
-<scalars>mpc-sum.Kr, p.Kr, t.Kr</scalars>
-<mesh>mesh</mesh>
-<index>I=average</index>
-<time_data_lines>50</time_data_lines>
-<time_data_write_skip>1</time_data_write_skip>
-<time_data_time_scale> 1e-9 </time_data_time_scale>
-</output>
-</animation> -->
-
-
-<output type="particles" file_name="results/particles-Kr.vtp" format="vtk">
+<output type="particles" file_name="results/particles-Kr+.vtp" format="vtk">
 <count>2000</count>
-<material>Kr</material>
+<material>Kr+</material>
 <rotate>true</rotate>
 </output>
 
 </animation>
 
-<particle_trace file_name="results/trace.vtp" format="vtk" output_format="ascii" material="Kr">
+
+
+<particle_trace file_name="results/trace.vtp" format="vtk" output_format="ascii" material="Kr+">
 <random_ids>5,1000</random_ids>
 <start_it>0</start_it>
 </particle_trace>
@@ -53,28 +35,29 @@
 
 <!-- set time parameters 5e-8-->
 <time>
-<num_it>50</num_it>
-<dt>1e-9</dt>
+<num_it>1e5</num_it>
+<dt>1e-8</dt>
+<!-- <dt>1e-12</dt> For electrons -->
 <steady_state>-1</steady_state>
 </time>
 
-<!--enable restart save -->
+<!--enable restart save
 <restart>
-<it_save>20000</it_save>
+<it_save>100</it_save>
 <save>true</save>
 <load>false</load>
-<nt_add>-1</nt_add>
-</restart>
+<nt_add>500</nt_add>
+</restart> -->
 
 
 <solver>
 <type>poisson</type>
-<max_it>2000</max_it>
+<max_it>20000</max_it>
 <tol>1e-4</tol>
 <linear>false</linear>
-<initial_only>true</initial_only>
-<n0>1e14</n0>
-<te0>2</te0> <!-- It does not matter, solution will be 0 -->
+<initial_only>false</initial_only>
+<n0>0</n0>
+<te0>2</te0>
 <phi0>0</phi0>
 </solver>
 
@@ -83,15 +66,17 @@
 
 
 <!-- output -->
-<output type="2D" file_name="results/field.vts" format="vtk">
-<scalars>nodevol, phi, rho, p, nd.Kr,  nd-ave.Kr</scalars>
-<vectors>[efi, efj], [u-ave.Kr,v-ave.Kr]</vectors>
-</output>
-
-<!-- surface -->
+<!-- Output for boundaries -->
 <output type="boundaries" file_name="results/boundaries.vtp" format="vtk">
 <variables>deprate.Kr, flux-normal.Kr</variables>
 </output>
+
+
+<output type="2D" file_name="results/field.vts" format="vtk">
+<scalars>nodevol, phi, rho, p, nd.Kr+,  nd-ave.Kr+, nd.e-, nd.Kr, nd-ave.Kr, nd-ave.e- </scalars>
+<vectors>[efi, efj], [u-ave.Kr+,v-ave.Kr+]</vectors>
+</output>
+
 
 <!-- particle positions and velocities for a scatter plot -->
 <output type="particles" file_name="results/particles-i.vtp" format="vtk">
