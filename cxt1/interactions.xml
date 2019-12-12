@@ -1,28 +1,30 @@
 <material_interactions>
 
-  <surface_hit source="Kr" target="al">
+
+<surface_hit source="Kr" target="al">
+  <product>Kr</product>
+  <model>diffuse</model>
+  <prob>0.9</prob>
+</surface_hit>
+
+<surface_hit source="Kr" target="al">
   <product>Kr</product>
   <model>specular</model>
   <prob>0.1</prob>
   <c_accom>0</c_accom>
   <c_rest>1.0</c_rest>
-  </surface_hit> -->
+</surface_hit> -->
 
-  <dsmc model="elastic">
+
+<dsmc model="elastic">
   <pair>Kr,Kr</pair>
   <sigma>Bird463</sigma>
-  </dsmc>
+</dsmc>
 
-  <surface_hit source="Kr" target="al">
-  <product>Kr</product>
-  <model>diffuse</model>
-  <prob>0.9</prob>
-  </surface_hit>
 
 
 <!-- frequency: Time step for collision -->
-
-  <mcc model="ionization">
+<mcc model="ionization">
   <source>e-</source>
   <target>Kr</target>
   <product>Kr+</product>
