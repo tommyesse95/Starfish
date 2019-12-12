@@ -6,13 +6,12 @@
 <load>materials.xml</load>
 <load>domain.xml</load>
 <load>boundaries.xml</load>
+<load>interactions.xml</load>
+<load>sources.xml</load>
 
 <output type="boundaries" file_name="results/boundaries.vtp" format="vtk">
 <variables>deprate.Kr+, flux-normal.Kr+</variables>
 </output>
-<!-- <load>interactions.xml</load> -->
-<!-- <load>sources.xml</load> -->
-
 
 <!--enable animation and tracing -->
 <animation start_it="1" frequency="50">
@@ -38,8 +37,8 @@
 
 <!-- set time parameters 5e-8-->
 <time>
-<num_it>1</num_it>
-<dt>1e-11</dt>
+<num_it>3000</num_it>
+<dt>1e-9</dt>
 <steady_state>-1</steady_state>
 </time>
 
@@ -54,7 +53,7 @@
 
 <solver>
 <type>poisson</type>
-<max_it>20000</max_it>
+<max_it>200000</max_it>
 <tol>1e-4</tol>
 <linear>false</linear>
 <initial_only>true</initial_only>
@@ -69,7 +68,7 @@
 
 <!-- output -->
 <output type="2D" file_name="results/field.vts" format="vtk">
-<scalars>nodevol, phi, rho, p, nd.Kr+,  nd-ave.Kr+, nd.e-, nd.Kr, nd-ave.Kr, nd-ave.e- </scalars>
+<scalars>nodevol, phi, rho, p.Kr, nd.Kr+,  nd-ave.Kr+, nd.e-, nd.Kr, nd-ave.Kr, nd-ave.e- </scalars>
 <vectors>[efi, efj], [u-ave.Kr+,v-ave.Kr+]</vectors>
 </output>
 

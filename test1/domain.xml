@@ -1,10 +1,10 @@
 <!-- domain file -->
-<domain type="zr">
+<domain type="xy">
 
 <mesh type="uniform" name="mesh">
-<origin>0.0, 0.0</origin>
-<spacing>5e-4, 5e-4</spacing> <!-- Check debye length -->
-<nodes>193, 31</nodes>
+<origin>0, 0</origin>
+<spacing>5e-5, 5e-5</spacing> <!-- Check debye length -->
+<nodes>45, 45</nodes>
 </mesh>
 
 </domain>

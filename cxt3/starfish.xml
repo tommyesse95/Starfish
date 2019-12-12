@@ -11,7 +11,7 @@
 
 
 <!--enable animation and tracing -->
-<animation start_it="1" frequency="200">
+<animation start_it="1" frequency="10">
 <output type="2D" file_name="results/field_ani.vts" format="vtk">
 <scalars>phi,nd.Kr,p.Kr, t.Kr, efi, efj</scalars>
 <vectors>[u.Kr,v.Kr]</vectors>
@@ -35,7 +35,7 @@
 
 <!-- set time parameters 5e-8-->
 <time>
-<num_it>30000</num_it>
+<num_it>1000</num_it>
 <dt>1e-8</dt>
 <!-- <dt>1e-12</dt> For electrons -->
 <steady_state>-1</steady_state>

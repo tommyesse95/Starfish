@@ -15,7 +15,7 @@ l makes a line to a point given by (dx,dy) offsets
 </boundary>
 
 
-<boundary name="wall1" type="virtual" material="al">
+<boundary name="wall1" type="open" material="al" value="0">
 <path>
 M inlet:last l 50e-3 0.0
 </path>
@@ -28,11 +28,18 @@ M wall1:last l 8e-3 0.0
 </boundary>
 
 
-<boundary name="wall2" type="virtual" material="al">
+<boundary name="wall2" type="open" material="al" value="0">
 <path>
 M anode:last l 25e-3 0.0
 </path>
 </boundary>
+
+<boundary name="sink" type="sink">
+<path>
+M 82e-3 10e-3 l 0.0 -10e-3
+</path>
+</boundary>
+
 
 <boundary name="cathode" type="solid" material="al" value="0">
 <path>

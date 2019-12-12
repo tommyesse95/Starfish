@@ -8,56 +8,49 @@ l makes a line to a point given by (dx,dy) offsets
 <boundaries units="m">
 <transform reverse="true" />
 
+<!--
+<boundary name="inlet" type="solid" material="tung">
+<path> M 0.0 5e-5 l 2e-3 0.0
+</path>
+</boundary> -->
 
-<boundary name="inlet" type="virtual" material="al">
-<path> M 0.0 0.0 L 0.0 2e-3
+<boundary name="inlet" type="virtual">
+<path> M 0.0 5e-5 l 2e-3 0.0
 </path>
 </boundary>
 
-
-<boundary name="wall1" type="solid" material="al" value="0">
+<boundary name="wall1" type="solid" material="al" value="-400">
 <path>
-M 0.0 0.0 l 0 15e-3
+M 0.0 0.0 l 2e-3 0.0
 </path>
 </boundary>
 
 
-<boundary name="wall2" type="open" material="al" value="0">
+<boundary name="neutral_inlet" type="virtual">
+<path> M 0.0 0.5e-3 l 0.0 0.5e-3
+</path>
+</boundary>
+
+
+<boundary name="wall2" type="solid" material="al" value="0">
 <path>
-M wall1:last l 50e-3 0.0
+M wall1:last l 0.0 2e-3
 </path>
 </boundary>
 
 
-<boundary name="anode" type="solid" material="al" value="400">
+<boundary name="anode" type="solid" material="al" value="+400">
 <path>
-M wall2:last l 8e-3 0.0
+M wall2:last l -2e-3 0.0
 </path>
 </boundary>
 
 
-<boundary name="wall3" type="open" material="al" value="0">
+<boundary name="wall3" type="solid" material="al" value="0">
 <path>
-M anode:last l 30e-3 0.0
+M anode:last l 0.0 -2e-3
 </path>
 </boundary>
-
-
-<boundary name="cathode" type="solid" material="al" value="-400">
-<path>
-M wall3:last l 8e-3 0.0
-</path>
-</boundary>
-
-<boundary name="wall5" type="solid" material="al" value="0">
-<path>
-M cathode:last l 0.0 -15e-3
-</path>
-</boundary>
-
-
-
-
 
 
 
