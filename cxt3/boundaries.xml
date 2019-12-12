@@ -1,0 +1,43 @@
+<!--
+M moves to a point, this is optional
+L makes a line to a given (x,y) position
+l makes a line to a point given by (dx,dy) offsets
+-->
+
+
+<boundaries units="m">
+<transform reverse="true" />
+
+
+<boundary name="inlet" type="solid" material="al" value="0">
+<path> M 0.0 0.0 L 0.0 10e-3
+</path>
+</boundary>
+
+
+<boundary name="wall1" type="virtual" material="al">
+<path>
+M inlet:last l 50e-3 0.0
+</path>
+</boundary>
+
+<boundary name="anode" type="solid" material="al" value="400">
+<path>
+M wall1:last l 8e-3 0.0
+</path>
+</boundary>
+
+
+<boundary name="wall2" type="virtual" material="al">
+<path>
+M anode:last l 25e-3 0.0
+</path>
+</boundary>
+
+<boundary name="cathode" type="solid" material="al" value="0">
+<path>
+M wall2:last l 0.0 -10e-3
+</path>
+</boundary>
+
+</boundaries>
