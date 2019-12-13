@@ -1,7 +1,7 @@
 /* *****************************************************
  * (c) 2012 Particle In Cell Consulting LLC
- * 
- * This document is subject to the license specified in 
+ *
+ * This document is subject to the license specified in
  * Starfish.java and the LICENSE file
  * *****************************************************/
 package starfish.core.materials;
@@ -203,13 +203,13 @@ public class KineticMaterial extends Material {
 
 		if (!particle_transfer)
 		{
-			for (MeshData md : mesh_data) 
+			for (MeshData md : mesh_data)
 				for (int block = 0; block < md.particle_block.length; block++) {
 					Iterator<Particle> iterator = md.getIterator(block);
-				
+
 					/* don't bother adding empty blocks */
 					if (iterator.hasNext()) {
-						
+
 						ParticleMover mover = new ParticleMover(md, this,  iterator, particle_transfer, "PartMover" + block);
 						movers.add(mover);
 					}
@@ -217,17 +217,17 @@ public class KineticMaterial extends Material {
 		}
 		else  //particle transfer
 		{
-			for (MeshData md : mesh_data) 
+			for (MeshData md : mesh_data)
 			{
 				if (md.transfer_particles.isEmpty()) continue;
-				
+
 				//make a local copy so that we can add particles as needed without invalidating iterator
-				ArrayList<Particle> tp_copy = new ArrayList<>(md.transfer_particles);				
-				md.transfer_particles.clear();	//clear out the original list (this does not touch tp_copy - checked				
+				ArrayList<Particle> tp_copy = new ArrayList<>(md.transfer_particles);
+				md.transfer_particles.clear();	//clear out the original list (this does not touch tp_copy - checked
 				ParticleMover mover = new ParticleMover(md, this, tp_copy.iterator(), particle_transfer, "PartMover_tp" );
-				movers.add(mover);				
+				movers.add(mover);
 			}
-			
+
 		}
 
 
@@ -242,7 +242,7 @@ public class KineticMaterial extends Material {
 		} catch (InterruptedException ex) {
 			Log.warning("Particle Mover thread interruption");
 		}
-				
+
 		/* add up totals */
 		if (!particle_transfer) {
 			mass_sum = 0;
@@ -309,7 +309,7 @@ public class KineticMaterial extends Material {
 
 			Field2D Bfi = md.Bfi;
 			Field2D Bfj = md.Bfj;
-			
+
 			while (iterator.hasNext()) {
 				Particle part = iterator.next();
 
@@ -494,7 +494,8 @@ public class KineticMaterial extends Material {
 					if (seg.getBoundaryType() == BoundaryType.DIRICHLET ||
 					// seg.getBoundaryType() == BoundaryType.VIRTUAL || /*9/2019 disabled virtual
 					// here, not sure why being added, causes particle leaks
-							seg.getBoundaryType() == BoundaryType.SINK)
+							seg.getBoundaryType() == BoundaryType.SINK ||
+							seg.getBoundaryType() == BoundaryType.OPEN
 						segments.add(seg);
 			}
 
@@ -732,7 +733,7 @@ public class KineticMaterial extends Material {
 
 	/**
 	 * ads a new particle
-	 * 
+	 *
 	 * @param md
 	 * @param part
 	 * @return
@@ -741,8 +742,8 @@ public class KineticMaterial extends Material {
 		if (part.lc == null) {
 			Mesh mesh = md.mesh;
 			part.lc = mesh.XtoL(part.pos);
-			
-			
+
+
 
 			/*
 			 * particles could be added on the plus edge by a source, make sure LC is in
@@ -786,7 +787,7 @@ public class KineticMaterial extends Material {
 
 	/**
 	 * ads a new particle at the specified position and velocity
-	 * 
+	 *
 	 * @param part
 	 * @return
 	 */
@@ -801,7 +802,7 @@ public class KineticMaterial extends Material {
 
 	/**
 	 * ads a new particle at the specified position and velocity
-	 * 
+	 *
 	 * @param pos
 	 * @param vel
 	 * @return
@@ -820,7 +821,7 @@ public class KineticMaterial extends Material {
 	/**
 	 * Kills particle by setting its weight to zero, will be actually removed on
 	 * subsequent pass
-	 * 
+	 *
 	 * @param part particle to remove
 	 */
 	public void removeParticle(Particle part) {
@@ -928,7 +929,7 @@ public class KineticMaterial extends Material {
 	/**
 	 * reads data from restart file TODO: currently this will crash if mesh size has
 	 * changed due to the read of the sums
-	 * 
+	 *
 	 * @param in
 	 * @throws IOException
 	 */
@@ -984,9 +985,9 @@ public class KineticMaterial extends Material {
 
 	/**
 	 * uses the algorithm from Justin Fox' dissertation to merge particles
-	 * 
+	 *
 	 * @param md mesh to apply the merge to
-	 * 
+	 *
 	 */
 	void mergeParticles(MeshData md) {
 		/* first sort particles to physical cells */
@@ -1005,7 +1006,7 @@ public class KineticMaterial extends Material {
 
 	/**
 	 * performs the actual merge in a single physical cell
-	 * 
+	 *
 	 * @param md mesh to apply the merge to
 	 * @param i  cell i-index
 	 * @param j  cell j-index
@@ -1124,7 +1125,7 @@ public class KineticMaterial extends Material {
 
 	/**
 	 * sorts particles to cell
-	 * 
+	 *
 	 * @param md mesh to apply to
 	 */
 	public void sortParticlesToCells(MeshData md) {
@@ -1160,7 +1161,7 @@ public class KineticMaterial extends Material {
 
 	/**
 	 * returns particle with i
-	 * 
+	 *
 	 * @param id
 	 * @return d
 	 */
@@ -1186,11 +1187,11 @@ public class KineticMaterial extends Material {
 
 	static public class Particle {
 		public double pos[] = new double[3]; //the 3rd dimension is the "depth", xy: (x,y,z), rz: (r,z,theta), zr (z,r,theta)
-		public double vel[] = new double[3]; //cartesian system velocities, 
+		public double vel[] = new double[3]; //cartesian system velocities,
 		public double mpw = 0;	//macroparticle weight: number of real particles represented by this sim particle
 		public double mass = 0; // mass of the physical particle
 		public double lc[] = new double[2]; // logical coordinate of current position
-		public double dt = 0;  // remaining dt to move through 
+		public double dt = 0;  // remaining dt to move through
 		public double radius = 0; // particle radius, currently used only by droplets
 		public int id = -1; 	// particle id for plotting
 		public int born_it = -1;	// time step born for possible diagnostics
@@ -1198,7 +1199,7 @@ public class KineticMaterial extends Material {
 
 		/**
 		 * copy constructor
-		 * 
+		 *
 		 * @param part
 		 */
 		public Particle(Particle part) {
@@ -1309,7 +1310,7 @@ public class KineticMaterial extends Material {
 
 			/* init particle lists */
 			for (int i = 0; i < particle_block.length; i++) {
-				particle_block[i] = new ParticleBlock();				
+				particle_block[i] = new ParticleBlock();
 			}
 		}
 
@@ -1331,7 +1332,7 @@ public class KineticMaterial extends Material {
 
 		/**
 		 * add particle to the list, attempting to keep block sizes equal
-		 * 
+		 *
 		 * @param part
 		 */
 		public void addParticle(Particle part) {
@@ -1374,12 +1375,12 @@ public class KineticMaterial extends Material {
 		 * @return number of particles waiting to be transferred between domains
 		 */
 		public long getTransferNp() {
-			return transfer_particles.size();			
+			return transfer_particles.size();
 		}
 
 		/**
 		 * returns particle iterator for the given block
-		 * 
+		 *
 		 * @param block
 		 * @return
 		 */
@@ -1389,7 +1390,7 @@ public class KineticMaterial extends Material {
 
 		/**
 		 * returns iterator that iterates over all particles in all block
-		 * 
+		 *
 		 * @return s
 		 */
 		public Iterator<Particle> getIterator() {
@@ -1398,7 +1399,7 @@ public class KineticMaterial extends Material {
 
 		/**
 		 * returns transfer particle iterators for the given bloc
-		 * 
+		 *
 		 * @param block
 		 * @return k
 		 */
@@ -1511,7 +1512,7 @@ public class KineticMaterial extends Material {
 	/**
 	 * updates velocity samples and recomputes average density, temperature and
 	 * pressure fields
-	 * 
+	 *
 	 */
 	protected void updateGasProperties() {
 		for (MeshData md : mesh_data)
@@ -1527,7 +1528,7 @@ public class KineticMaterial extends Material {
 
 	/**
 	 * updates velocity samples
-	 * 
+	 *
 	 * @param md
 	 */
 	protected void updateSamples(MeshData md) {

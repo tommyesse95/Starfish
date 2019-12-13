@@ -36,7 +36,7 @@ M wall2:last l 2e-3 0.0
 </boundary>
 
 
-<boundary name="wall3" type="solid" material="al" value="0">
+<boundary name="wall3" type="open" material="al" value="0">
 <path>
 M neutral_inlet:last l 18e-3 0.0
 </path>
@@ -49,7 +49,7 @@ M wall3:last l 8e-3 0.0
 </path>
 </boundary>
 
-<boundary name="wall4" type="solid" material="al" value="0">
+<boundary name="wall4" type="open" material="al" value="0">
 <path>
 M anode:last l 10e-3 0.0
 </path>

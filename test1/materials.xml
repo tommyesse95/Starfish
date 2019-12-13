@@ -18,7 +18,7 @@
 <material name="Kr+" type="kinetic">
 		<molwt>83.79</molwt>
 		<charge>1</charge>
-		<spwt>1e6</spwt>
+		<spwt>1e2</spwt>
 		<diam>4.76e-10</diam>
 </material>
 

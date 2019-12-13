@@ -65,7 +65,6 @@ def neutral_density(mdot, r_out):
     print('%.2E' % Decimal(str(part))) 
     print(f"Pressure: {pres} Pa")
     print(f"pd (Torr cm): {pd_Torr}")
-    
     return n, part, pres, pd_Torr
 
     
