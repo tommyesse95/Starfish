@@ -32,7 +32,6 @@
 </dsmc>
 
 
-
 <!-- frequency: Time step for collision -->
 <mcc model="ionization">
   <source>e-</source>
