@@ -37,7 +37,7 @@
 <time>
 <num_it>1e9</num_it> <!-- Python code -->
 <!-- <dt>1e-8</dt> For neutrals -->
-<dt>1e-12</dt>  <!-- For electrons (plasma frequency) -->
+<dt>1e-11</dt>  <!-- For electrons (plasma frequency) -->
 <steady_state>-1</steady_state>
 </time>
 
