@@ -34,7 +34,7 @@
 
 <!-- set time parameters 5e-8-->
 <time>
-<num_it>300000</num_it>
+<num_it>30000</num_it>
 <dt>1e-8</dt>
 <!-- <dt>1e-12</dt> For electrons -->
 <steady_state>-1</steady_state>
@@ -48,13 +48,13 @@
 <nt_add>-1</nt_add>
 </restart>
 
-<!--
+
 <solver>
 <type>poisson</type>
 <max_it>20000</max_it>
 <tol>1e-4</tol>
 <linear>false</linear>
-<initial_only>false</initial_only>
+<initial_only>true</initial_only>
 <n0>0</n0>
 <te0>2</te0>
 <phi0>0</phi0>
@@ -76,7 +76,7 @@
 
 
 <output type="2D" file_name="results/field.vts" format="vtk">
-<scalars>nodevol, p.Kr, nd.Kr,  nd-ave.Kr, p.kr, t.Kr</scalars>
+<scalars>phi, nodevol, p.Kr, nd.Kr,  nd-ave.Kr, p.kr, t.Kr</scalars>
 <vectors>[u-ave.Kr,v-ave.Kr]</vectors>
 </output>
 
