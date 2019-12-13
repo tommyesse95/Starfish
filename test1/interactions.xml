@@ -3,7 +3,7 @@
   <surface_hit source="Kr" target="al">
   <product>Kr</product>
   <model>specular</model>
-  <prob>0.1</prob>
+  <prob>0.0</prob>
   <c_accom>0</c_accom>
   <c_rest>1.0</c_rest>
   </surface_hit> -->
@@ -16,7 +16,7 @@
   <surface_hit source="Kr" target="al">
   <product>Kr</product>
   <model>diffuse</model>
-  <prob>0.9</prob>
+  <prob>1.0</prob>
   </surface_hit>
 
 

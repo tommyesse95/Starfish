@@ -13,7 +13,7 @@
 <!--enable animation and tracing -->
 <animation start_it="1" frequency="200">
 <output type="2D" file_name="results/field_ani.vts" format="vtk">
-<scalars>phi,nd.Kr,p.Kr, t.Kr, efi, efj</scalars>
+<scalars>nd.Kr, p.Kr, t.Kr</scalars>
 <vectors>[u.Kr,v.Kr]</vectors>
 </output>
 
@@ -26,11 +26,10 @@
 </animation>
 
 
-<!--
-<particle_trace file_name="results/trace.vtp" format="vtk" output_format="ascii" material="Kr+">
+<particle_trace file_name="results/trace.vtp" format="vtk" output_format="ascii" material="Kr">
 <random_ids>5,1000</random_ids>
 <start_it>0</start_it>
-</particle_trace> -->
+</particle_trace>
 
 
 <!-- set time parameters 5e-8-->
@@ -49,6 +48,7 @@
 <nt_add>-1</nt_add>
 </restart>
 
+<!--
 <solver>
 <type>poisson</type>
 <max_it>20000</max_it>
@@ -58,13 +58,13 @@
 <n0>0</n0>
 <te0>2</te0>
 <phi0>0</phi0>
-</solver>
+</solver> -->
 
 <!-- run simulation -->
 <starfish randomize="true" />
 
 
-<averaging frequency="2">
+<averaging frequency="10">
 <variables>nd.Kr</variables>
 </averaging>
 
@@ -76,8 +76,8 @@
 
 
 <output type="2D" file_name="results/field.vts" format="vtk">
-<scalars>nodevol, phi, p.Kr, nd.Kr,  nd-ave.Kr, p.kr, t.Kr</scalars>
-<vectors>[efi, efj], [u-ave.Kr,v-ave.Kr]</vectors>
+<scalars>nodevol, p.Kr, nd.Kr,  nd-ave.Kr, p.kr, t.Kr</scalars>
+<vectors>[u-ave.Kr,v-ave.Kr]</vectors>
 </output>
 
 

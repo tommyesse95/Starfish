@@ -6,7 +6,9 @@ l makes a line to a point given by (dx,dy) offsets
 
 
 <boundaries units="m">
-<transform reverse="true" />
+<transform reverse="false" />
+
+<!-- Be careful for the diffusuon model -->
 
 <!--
 <boundary name="inlet" type="solid" material="tung">
@@ -27,7 +29,7 @@ M 0.0 0.0 l 2e-3 0.0
 
 
 <boundary name="neutral_inlet" type="virtual">
-<path> M 0.0 0.5e-3 l 0.0 0.5e-3
+<path> M 0.0 1e-3 l 0.0 -0.5e-3
 </path>
 </boundary>
 

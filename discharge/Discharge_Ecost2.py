@@ -377,11 +377,10 @@ number_of_Electrons = 500  # tbc
 num_of_iter = 10
 v_thermal = temp_to_vel(T_rod,electron_mass)
 d_plate = 2e-3 # tba
-pd = np.array([0.5, 0.7, 0.9, 1.3, 1.5, 1.7, 2.0, 2.5, 3.0, 3.5,\
-4.0,4.5,5.0,5.5,6.0])# Torr cm  TBC
+pd = np.array([3.5,4.0,4.5,5.0,5.5,6.0])# Torr cm  TBC
 max_en_exc = 197.28941207367293
 # Voltage = np.linspace(250,550,10)
-Voltage = np.arange(170,1000,10) # tbc
+Voltage = np.arange(220,1000,10) # tbc
 starting_position = np.array([0.0, 0.0, 0.0])
 V_break = []
 
