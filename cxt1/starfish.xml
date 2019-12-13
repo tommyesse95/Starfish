@@ -47,7 +47,7 @@
 <it_save>0</it_save>
 <save>false</save>
 <load>true</load>
-<nt_add>1e6</nt_add>
+<nt_add>0</nt_add> 
 </restart>
 
 <solver>
@@ -88,7 +88,7 @@
 <!-- particle positions and velocities for a scatter plot -->
 <output type="particles" file_name="results/particles-e-.vtp" format="vtk">
 <count>10000</count>
-<material>e-</material>
+<material>Kr+</material>
 <rotate>true</rotate>
 </output>
 
