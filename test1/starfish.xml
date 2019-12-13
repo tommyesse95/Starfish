@@ -37,8 +37,9 @@
 
 <!-- set time parameters 5e-8-->
 <time>
-<num_it>20000</num_it>
-<dt>1e-9</dt>
+<num_it>1e6</num_it>
+<dt>1e-6</dt>
+<!-- <dt>1e-11</dt> -->
 <steady_state>-1</steady_state>
 </time>
 
@@ -56,7 +57,7 @@
 <max_it>200000</max_it>
 <tol>1e-4</tol>
 <linear>false</linear>
-<initial_only>true</initial_only>
+<initial_only>false</initial_only>
 <n0>0</n0>
 <te0>2</te0>
 <phi0>0</phi0>
@@ -68,7 +69,7 @@
 
 <!-- output -->
 <output type="2D" file_name="results/field.vts" format="vtk">
-<scalars>nodevol, phi, rho, p.Kr, nd.Kr+,  nd-ave.Kr+, nd.e-, nd.Kr, nd-ave.Kr, nd-ave.e- </scalars>
+<scalars>nodevol, phi, rho, p.Kr, nd.Kr+,  nd-ave.Kr+, nd.e-, nd.Kr,p.Kr, nd-ave.Kr, nd-ave.e- </scalars>
 <vectors>[efi, efj], [u-ave.Kr+,v-ave.Kr+]</vectors>
 </output>
 

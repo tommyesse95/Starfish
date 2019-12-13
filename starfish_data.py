@@ -100,7 +100,6 @@ def time_sim(dt, n_it):
 def neutral_dt(mdot,dt,num_it):
     print("Part per dt", "Tot part", "Average pressure", "Average density")
     mKr_kg = mKr * conv 
-    mdot *= 1e-6 # conversion in kg from mg 
     part_s = mdot / mKr_kg
     part_dt = part_s * dt
     return part_dt
@@ -117,6 +116,32 @@ def dt_el(ne):
     dt = 1/omega
     return dt
 
+
+# Test case for parallel plates (Square)
+    
+
+d_plate = 2e-3 
+T_test = 300
+mdot = 1e-6 
+ 
+# Num it for certain conditions. 
+
+def neutral(pd, dt):
+    Vol = pow(d_plate,2) # Unit depth assumed in Starfish 
+    mKr_kg = mKr * conv 
+    part_s = mdot / mKr_kg
+    part_dt = part_s * dt
+    
+    pd_si = pd* 133.322 * 1e-2 # conversion in Pa*m
+    pressure = pd_si / d_plate
+    n0 = pressure_to_density(pressure,kb,T_test)
+    n_part = n0 * Vol
+    
+    num_it = n_part / part_dt
+    return num_it, n_part
+    
+    
+    
 
 
 
