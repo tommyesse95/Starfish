@@ -1,7 +1,8 @@
 <!-- domain file -->
 <domain type="zr">
 
-<!-- Better domain near the flux of electrons for Debye length? -->
+<!-- Better domain near the flux of electrons for Debye length?
+It does not work -->
 <!--
 <mesh type="uniform" name="mesh2">
 <origin>0.0, 0.0 </origin>
