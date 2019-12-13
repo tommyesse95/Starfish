@@ -17,6 +17,7 @@
 <vectors>[efi, efj],[u.Kr+,v.Kr+]</vectors>
 </output>
 
+
 <output type="particles" file_name="results/particles-Kr+.vtp" format="vtk">
 <count>2000</count>
 <material>Kr+</material>
@@ -42,12 +43,11 @@
 </time>
 
 <!-- Save for neutrals and load for electrons -->
-
 <restart>
 <it_save>0</it_save>
 <save>false</save>
 <load>true</load>
-<nt_add>0</nt_add> 
+<nt_add>1e6</nt_add> 
 </restart>
 
 <solver>
