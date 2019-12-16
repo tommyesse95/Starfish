@@ -14,7 +14,7 @@
 <animation start_it="1" frequency="200">
 <output type="2D" file_name="results/field_ani.vts" format="vtk">
 <scalars>nd.Kr, p.Kr, t.Kr</scalars>
-<vectors>[u.Kr,v.Kr]</vectors>
+<vectors>[u.Kr,v.Kr], [efi, efj]</vectors>
 </output>
 
 <output type="particles" file_name="results/particles-Kr+.vtp" format="vtk">
