@@ -1,5 +1,172 @@
 
 
-Simulation 1 with pd = 0.5 Torr cm 
+Simulation 1 with pd = 1e-06 Torr cm 
 
-Voltage: 170 with dt = 4.3439241260439683e-13 s
+Voltage: 170 with dt = 2.1719620630219842e-07 s
+Percentual exceed: 100.0  %
+Voltage: 180 with dt = 2.1107677178183576e-07 s
+Percentual exceed: 100.0  %
+Voltage: 190 with dt = 2.054470433168582e-07 s
+Percentual exceed: 100.0  %
+Voltage: 200 with dt = 2.002450079958476e-07 s
+Percentual exceed: 100.0  %
+Voltage: 210 with dt = 1.9541911791072727e-07 s
+Percentual exceed: 100.0  %
+Voltage: 220 with dt = 1.909261238072252e-07 s
+Percentual exceed: 100.0  %
+Voltage: 230 with dt = 1.8672943278224793e-07 s
+Percentual exceed: 100.0  %
+Voltage: 240 with dt = 1.827978465118801e-07 s
+Percentual exceed: 100.0  %
+Voltage: 250 with dt = 1.7910458001348164e-07 s
+Percentual exceed: 100.0  %
+Voltage: 260 with dt = 1.756264900889583e-07 s
+Percentual exceed: 100.0  %
+Voltage: 270 with dt = 1.7234346247313082e-07 s
+Percentual exceed: 100.0  %
+Voltage: 280 with dt = 1.692379204958364e-07 s
+Percentual exceed: 100.0  %
+Voltage: 290 with dt = 1.662944277733116e-07 s
+Percentual exceed: 100.0  %
+Voltage: 300 with dt = 1.6349936437645474e-07 s
+Percentual exceed: 100.0  %
+Voltage: 310 with dt = 1.6084066093850024e-07 s
+Percentual exceed: 100.0  %
+Voltage: 320 with dt = 1.5830757883637684e-07 s
+Percentual exceed: 100.0  %
+Voltage: 330 with dt = 1.5589052729838306e-07 s
+Percentual exceed: 100.0  %
+Voltage: 340 with dt = 1.5358091032427684e-07 s
+Percentual exceed: 100.0  %
+Voltage: 350 with dt = 1.5137099783975807e-07 s
+Percentual exceed: 100.0  %
+Voltage: 360 with dt = 1.4925381667790137e-07 s
+Percentual exceed: 100.0  %
+Voltage: 370 with dt = 1.472230578798386e-07 s
+Percentual exceed: 100.0  %
+Voltage: 380 with dt = 1.4527299750407682e-07 s
+Percentual exceed: 100.0  %
+Voltage: 390 with dt = 1.4339842867797162e-07 s
+Percentual exceed: 100.0  %
+Voltage: 400 with dt = 1.4159460305261825e-07 s
+Percentual exceed: 100.0  %
+Voltage: 410 with dt = 1.398571801609214e-07 s
+Percentual exceed: 100.0  %
+Voltage: 420 with dt = 1.3818218344816877e-07 s
+Percentual exceed: 100.0  %
+Voltage: 430 with dt = 1.3656596196038776e-07 s
+Percentual exceed: 100.0  %
+Voltage: 440 with dt = 1.3500515684975125e-07 s
+Percentual exceed: 100.0  %
+Voltage: 450 with dt = 1.334966719972317e-07 s
+Percentual exceed: 100.0  %
+Voltage: 460 with dt = 1.3203764816744513e-07 s
+Percentual exceed: 100.0  %
+Voltage: 470 with dt = 1.306254402045024e-07 s
+Percentual exceed: 100.0  %
+Voltage: 480 with dt = 1.2925759685484812e-07 s
+Percentual exceed: 100.0  %
+Voltage: 490 with dt = 1.2793184286677262e-07 s
+Percentual exceed: 100.0  %
+Voltage: 500 with dt = 1.2664606306910145e-07 s
+Percentual exceed: 100.0  %
+Voltage: 510 with dt = 1.2539828817553975e-07 s
+Percentual exceed: 100.0  %
+Voltage: 520 with dt = 1.2418668209789441e-07 s
+Percentual exceed: 100.0  %
+Voltage: 530 with dt = 1.2300953058222467e-07 s
+Percentual exceed: 100.0  %
+Voltage: 540 with dt = 1.2186523100792008e-07 s
+Percentual exceed: 100.0  %
+Voltage: 550 with dt = 1.2075228321162606e-07 s
+Percentual exceed: 100.0  %
+Voltage: 560 with dt = 1.1966928121651573e-07 s
+Percentual exceed: 100.0  %
+Voltage: 570 with dt = 1.1861490576320079e-07 s
+Percentual exceed: 100.0  %
+Voltage: 580 with dt = 1.1758791755204518e-07 s
+Percentual exceed: 100.0  %
+Voltage: 590 with dt = 1.1658715111816503e-07 s
+Percentual exceed: 100.0  %
+Voltage: 600 with dt = 1.1561150927028137e-07 s
+Percentual exceed: 100.0  %
+Voltage: 610 with dt = 1.1465995803308956e-07 s
+Percentual exceed: 100.0  %
+Voltage: 620 with dt = 1.1373152204013976e-07 s
+Percentual exceed: 100.0  %
+Voltage: 630 with dt = 1.1282528033055759e-07 s
+Percentual exceed: 100.0  %
+Voltage: 640 with dt = 1.1194036250842603e-07 s
+Percentual exceed: 100.0  %
+Voltage: 650 with dt = 1.1107594522841922e-07 s
+Percentual exceed: 100.0  %
+Voltage: 660 with dt = 1.1023124897543327e-07 s
+Percentual exceed: 100.0  %
+Voltage: 670 with dt = 1.0940553510958232e-07 s
+Percentual exceed: 100.0  %
+Voltage: 680 with dt = 1.0859810315109921e-07 s
+Percentual exceed: 100.0  %
+Voltage: 690 with dt = 1.0780828828245697e-07 s
+Percentual exceed: 100.0  %
+Voltage: 700 with dt = 1.0703545904746713e-07 s
+Percentual exceed: 100.0  %
+Voltage: 710 with dt = 1.0627901522925672e-07 s
+Percentual exceed: 100.0  %
+Voltage: 720 with dt = 1.0553838589091788e-07 s
+Percentual exceed: 100.0  %
+Voltage: 730 with dt = 1.0481302756429525e-07 s
+Percentual exceed: 100.0  %
+Voltage: 740 with dt = 1.0410242257385346e-07 s
+Percentual exceed: 100.0  %
+Voltage: 750 with dt = 1.034060774838785e-07 s
+Percentual exceed: 100.0  %
+Voltage: 760 with dt = 1.027235216584291e-07 s
+Percentual exceed: 100.0  %
+Voltage: 770 with dt = 1.020543059244886e-07 s
+Percentual exceed: 100.0  %
+Voltage: 780 with dt = 1.0139800132968923e-07 s
+Percentual exceed: 100.0  %
+Voltage: 790 with dt = 1.0075419798680259e-07 s
+Percentual exceed: 100.0  %
+Voltage: 800 with dt = 1.001225039979238e-07 s
+Percentual exceed: 100.0  %
+Voltage: 810 with dt = 9.950254445193424e-08 s
+Percentual exceed: 100.0  %
+Voltage: 820 with dt = 9.889396048941618e-08 s
+Percentual exceed: 100.0  %
+Voltage: 830 with dt = 9.82964084297205e-08 s
+Percentual exceed: 100.0  %
+Voltage: 840 with dt = 9.770955895536363e-08 s
+Percentual exceed: 100.0  %
+Voltage: 850 with dt = 9.713309634935677e-08 s
+Percentual exceed: 100.0  %
+Voltage: 860 with dt = 9.656671778145427e-08 s
+Percentual exceed: 100.0  %
+Voltage: 870 with dt = 9.601013263965623e-08 s
+Percentual exceed: 100.0  %
+Voltage: 880 with dt = 9.54630619036126e-08 s
+Percentual exceed: 100.0  %
+Voltage: 890 with dt = 9.492523755686002e-08 s
+Percentual exceed: 100.0  %
+Voltage: 900 with dt = 9.439640203507883e-08 s
+Percentual exceed: 100.0  %
+Voltage: 910 with dt = 9.38763077077902e-08 s
+Percentual exceed: 100.0  %
+Voltage: 920 with dt = 9.336471639112397e-08 s
+Percentual exceed: 100.0  %
+Voltage: 930 with dt = 9.286139888948043e-08 s
+Percentual exceed: 100.0  %
+Voltage: 940 with dt = 9.236613456408152e-08 s
+Percentual exceed: 100.0  %
+Voltage: 950 with dt = 9.187871092656778e-08 s
+Percentual exceed: 100.0  %
+Voltage: 960 with dt = 9.139892325594005e-08 s
+Percentual exceed: 100.0  %
+Voltage: 970 with dt = 9.092657423727801e-08 s
+Percentual exceed: 100.0  %
+Voltage: 980 with dt = 9.046147362078675e-08 s
+Percentual exceed: 100.0  %
+Voltage: 990 with dt = 9.000343789983416e-08 s
+Percentual exceed: 100.0  %
+No Breakdown. num ionizations: 0
+

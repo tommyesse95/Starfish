@@ -12,6 +12,7 @@
 </boundary_source> -->
 
 
+
 <boundary_source name="neutral_gas" type="maxwellian">
 	<boundary>neutral_inlet</boundary>
 	<material>Kr</material>

@@ -35,7 +35,7 @@
 
 <!-- set time parameters 5e-8-->
 <time>
-<num_it>300</num_it> <!-- Python code -->
+<num_it>30000</num_it> <!-- Python code -->
 <!-- <dt>1e-8</dt> For neutrals -->
 <dt>1e-11</dt>  <!-- For electrons (plasma frequency) -->
 <steady_state>-1</steady_state>

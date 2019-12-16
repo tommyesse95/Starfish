@@ -14,11 +14,17 @@ l makes a line to a point given by (dx,dy) offsets
 </path>
 </boundary>
 
+<boundary name="keeper" type="solid" material="al" value="10">
+<path>
+M 0.0 0.0 l 0 5e-3
+</path>
+</boundary>
+
 
 <!-- Consider the potential of the keeper? -->
 <boundary name="wall1" type="solid" material="al" value="0">
 <path>
-M 0.0 0.0 l 0 10e-3
+M keeper:last l 0 5e-3
 </path>
 </boundary>
 
