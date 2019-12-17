@@ -1,5 +1,8 @@
-<!-- domain file -->
-<domain type="zr">
+
+
+</domain>
+
+
 
 <!-- Better domain near the flux of electrons for Debye length?
 It does not work -->
@@ -10,10 +13,14 @@ It does not work -->
 <nodes> 200,200 </nodes>
 </mesh> -->
 
+
+<!-- domain file -->
+<domain type="zr">
+
 <mesh type="uniform" name="mesh">
 <origin>0.0, 0.0</origin>
 <spacing>5e-4, 5e-4</spacing> <!-- Check debye length -->
-<nodes>97, 21</nodes>
+<nodes>61, 11</nodes>
 </mesh>
 
 </domain>

@@ -33,7 +33,7 @@
 
 
 <!-- frequency: Time step for collision -->
-
+<!-- I don't have to put 2e- as product? -->
 <mcc model="ionization">
   <source>e-</source>
   <target>Kr</target>
@@ -108,6 +108,7 @@
 </mcc> -->
 
 <!-- interactions of ions -->
+
 <!--
 <surface_hit source="Kr+" target="al">
 <product>Kr</product>
@@ -119,12 +120,31 @@
 
 <!--
 <surface_hit source="Kr+" target="al">
-<product>Kr</product>
+<product>Kr, 2*e-</product>
 <model>specular</model>
 <prob>0.2</prob>
 <c_accom>0</c_accom>
 <c_rest>1.0</c_rest>
-</surface_hit>  --> 
+</surface_hit> -->
+
+<!-- Sigma to be defined -->
+<!-- 
+<mcc model="cex">
+<source>Kr+</source>
+<target>Kr</target>
+<sigma>const</sigma>
+<sigma_coeffs>1e-7</sigma_coeffs>
+</mcc> -->
+
+
+<!--
+<dsmc model="elastic">
+  <pair>Kr+,Kr+</pair>
+  <sigma>Bird463</sigma>
+</dsmc> -->
+
+
+<!-- Interaction of electrons -->
 
 
 </material_interactions>
