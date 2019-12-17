@@ -14,6 +14,8 @@ import math as mt
 # NOTES 
 # Max number of particles should be 10^5. 
 # ni = 10 ^18, ne = 10^18, nn related to pressure 
+# The most important thing is clearly mdot. 
+# There is no way to have a reasonable value of mdot with mdot = 1e-6. 
 
 kb = 1.380649e-23 #Boltzamnn Constant
 mass_elec = 9.1909e-31 # kg 
@@ -23,12 +25,13 @@ conv = 1.66054e-27 # 1u in kg
 mKr_kg = mKr * conv
 eps0 = 8.851e-12
 T_neutr = 273
-r_cyl = 5e-3
+r_cyl = 7e-3
 h_cyl = 25e-3
 d_anode = 20e-3
 vol_cyl = mt.pi * r_cyl**2 * h_cyl
+mdot = 1e-5 
 
-dist_inl_anode = mt.sqrt(r_cyl**2 + d_anode**2)
+d_inl_anode = mt.sqrt(r_cyl**2 + d_anode**2)
 
 
 
@@ -58,7 +61,7 @@ def neutral_density(mdot, r_out):
     n = (4 * mdot) / (A * v_therm * mKr_kg)
     part = n * vol_cyl
     pres = density_to_pressure(n,kb,T_neutr)
-    pd = pres * dist_inl_anode
+    pd = pres * d_inl_anode
     pd_Torr = pd /(133.322 * 1e-2)
     print(f"Density: {n}")
     print("Particles:") 
@@ -67,7 +70,14 @@ def neutral_density(mdot, r_out):
     print(f"pd: {pd_Torr} Torr cm")
     return n, part, pres
 
-    
+
+domain = [h_cyl, r_cyl]
+spacing = [5e-4, 5e-4]
+num_cell = [domain[0]/spacing[0],domain[1]/spacing[1]]
+num_cell_tot = num_cell[0] * num_cell[1]
+
+
+
 # Debye length
 def debye(Te,n0):
     debye = np.sqrt((eps0*kb*ev_to_K(Te))/(n0*elem_charge**2))
@@ -122,21 +132,20 @@ def dt_el(ne):
 
 d_plate = 2e-3 
 T_test = 300
-mdot = 1e-6 
+mdot_test = 1e-6 
  
 # Num it for certain conditions. 
 
 def neutral(pd, dt):
     Vol = pow(d_plate,2) # Unit depth assumed in Starfish 
     mKr_kg = mKr * conv 
-    part_s = mdot / mKr_kg
+    part_s = mdot_test / mKr_kg
     part_dt = part_s * dt
     
     pd_si = pd* 133.322 * 1e-2 # conversion in Pa*m
     pressure = pd_si / d_plate
     n0 = pressure_to_density(pressure,kb,T_test)
     n_part = n0 * Vol
-    
     num_it = n_part / part_dt
     return num_it, n_part
     

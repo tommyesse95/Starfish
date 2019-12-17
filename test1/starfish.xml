@@ -38,7 +38,7 @@
 <!-- set time parameters 5e-8-->
 <time>
 <num_it>1e6</num_it>
-<dt>1e-6</dt>
+<dt>1e-7</dt>
 <!-- <dt>1e-11</dt> -->
 <steady_state>-1</steady_state>
 </time>

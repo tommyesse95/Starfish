@@ -1,7 +1,7 @@
 <!-- material sources -->
 <sources>
 
-
+<!--
 <boundary_source name="electrons" type="maxwellian">
 	<boundary>inlet</boundary>
 	<material>e-</material>
@@ -10,7 +10,7 @@
 	<v_drift>1e3</v_drift>
 	<start_it>90000</start_it>
 	<end_it>90001</end_it>
-</boundary_source>
+</boundary_source> -->
 
 <!--
 <boundary_source name="electrons" type="thermionic">
@@ -25,8 +25,7 @@
 	<material>Kr</material>
 	<mdot>1e-6</mdot>
 	<temperature>300</temperature>
-	<v_drift>300</v_drift>
-	<end_it>90000</end_it>
+	<v_drift>250</v_drift>
 </boundary_source>
 
 

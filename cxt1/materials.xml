@@ -6,6 +6,7 @@
 	<molwt>83.79</molwt>
 	<ionization_energy> 13.99961 </ionization_energy >
 	<charge>0</charge>
+	<nd>1e22</nd>
 	<spwt>1e12</spwt> <!-- Particles in one macroparticle. Critical parameter for time -->
 	<diam>4.76e-10</diam> <!-- Ref: Birf -->
 	<visc_temp_index>0.8</visc_temp_index> <!-- Ref Bird-->
