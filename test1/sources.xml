@@ -12,12 +12,6 @@
 	<end_it>90001</end_it>
 </boundary_source> -->
 
-<!--
-<boundary_source name="electrons" type="thermionic">
-	<boundary>inlet</boundary>
-	<material>e-</material>
-	<temperature>23209.03624</temperature>
-</boundary_source> -->
 
 
 <boundary_source name="neutral_gas" type="maxwellian">
