@@ -34,8 +34,8 @@
 
 <!-- set time parameters 5e-8-->
 <time>
-<num_it>1</num_it>
-<dt>1e-8</dt>
+<num_it>1e6</num_it>
+<dt>1e-9</dt>
 <!-- <dt>1e-12</dt> For electrons -->
 <steady_state>-1</steady_state>
 </time>
