@@ -10,7 +10,7 @@ l makes a line to a point given by (dx,dy) offsets
 
 
 <boundary name="inlet" type="virtual" material="al">
-<path> M 0.0 0.0 L 0.0 2e-3
+<path> M 0.0 0.0 L 0.0 1e-3
 </path>
 </boundary>
 

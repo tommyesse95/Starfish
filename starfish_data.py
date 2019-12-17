@@ -23,9 +23,9 @@ conv = 1.66054e-27 # 1u in kg
 mKr_kg = mKr * conv
 eps0 = 8.851e-12
 T_neutr = 273
-r_cyl = 15e-3
-h_cyl = 38e-3
-d_anode = 34e-3
+r_cyl = 5e-3
+h_cyl = 25e-3
+d_anode = 20e-3
 vol_cyl = mt.pi * r_cyl**2 * h_cyl
 
 dist_inl_anode = mt.sqrt(r_cyl**2 + d_anode**2)
@@ -58,13 +58,13 @@ def neutral_density(mdot, r_out):
     n = (4 * mdot) / (A * v_therm * mKr_kg)
     part = n * vol_cyl
     pres = density_to_pressure(n,kb,T_neutr)
-    # pd = pres * dist_inl_anode
-    # pd_Torr = pd /(133.322 * 1e-2)
+    pd = pres * dist_inl_anode
+    pd_Torr = pd /(133.322 * 1e-2)
     print(f"Density: {n}")
     print("Particles:") 
     print('%.2E' % Decimal(str(part))) 
     print(f"Pressure: {pres} Pa")
-   # print(f"pd (Torr cm): {pd_Torr}")
+    print(f"pd: {pd_Torr} Torr cm")
     return n, part, pres
 
     
