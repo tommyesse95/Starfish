@@ -37,7 +37,7 @@
 
 <!-- set time parameters 5e-8-->
 <time>
-<num_it>1e6</num_it>
+<num_it>1</num_it>
 <dt>1e-7</dt>
 <!-- <dt>1e-11</dt> -->
 <steady_state>-1</steady_state>
@@ -57,14 +57,14 @@
 <max_it>200000</max_it>
 <tol>1e-4</tol>
 <linear>false</linear>
-<initial_only>false</initial_only>
+<initial_only>true</initial_only>
 <n0>0</n0>
 <te0>2</te0>
 <phi0>0</phi0>
 </solver>
 
 <!-- run simulation -->
-<starfish randomize="true" />
+<starfish randomize="false" />
 
 
 <!-- output -->

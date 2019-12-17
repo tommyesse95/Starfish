@@ -4,7 +4,7 @@
 <mesh type="uniform" name="mesh">
 <origin>0, 0</origin>
 <spacing>5e-5, 5e-5</spacing> <!-- Check debye length -->
-<nodes>45, 45</nodes>
+<nodes>41, 41</nodes>
 </mesh>
 
 </domain>
