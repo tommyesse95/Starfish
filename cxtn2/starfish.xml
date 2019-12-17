@@ -1,0 +1,91 @@
+<!-- starfish input file -->
+<simulation>
+<note>cxt setup</note>
+
+<!-- load input files -->
+<load>materials.xml</load>
+<load>domain.xml</load>
+<load>boundaries.xml</load>
+<load>interactions.xml</load>
+<load>sources.xml</load>
+
+
+<!--enable animation and tracing -->
+<animation start_it="1" frequency="200">
+<output type="2D" file_name="results/field_ani.vts" format="vtk">
+<scalars>nd.Kr, p.Kr, t.Kr</scalars>
+<vectors>[u.Kr,v.Kr], [efi, efj]</vectors>
+</output>
+
+<output type="particles" file_name="results/particles-Kr+.vtp" format="vtk">
+<count>2000</count>
+<material>Kr</material>
+<rotate>true</rotate>
+</output>
+
+</animation>
+
+
+<particle_trace file_name="results/trace.vtp" format="vtk" output_format="ascii" material="Kr">
+<random_ids>5,1000</random_ids>
+<start_it>0</start_it>
+</particle_trace>
+
+
+<!-- set time parameters 5e-8-->
+<time>
+<num_it>1</num_it>
+<dt>1e-8</dt>
+<!-- <dt>1e-12</dt> For electrons -->
+<steady_state>-1</steady_state>
+</time>
+
+<!--enable restart save -->
+<restart>
+<it_save>1e5</it_save>
+<save>true</save>
+<load>false</load>
+<nt_add>-1</nt_add>
+</restart>
+
+
+<solver>
+<type>poisson</type>
+<max_it>20000</max_it>
+<tol>1e-4</tol>
+<linear>false</linear>
+<initial_only>true</initial_only>
+<n0>0</n0>
+<te0>2</te0>
+<phi0>0</phi0>
+</solver>
+
+<!-- run simulation -->
+<starfish randomize="true" />
+
+
+<averaging frequency="10">
+<variables>nd.Kr</variables>
+</averaging>
+
+<!-- output -->
+<!-- Output for boundaries -->
+<output type="boundaries" file_name="results/boundaries.vtp" format="vtk">
+<variables>deprate.Kr, flux-normal.Kr</variables>
+</output>
+
+
+<output type="2D" file_name="results/field.vts" format="vtk">
+<scalars>phi, nodevol, p.Kr, nd.Kr,  nd-ave.Kr, p.kr, t.Kr</scalars>
+<vectors>[u-ave.Kr,v-ave.Kr]</vectors>
+</output>
+
+
+<!-- particle positions and velocities for a scatter plot -->
+<output type="particles" file_name="results/particles-i.vtp" format="vtk">
+<count>10000</count>
+<material>Kr</material>
+<rotate>true</rotate>
+</output>
+
+</simulation>
