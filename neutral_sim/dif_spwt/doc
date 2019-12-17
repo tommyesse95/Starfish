@@ -1,0 +1,12 @@
+DIFF SPECIFIC WEIGHT
+
+Here there will be evaluated the different computational time depending on the actual number of particles simulated. 
+
+The basic is considered 1e12 that should give an order of 1e4 particles actually simulated considering the number of particles expected at the steady state. 
+
+SET-UP: 
+
+cxtn1: 1e10
+cxtn2: 1e11
+cxtn3: 1e12 (BASIC SIMULATION)
+cxtn4: 1e13

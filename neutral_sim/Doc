@@ -1,0 +1,31 @@
+cxnt1_base represents the basic for all the other simulations. 
+In each folder There a specific parameter will change to see the result. 
+At the end the file restart bin will be used in the other folder: "Complete_sim" and we will see the ideal configuration. 
+
+dif_inl : Different position of the neutral inlet. 
+dif_inter : Different interaction
+dif_spwt : Different specific weight 
+dif_time_sim : Different time simulatED
+
+See in each folder for realtice documentation
+
+
+
+OBJECTIVE: Simulation with only neutral gas. Used to take the restart bin file and use it in cxt1 for ionization! 
+
+BASIC: 
+ 
+- 30 mm x 5 mm.  
+
+- mdot = 1e-5 
+
+- Density (average) expected: 1e22.
+
+- Pd = 0.8 (Discharge should be reached)
+
+- Particles: 1e16 (spwt = 1e12) --> 1e4 simulated
+
+- dt =1e-8 / num_it = 1e5 / time_simulated = 1e-3 s 
+
+- Interactions: diffusion (p=0.8) / specular(p=0.2) / DSMC / no cosine model 
+

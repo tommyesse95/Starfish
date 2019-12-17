@@ -1,0 +1,21 @@
+
+
+OBJECTIVE: Simulation with only neutral gas. Used to take the restart bin file and use it in cxt1 for ionization! 
+
+BASIC: 
+ 
+- 30 mm x 5 mm.  
+
+- mdot = 1e-5 
+
+- Density (average) expected: 1e22.
+
+- Pd = 0.8 (Discharge should be reached)
+
+- Particles: 1e16 (spwt = 1e12) --> 1e4 simulated
+
+- dt =1e-8 / num_it = 1e5 / time_simulated = 1e-3 s 
+
+- Interactions: diffusion (p=0.8) / specular(p=0.2) / DSMC / no cosine model 
+
+CHANGE: 

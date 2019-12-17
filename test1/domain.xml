@@ -2,9 +2,9 @@
 <domain type="xy">
 
 <mesh type="uniform" name="mesh">
-<origin>0.0, 0.0</origin>
-<spacing>5e-5, 5e-5</spacing>
-<nodes>41, 41</nodes>
+<origin>0.0e-3, 0.0e-3</origin>
+<spacing>5e-4, 5e-4</spacing>
+<nodes>50, 50</nodes>
 </mesh>
 
 </domain>

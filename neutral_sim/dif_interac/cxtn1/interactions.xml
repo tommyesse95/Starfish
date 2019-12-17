@@ -1,0 +1,74 @@
+<material_interactions>
+
+
+<surface_hit source="Kr" target="al">
+  <product>Kr</product>
+  <model>diffuse</model>
+  <prob>1.0</prob>
+</surface_hit>
+
+<!-- 
+<surface_hit source="Kr" target="al">
+  <product>Kr</product>
+  <model>specular</model>
+  <prob>0.2</prob>
+  <c_accom>0</c_accom>
+  <c_rest>1.0</c_rest>
+</surface_hit> --> 
+
+<!--
+<surface_hit source="Kr" target="al">
+  <product>Kr</product>
+  <model>cosine</model>
+  <prob>0.3</prob>
+  <c_accom>0.5</c_accom>
+  <c_rest>0.9</c_rest>
+</surface_hit> -->
+
+
+<dsmc model="elastic">
+<pair>Kr,Kr</pair>
+<sigma>Bird463</sigma>
+</dsmc>
+
+
+<!-- frequency: Time step for collision -->
+
+<mcc model="ionization">
+  <source>e-</source>
+  <target>Kr</target>
+  <product>Kr+</product>
+  <sigma>table</sigma>
+  <sigma_tabulated>
+    [15.849, 0.045e-20],
+    [19.623, 1.264e-20],
+    [22.642, 1.614e-20],
+    [27.17, 2.246e-20],
+    [33.208, 2.867e-20],
+    [39.245, 3.183e-20],
+    [49.811, 3.431e-20],
+    [80.000, 3.442e-20],
+    [114.717, 3.194e-20],
+    [141.887, 3.002e-20],
+    [176.604, 2.788e-20],
+    [209.811, 2.596e-20],
+    [243.019, 2.415e-20],
+    [273.208, 2.269e-20],
+    [309.434, 2.111e-20],
+    [348.679, 1.986e-20],
+    [398.491, 1.828e-20],
+    [496.604, 1.591e-20],
+    [596.226, 1.4e-20],
+    [694.34, 1.264e-20],
+    [793.962, 1.14e-20],
+    [893.585, 1.061e-20],
+    [992.453, 0.971e-20]
+  </sigma_tabulated>
+  <sigma_dep_var>energy</sigma_dep_var>
+  <max_target_temp>10000</max_target_temp>
+  <frequency>1</frequency>
+</mcc>
+
+
+
+</material_interactions>

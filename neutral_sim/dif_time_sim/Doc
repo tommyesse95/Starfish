@@ -1,0 +1,10 @@
+DIFFERENT TIME SIMULATED 
+
+
+Here we increase the number of iterations to see if the steady state is actually reached and if it changes a lot regarding the density profile. 
+
+cxtn1: 1e4
+cxtn2: 1e5 (BASIC, we change the dt to 1e-9, obtaining the same time simulated of cxtn1 to see if something change)
+cxtn3: 1e6
+cxtn4: 1e7
+

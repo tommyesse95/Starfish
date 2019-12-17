@@ -1,0 +1,16 @@
+DIFF INTERACTIONS: 
+
+- Starting from the basic simulation, there will be an evaluation of the impact of the different interactions used: 
+
+
+cxtn1 : Only diffusion 
+cxtn2 : Diffusion (0.6), Cosine (0.2), Specular(0.2)
+
+No significant differences are expected. Plus there is the example of DSMC where only diffusion model is used. That should be the one. 
+
+For DSMC that model is the best. BSS ALPHA does not change that much. It could be veriefied in a future work, but you can still consider the example of Breida. 
+
+
+OUTCOME: 
+
+

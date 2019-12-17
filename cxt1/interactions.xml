@@ -33,7 +33,7 @@
 
 
 <!-- frequency: Time step for collision -->
-<!--
+
 <mcc model="ionization">
   <source>e-</source>
   <target>Kr</target>
@@ -67,10 +67,11 @@
   <sigma_dep_var>energy</sigma_dep_var>
   <max_target_temp>10000</max_target_temp>
   <frequency>1</frequency>
-</mcc> --> 
+</mcc>
 
 
 <!-- frequency: Time step for collision -->
+<!--
 <mcc model="ionization">
   <source>e-</source>
   <target>Kr</target>
@@ -104,7 +105,7 @@
   <sigma_dep_var>energy</sigma_dep_var>
   <max_target_temp>10000</max_target_temp>
   <frequency>1</frequency>
-</mcc>
+</mcc> -->
 
 <!-- interactions of ions -->
 <!--
@@ -123,7 +124,7 @@
 <prob>0.2</prob>
 <c_accom>0</c_accom>
 <c_rest>1.0</c_rest>
-</surface_hit> -->
+</surface_hit>  --> 
 
 
 </material_interactions>
