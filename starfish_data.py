@@ -58,14 +58,14 @@ def neutral_density(mdot, r_out):
     n = (4 * mdot) / (A * v_therm * mKr_kg)
     part = n * vol_cyl
     pres = density_to_pressure(n,kb,T_neutr)
-    pd = pres * dist_inl_anode
-    pd_Torr = pd /(133.322 * 1e-2)
+    # pd = pres * dist_inl_anode
+    # pd_Torr = pd /(133.322 * 1e-2)
     print(f"Density: {n}")
     print("Particles:") 
     print('%.2E' % Decimal(str(part))) 
     print(f"Pressure: {pres} Pa")
-    print(f"pd (Torr cm): {pd_Torr}")
-    return n, part, pres, pd_Torr
+   # print(f"pd (Torr cm): {pd_Torr}")
+    return n, part, pres
 
     
 # Debye length
