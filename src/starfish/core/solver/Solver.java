@@ -489,6 +489,7 @@ public abstract class Solver
       Log.error("b nan");
   }
 
+
   if  Double.isNaN(norm))
 	{
 	    Log.error("norm nan");
