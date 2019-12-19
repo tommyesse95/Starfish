@@ -451,18 +451,18 @@ public abstract class Solver
     static double calculateResidue(Matrix A, double Ax_neigh[], double x[], double b[])
     {
 	/*this is ||Ax-b||*/
-  double x = x.norm()
+  double norm_x = Vector.norm(x);
 
-  if  Double.isNaN(x)
+  if  (Double.isNaN(norm_x))
   {
       Log.error("x nan");
   }
 
 	double lhs[] = A.mult(x);
 
-  double norm_lhs_a = lhs.norm()
+  double norm_lhs_a = Vector.norm(lhs);
 
-  if  Double.isNaN(norm_lhs_a)
+  if  (Double.isNaN(norm_lhs_a))
   {
       Log.error("lhs before A nan");
   }
@@ -470,27 +470,27 @@ public abstract class Solver
 	if (Ax_neigh!=null)
 	    lhs = Vector.add(lhs, Ax_neigh);
 	double norm = Vector.norm(Vector.subtract(lhs, b));
-  double norm_lhs = lhs.norm()
-  double norm_b = b.norm()
-  double norm_Ax_neigh = Ax_neigh.norm()
+  double norm_lhs = Vector.norm(lhs);
+  double norm_b = Vector.norm(b);
+  double norm_Ax_neigh = Vector.norm(Ax_neigh);
 
-  if  Double.isNaN(norm_Ax_neigh))
+  if  (Double.isNaN(norm_Ax_neigh))
   {
       Log.error("Ax_neigh nan");
   }
 
-  if  Double.isNaN(norm_lhs))
+  if  (Double.isNaN(norm_lhs))
 	{
 	    Log.error("lhs nan");
 	}
 
-  if  Double.isNaN(norm_b))
+  if  (Double.isNaN(norm_b))
   {
       Log.error("b nan");
   }
 
 
-  if  Double.isNaN(norm))
+  if  (Double.isNaN(norm))
 	{
 	    Log.error("norm nan");
 	}
