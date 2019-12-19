@@ -5,11 +5,7 @@
 <!--<nodes>251, 201</nodes>-->
 <nodes>161, 101</nodes>
 <mesh-bc wall="bottom" type="symmetry"/>
-<mesh-bc wall="right" type="energy"/>
-<mesh-bc wall="top" type="energy"/>
-<mesh-bc wall="left" type="energy"/>
+
 
 </mesh>
 </domain>
-        
-      

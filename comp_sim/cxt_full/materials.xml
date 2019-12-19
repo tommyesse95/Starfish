@@ -1,0 +1,38 @@
+<!-- materials file -->
+<materials>
+
+
+<material name="Kr" type="kinetic">
+	<molwt>83.79</molwt>
+	<ionization_energy> 13.99961 </ionization_energy >
+	<charge>0</charge>
+	<spwt>1e12</spwt> <!-- Particles in one macroparticle. Critical parameter for time -->
+	<diam>4.76e-10</diam> <!-- Ref: Birf -->
+	<visc_temp_index>0.8</visc_temp_index> <!-- Ref Bird-->
+	<vss_alpha>1.0</vss_alpha> <!-- Faster with VHS Model-->
+	<!-- <vss_alpha>1.32012</vss_alpha> -->
+</material>
+
+
+<material name="Kr+" type="kinetic">
+	<molwt>83.79</molwt>
+	<charge>1</charge>
+	<spwt>1e8</spwt>
+	<diam>4.76e-10</diam>
+</material>
+
+<material name="e-" type="kinetic">
+	<molwt>0.000548597</molwt>
+	<charge>-1</charge>
+	<spwt>1e8</spwt>
+</material>
+
+
+<!-- tba -->
+<material name="al" type="solid">
+	<molwt>26.98</molwt>
+	<density>2700</density>
+</material>
+
+
+</materials>

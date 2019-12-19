@@ -1,5 +1,5 @@
 <!-- simulation inputs for https://ieeexplore.ieee.org/document/8287799/ -->
-<simulation>    
+<simulation>
 <note>Simulation with boltzmann electrons</note>
 <log level="Log" />
 
@@ -20,7 +20,7 @@
 <num_it>5000</num_it>
 <dt>5e-10</dt>
 <steady_state>1000</steady_state>
-</time>	
+</time>
 
 <restart>
 <it_save>1000</it_save>
@@ -40,6 +40,7 @@
 <method>gs</method>
 </solver>
 
+
 <!-- setup averaging -->
 <averaging frequency="25">
 <variables>phi,rho,nd.O+,u.o+,v.o+,t.o+</variables>
@@ -54,7 +55,7 @@
 
 <!-- run simulation -->
 <starfish randomize="false" max_processors="4"/>
-        
+
 <!-- save results -->
 
 <output type="2D" file_name="results/field.vts" format="vtk">

@@ -1,0 +1,14 @@
+This one is the basic of the complete simulation. For now I'm getting the domain fixed to use the restart file form the neutral simulation. 
+It would be nice to choose the best simulation for the nutrals put it here and reiterate again in this simulation now.
+
+- Domain: 30 mm x 5 mm
+
+- Flux of electrons: (PARAMETER)
+
+- Orifice: 2 mm (along the axis) 
+
+- Voltage:  (PARAMETER)
+
+- spwt e- = 
+
+- spwt ions = 

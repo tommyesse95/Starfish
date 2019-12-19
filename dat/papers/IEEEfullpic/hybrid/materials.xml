@@ -4,7 +4,7 @@
 <material name="O+" type="kinetic">
 	<molwt>16.0</molwt>
 	<charge>1</charge>
-	<spwt>50</spwt>
+	<spwt>5000</spwt>
 	<init>nd_back=0</init>
 </material>
 
@@ -16,12 +16,12 @@
 </material>
 
 <material name="SS" type="solid">
-	<molwt>52.3</molwt> 
+	<molwt>52.3</molwt>
 	<density>8000</density>
 </material>
 
 <material name="grid" type="solid">
-	<molwt>52.3</molwt> 
+	<molwt>52.3</molwt>
 	<density>8000</density>
 </material>
 
