@@ -53,7 +53,7 @@
 <solver>
 <type>poisson</type>
 <max_it>20000</max_it>
-<method>gs</method> 
+<method>gs</method>
 <tol>1e-6</tol>
 <linear>false</linear>
 <initial_only>false</initial_only>
