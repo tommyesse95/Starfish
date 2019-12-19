@@ -395,6 +395,12 @@ public abstract class Solver
 		lhs = Vector.add(lhs, mesh_data[k].Ax_neigh);
 		double F[] = Vector.subtract(lhs, b);
 
+    double norm_F = Vector.norm(F);
+    if  (Double.isNaN(norm_F))
+    {
+        Log.error("F line 401");
+    }
+
 		/*calculate J(x) = d/dx(Ax-b) = A-diag(P)*/
 		/*The A_neigh matrix contributes only non-diagonal terms hence
 		  doesn't need to be included directly. Contribution will be taken care of by
@@ -413,6 +419,9 @@ public abstract class Solver
 	    for (int k=0;k<mesh_data.length;k++)
 	    {
 		Vector.subtractInclusive(mesh_data[k].x, md_nl[k].x);
+
+
+
 	    }
 
 	    /*check norm(y) for convergence*/

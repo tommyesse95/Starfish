@@ -229,19 +229,18 @@ public class PoissonSolver extends PotentialSolver
 	    public double[] eval_bx(double[] x, boolean fixed[])
 	    {
 		    double b[] = new double[x.length];
-		    for (int i=0;i<x.length;i++)
+		    for (int i=0;i<x.length;i++){
+
 			b[i] = fixed[i] ? 0 : C * den0*Math.exp((x[i]-phi0)/kTe0);
 
       double norm_b= Vector.norm(b);
       if (Double.isNaN(norm_b))
       {
+Log.log(String.format("deno:%d\t x[i]: %d\t phi0:%d\t x[i]-phi0%d\t kTe0:%d",den0,x[i],phi0,x[i]-phi0, kTe0));
           Log.error("b, Poisson solver");
       }
 
-      if (Double.isInfinite(norm_b))
-      {
-          Log.error("b infinite, Poisson solver");
-      }
+    }
 
 		    return b;
 	    }
