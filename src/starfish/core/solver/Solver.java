@@ -123,6 +123,7 @@ public abstract class Solver
 	public double b[];
 	public double x[];	    /*solution vector*/
 
+
 	//support for multiple domains
 	public double Ax_neigh[];	//part of Ax due to nodes beyond the mesh boundary
 
@@ -170,6 +171,12 @@ public abstract class Solver
 	    int ni = mesh.ni;
 	    int nj = mesh.nj;
 	    int nu = ni*nj;
+
+      if (Double.isNaN(nu))
+      {
+          Log.error("nu, line 181");
+      }
+
 
 	    /* initialize coefficient matrix */
 	    md.A = new Matrix(nu);
@@ -222,6 +229,7 @@ public abstract class Solver
 	    for (i = 0; i < ni; i++)
 	    {
 		Gradient G = getNodeGradient(md, i, j);
+
 
 		/*assemble non-zero values into gradient matrix*/
 		int u = md.mesh.IJtoN(i,j);
@@ -334,11 +342,33 @@ public abstract class Solver
 		/*calculate b(x)*/
 		double b_x[] = nl_eval.eval_bx(mesh_data[k].x, mesh_data[k].fixed_node);
 
+    double norm_b_x = Vector.norm(b_x);
+
+    if  (Double.isNaN(norm_b_x))
+    {
+        Log.error("b_x line 342");
+    }
+
+
 		/*rhs: b=b0+b_x*/
 		double b[]= Vector.add(mesh_data[k].b, b_x);
 
+    double norm_b = Vector.norm(b);
+    if  (Double.isNaN(norm_b))
+    {
+        Log.error("b line 352");
+    }
+
+
+
 		/*calculate P(x) = db/dx*/
 		double P[] = nl_eval.eval_bx_prime(mesh_data[k].x, mesh_data[k].fixed_node);
+
+    double norm_P = Vector.norm(P);
+    if  (Double.isNaN(norm_P))
+    {
+        Log.error("P line 370");
+    }
 
 		for (int i=0;i<mesh.ni;i++)
 		    for (int j=0;j<mesh.nj;j++)
@@ -555,6 +585,18 @@ public abstract class Solver
 	    for (int v = 0; v < 6 && G.u[v]>=0; v++)
 	    {
 		double val = G.Gj[v]+G.Gi[v];
+
+    if  (Double.isNaN(val))
+  	{
+  	    Log.error("val nan");
+  	}
+
+    if  (Double.isInfinite(val))
+  	{
+  	    Log.error("val infiinite line 590");
+  	}
+
+
 		if (val!=0)	//don't bother adding zero
 		    md.A.add(u,G.u[v],val);
 	    }
@@ -563,6 +605,19 @@ public abstract class Solver
 	    for (int v=0; v<6 && G.neighbor_mesh[v]!=null; v++)
 	    {
 		double val = G.neighbor_Gj[v]+G.neighbor_Gi[v];
+
+
+    if  (Double.isNaN(val))
+  	{
+  	    Log.error("val nan 609");
+  	}
+
+    if  (Double.isInfinite(val))
+  	{
+  	    Log.error("val infiinite line 611");
+  	}
+
+
 		if (val!=0)
 		{
 		   if (md.A_neigh[u]==null)
