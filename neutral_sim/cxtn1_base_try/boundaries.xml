@@ -4,7 +4,7 @@ L makes a line to a given (x,y) position
 l makes a line to a point given by (dx,dy) offsets
 -->
 
-<!-- 30 * 5 mm -->
+<!-- 30 * 7 mm -->
 
 <boundaries units="m">
 <transform reverse="true" />
@@ -18,7 +18,7 @@ l makes a line to a point given by (dx,dy) offsets
 
 <boundary name="wall1" type="solid" material="al" value="0">
 <path>
-M 0.0 0.0 l 0 5e-3
+M 0.0 0.0 l 0 7e-3
 </path>
 </boundary>
 
@@ -39,7 +39,7 @@ M wall2:last l 2e-3 0.0
 
 <boundary name="wall3" type="open" material="al" value="0">
 <path>
-M wall2:last l 10e-3 0.0
+M wall2:last l 5e-3 0.0
 </path>
 </boundary>
 
@@ -52,7 +52,7 @@ M wall3:last l 6e-3 0.0
 
 <boundary name="wall4" type="open" material="al" value="0">
 <path>
-M anode:last l 4e-3 0.0
+M anode:last l 9e-3 0.0
 </path>
 </boundary>
 
