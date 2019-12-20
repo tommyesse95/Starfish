@@ -18,7 +18,7 @@ l makes a line to a point given by (dx,dy) offsets
 
 <boundary name="wall1" type="solid" material="al" value="0">
 <path>
-M 0.0 0.0 l 0 7e-3
+M 0.0 0.0 l 0 5e-3
 </path>
 </boundary>
 

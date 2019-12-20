@@ -39,7 +39,7 @@ M wall2:last l 2e-3 0.0
 
 <boundary name="wall3" type="open" material="al" value="0">
 <path>
-M wall2:last l 10e-3 0.0
+M wall2:last l 5e-3 0.0
 </path>
 </boundary>
 
@@ -52,7 +52,7 @@ M wall3:last l 6e-3 0.0
 
 <boundary name="wall4" type="open" material="al" value="0">
 <path>
-M anode:last l 4e-3 0.0
+M anode:last l 9e-3 0.0
 </path>
 </boundary>
 
