@@ -16,9 +16,9 @@
 <boundary_source name="neutral_gas" type="maxwellian">
 	<boundary>neutral_inlet</boundary>
 	<material>Kr</material>
-	<mdot>1e-4</mdot>
+	<mdot>1e-6</mdot>
 	<temperature>273</temperature>
-	<v_drift>250</v_drift> <!-- tba -->
+	<v_drift>0</v_drift> <!-- tba -->
 </boundary_source>
 
 

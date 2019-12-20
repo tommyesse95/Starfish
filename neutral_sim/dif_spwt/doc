@@ -6,7 +6,7 @@ The basic is considered 1e12 that should give an order of 1e4 particles actually
 
 SET-UP: 
 
-cxtn1: 1e10
-cxtn2: 1e11
-cxtn3: 1e12 (BASIC SIMULATION)
-cxtn4: 1e13
+cxtn1: 1e10 (1390 min +)
+cxtn2: 1e11 (300 mim)
+cxtn3: 1e12 (BASIC SIMULATION) (30 min)
+cxtn4: 1e13 (10 min)

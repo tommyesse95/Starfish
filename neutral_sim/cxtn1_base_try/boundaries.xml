@@ -4,7 +4,7 @@ L makes a line to a given (x,y) position
 l makes a line to a point given by (dx,dy) offsets
 -->
 
-<!-- 30 * 7 mm -->
+<!-- 30 * 5 mm -->
 
 <boundaries units="m">
 <transform reverse="true" />

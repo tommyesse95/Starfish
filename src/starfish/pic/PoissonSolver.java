@@ -236,7 +236,7 @@ public class PoissonSolver extends PotentialSolver
       double norm_b= Vector.norm(b);
       if (Double.isNaN(norm_b))
       {
-Log.log(String.format("deno:%d\t x[i]: %d\t phi0:%d\t x[i]-phi0%d\t kTe0:%d",den0,x[i],phi0,x[i]-phi0, kTe0));
+Log.log(String.format("deno:%f\t x[i]: %f\t phi0:%f\t x[i]-phi0%f\t kTe0:%f",den0,x[i],phi0,x[i]-phi0, kTe0));
           Log.error("b, Poisson solver");
       }
 
