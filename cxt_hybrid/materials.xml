@@ -25,7 +25,7 @@
 <material name="e-" type="boltzmann_electrons">
 	<phi0>10</phi0>
 	<kTe0>2</kTe0>
-	<den0>1e18</den0>
+	<den0>1e20</den0>
 	<fixed_region>
 		<x0>0,0</x0>
 		<xm>0.006,0.05</xm>

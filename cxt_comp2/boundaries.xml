@@ -1,0 +1,82 @@
+<!--
+M moves to a point, this is optional
+L makes a line to a given (x,y) position
+l makes a line to a point given by (dx,dy) offsets
+-->
+
+<!-- 30 * 5 mm -->
+
+<boundaries units="m">
+<transform reverse="true" />
+
+
+<boundary name="inlet" type="virtual" material="al">
+<path> M 0.0 0.0 L 0.0 1e-3
+</path>
+</boundary>
+
+
+<boundary name="wall1" type="solid" material="al" value="0">
+<path>
+M 0.0 0.0 l 0 5e-3
+</path>
+</boundary>
+
+
+<boundary name="wall2" type="open" material="al" value="0">
+<path>
+M wall1:last l 10e-3 0.0
+</path>
+</boundary>
+
+
+<boundary name="neutral_inlet" type="virtual" material="al">
+<path>
+M wall2:last l 2e-3 0.0
+</path>
+</boundary>
+
+
+<boundary name="wall3" type="open" material="al" value="0">
+<path>
+M wall2:last l 5e-3 0.0
+</path>
+</boundary>
+
+
+<boundary name="anode" type="solid" material="al" value="400">
+<path>
+M wall3:last l 6e-3 0.0
+</path>
+</boundary>
+
+<boundary name="wall4" type="open" material="al" value="0">
+<path>
+M anode:last l 9e-3 0.0
+</path>
+</boundary>
+
+<!--
+<boundary name="wall3" type="open" material="al" value="0">
+<path>
+M anode:last l 10e-3 0.0
+</path>
+</boundary> -->
+
+<boundary name="wall5" type="solid" material="al" value="0">
+<path>
+M wall4:last l 0.0 -5e-3
+</path>
+</boundary>
+
+
+<!-- Sink to have the flux of particles before the fictious solid wall-->
+<boundary name="wall4" type="sink">
+<path>
+M 29.5e-3 5e-3 l 0.0 -5e-3
+</path>
+</boundary>
+
+
+
+</boundaries>

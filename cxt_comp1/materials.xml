@@ -17,22 +17,15 @@
 <material name="Kr+" type="kinetic">
 	<molwt>83.79</molwt>
 	<charge>1</charge>
-	<spwt>1e6</spwt>
+	<spwt>1e4</spwt>
 	<diam>4.76e-10</diam>
 </material>
 
 
-<material name="e-" type="boltzmann_electrons">
-	<phi0>10</phi0>
-	<kTe0>2</kTe0>
-	<den0>1e18</den0>
-	<fixed_region>
-		<x0>0,0</x0>
-		<xm>0.006,0.05</xm>
-		<density>1e18</density>
- 	 	<!--116040 10eV temp, 15 eV energy-->
-		<temperature>23209.05</temperature>
-	</fixed_region>
+<material name="e-" type="kinetic">
+	<molwt>0.000548597</molwt>
+	<charge>-1</charge>
+	<spwt>1e4</spwt>
 </material>
 
 

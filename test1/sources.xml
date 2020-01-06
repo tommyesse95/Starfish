@@ -1,25 +1,13 @@
 <!-- material sources -->
 <sources>
 
-<!--
-<boundary_source name="electrons" type="maxwellian">
-	<boundary>inlet</boundary>
-	<material>e-</material>
-	<current>0.0001</current>
-	<temperature>23209.03624</temperature>
-	<v_drift>1e3</v_drift>
-	<start_it>90000</start_it>
-	<end_it>90001</end_it>
-</boundary_source> -->
 
-
-
-<boundary_source name="neutral_gas" type="maxwellian">
+<boundary_source name="inlet" type="maxwellian">
 	<boundary>neutral_inlet</boundary>
 	<material>Kr</material>
 	<mdot>1e-6</mdot>
 	<temperature>300</temperature>
-	<v_drift>250</v_drift>
+	<v_drift>0</v_drift>
 </boundary_source>
 
 

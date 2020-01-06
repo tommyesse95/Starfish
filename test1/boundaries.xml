@@ -17,7 +17,7 @@ l makes a line to a point given by (dx,dy) offsets
 </boundary> -->
 
 <boundary name="inlet" type="virtual">
-<path> M 0.0 5e-5 l 2e-3 0.0
+<path> M 0.0 0.0 l 2e-3 0.0
 </path>
 </boundary>
 
@@ -25,12 +25,6 @@ l makes a line to a point given by (dx,dy) offsets
 <boundary name="wall1" type="solid" material="al" value="-200">
 <path>
 M 0.0 0.0 l 2e-3 0.0
-</path>
-</boundary>
-
-
-<boundary name="neutral_inlet" type="virtual">
-<path> M 0.0 1e-3 l 0.0 -0.5e-3
 </path>
 </boundary>
 
