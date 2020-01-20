@@ -1,4 +1,0 @@
-mdot for neutrals = 1e-6 
-dt = 5e-9 so less towards steady state than cxt_comp3. (num it for neutrals always 1e4)
-restart from folder 2
-

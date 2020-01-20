@@ -4,7 +4,7 @@ L makes a line to a given (x,y) position
 l makes a line to a point given by (dx,dy) offsets
 -->
 
-<!-- 30 * 5 mm -->
+<!-- 20 * 5 mm -->
 
 <boundaries units="m">
 <transform reverse="true" />
@@ -25,7 +25,7 @@ M 0.0 0.0 l 0 5e-3
 
 <boundary name="wall2" type="open" material="al" value="0">
 <path>
-M wall1:last l 10e-3 0.0
+M wall1:last l 5e-3 0.0
 </path>
 </boundary>
 
@@ -39,12 +39,12 @@ M wall2:last l 2e-3 0.0
 
 <boundary name="wall3" type="open" material="al" value="0">
 <path>
-M wall2:last l 10e-3 0.0
+M wall2:last l 5e-3 0.0
 </path>
 </boundary>
 
 
-<boundary name="anode" type="solid" material="al" value="400">
+<boundary name="anode" type="solid" material="al" value="20">
 <path>
 M wall3:last l 6e-3 0.0
 </path>
@@ -56,7 +56,6 @@ M wall3:last l 6e-3 0.0
 M anode:last l 4e-3 0.0
 </path>
 </boundary>
-
 
 <!--
 <boundary name="wall3" type="open" material="al" value="0">
@@ -75,7 +74,7 @@ M wall4:last l 0.0 -5e-3
 <!-- Sink to have the flux of particles before the fictious solid wall-->
 <boundary name="wall4" type="sink">
 <path>
-M 29.5e-3 5e-3 l 0.0 -5e-3
+M 19.5e-3 5e-3 l 0.0 -5e-3
 </path>
 </boundary>
 

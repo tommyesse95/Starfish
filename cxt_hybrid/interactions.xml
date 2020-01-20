@@ -73,7 +73,7 @@
 
 
 <surface_hit source="Kr+" target="al">
-<product>Kr, 2*e-</product>
+<products>Kr, 2*e-</products>
 <model>specular</model>
 <prob>0.2</prob>
 <c_accom>0</c_accom>
@@ -82,13 +82,14 @@
 
 
 
+<!--
 <mcc model="cex">
 <source>Kr+</source>
 <target>Kr</target>
 <sigma>const</sigma>
 <sigma_coeffs>1e-7</sigma_coeffs>
 </mcc>
-
+-->
 
 
 <dsmc model="elastic">

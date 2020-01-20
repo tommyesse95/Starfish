@@ -21,7 +21,7 @@
 <material name="Kr+" type="kinetic">
 	<molwt>83.79</molwt>
 	<charge>1</charge>
-	<spwt>1e8</spwt>
+	<spwt>1e9</spwt>
 	<diam>4.76e-10</diam>
 	<!-- If I leave nd_back for the ions but n0 = 0, the solver diverges. -->
 	<init>nd_back = 1e20</init>
@@ -31,9 +31,11 @@
 
 
 <material name="e-" type="boltzmann_electrons">
-	<phi0>0</phi0>
+	<phi0>10</phi0>
 	<kTe0>4</kTe0>
 	<den0>1e20</den0>
+
+
 
 <!-- Try to fix the sheaths -->
 <!--

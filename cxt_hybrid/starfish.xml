@@ -36,8 +36,8 @@
 
 <!-- set time parameters 5e-8-->
 <time>
-<num_it>100</num_it> <!-- Python code -->
-<dt>1e-8</dt>
+<num_it>1e5</num_it> <!-- Python code -->
+<dt>1e-10</dt>
 <steady_state>-1</steady_state>
 </time>
 
@@ -49,16 +49,25 @@
 <nt_add>0</nt_add>
 </restart>
 
+
 <solver>
 <type>poisson</type>
-<max_it>20000</max_it>
-<tol>1e-4</tol>
+<max_it>5e5</max_it>
+<tol>1e-2</tol>
 <linear>false</linear>
 <initial_only>false</initial_only>
-<n0>0</n0>
+<n0>1e18</n0>
 <te0>2</te0>
 <phi0>0</phi0>
 </solver>
+
+<!--
+<solver type="poisson">
+<linear>true</linear>
+<max_it>20000</max_it>
+<tol>1e-4</tol>
+<method>gs</method>
+</solver> -->
 
 <!-- run simulation -->
 <starfish randomize="true" />

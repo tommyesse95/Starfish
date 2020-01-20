@@ -15,7 +15,7 @@ It does not work -->
 <mesh type="uniform" name="mesh">
 <origin>0.0, 0.0</origin>
 <spacing>5e-4, 5e-4</spacing> <!-- Check debye length -->
-<nodes>61, 11</nodes>
+<nodes>41, 11</nodes>
 </mesh>
 
 </domain>

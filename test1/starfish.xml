@@ -1,6 +1,6 @@
 <!-- starfish input file -->
 <simulation>
-<note>cxt setup</note>
+<note>test parallel plates</note>
 
 <!-- load input files -->
 <load>materials.xml</load>
@@ -11,7 +11,7 @@
 
 
 <!--enable animation and tracing -->
-<animation start_it="1" frequency="20">
+<animation start_it="1" frequency="200">
 <output type="2D" file_name="results/field_ani.vts" format="vtk">
 <scalars>phi,rho, nd.Kr+,nd.e-,nd.Kr, p.Kr, t.Kr, t.e-</scalars>
 <vectors>[efi, efj],[u.Kr+,v.Kr+]</vectors>
@@ -36,29 +36,37 @@
 
 <!-- set time parameters 5e-8-->
 <time>
-<num_it>1000</num_it> <!-- Python code -->
-<dt>1e-7</dt>
+<num_it>100</num_it> <!-- Python code -->
+<dt>1e-10</dt>
 <!--  <dt>1e-12</dt>  For electrons (plasma frequency) -->
 <steady_state>-1</steady_state>
 </time>
 
+
 <!-- Save for neutrals and load for electrons -->
 <restart>
-<it_save>1e6</it_save>
+<it_save>100</it_save>
 <save>true</save>
 <load>false</load>
 <nt_add>0</nt_add>
 </restart>
 
-<!--
+
 <solver>
 <type>poisson</type>
-<max_it>20000</max_it>
-<tol>1e-4</tol>
+<max_it>200000</max_it>
+<tol>1e-2</tol>
 <linear>false</linear>
 <initial_only>false</initial_only>
-<n0>0</n0>
-<te0>2</te0>
+<n0>1e20</n0>
+<te0>4</te0>
+<phi0>0</phi0>
+</solver>
+
+<!--
+<solver type="qn">
+<n0>1e18</n0>
+<Te0>4</Te0>
 <phi0>0</phi0>
 </solver> -->
 

@@ -1,4 +1,0 @@
-mdot for neutrals = 1e-6 
-dt = 1e-8 so more towards steady state. (num it for neutrals always 1e4)
-restart from folder 3
-

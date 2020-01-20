@@ -23,6 +23,7 @@ elem_charge = 1.6e-19 # elementary charge
 mKr = 83.798 #u of Krypton
 conv = 1.66054e-27 # 1u in kg
 mKr_kg = mKr * conv
+mass_ion = mKr_kg
 eps0 = 8.851e-12
 T_neutr = 273
 r_cyl = 7e-3
@@ -125,6 +126,15 @@ def dt_el(ne):
     omega = mt.sqrt((ne*elem_charge**2)/(mass_elec * eps0))
     dt = 1/omega
     return dt
+
+
+
+def dt_ion(ne):
+    omega = mt.sqrt((ne*elem_charge**2)/(mass_ion * eps0))
+    dt = 1/omega
+    return dt
+
+
 
 
 # Test case for parallel plates (Square)

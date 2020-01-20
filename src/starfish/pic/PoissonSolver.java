@@ -250,7 +250,7 @@ Log.log(String.format("deno:%f\t x[i]: %f\t phi0:%f\t x[i]-phi0%f\t kTe0:%f",den
 	    {
 		    double b_prime[] = new double[x.length];
 		    for (int i=0;i<x.length;i++)
-			b_prime[i] = fixed[i] ? 0 : C * den0*Math.exp((x[i]-phi0)/kTe0)/kTe0;
+			b_prime[i] = fixed[i] ? 0 : C * den0*Math.exp((x[i]-phi0)/kTe0);
 
       double norm_b_prime = Vector.norm(b_prime);
       if (Double.isNaN(norm_b_prime))

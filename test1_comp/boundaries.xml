@@ -29,21 +29,21 @@ M 0.0 0.0 l 2e-3 0.0
 </boundary>
 
 
-<boundary name="wall2" type="solid" material="al" value="0">
+<boundary name="wall2" type="open" material="al" value="0">
 <path>
 M 2e-3 2e-3 l 0.0 -2e-3
 </path>
 </boundary>
 
 
-<boundary name="cathode" type="solid" material="al" value="0">
+<boundary name="cathode" type="solid" material="al" value="-300">
 <path>
 M 0 2e-3 l 2e-3 0.0
 </path>
 </boundary>
 
 
-<boundary name="wall3" type="solid" material="al" value="0">
+<boundary name="wall3" type="open" material="al" value="0">
 <path>
 M 0 0 l 0.0 2e-3
 </path>
